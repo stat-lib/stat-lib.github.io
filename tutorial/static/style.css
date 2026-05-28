@@ -1,0 +1,67 @@
+:root {
+  --accent: #111;
+  --accent-compl: #e0e0e0;
+  --background: #ffffff;
+  --background-lighter: #fafafa;
+}
+
+body {
+  background-color: var(--background);
+}
+
+.statlib-home-link {
+  color: #111;
+  text-decoration: none;
+}
+
+.statlib-home-link:hover {
+  text-decoration: underline;
+}
+
+.statlib-home-link {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 1.2rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+p a:visited,
+p a:link {
+  text-decoration: none;
+  color: var(--accent);
+  border-bottom: 1px solid #ccc;
+}
+
+p a:hover {
+  border-bottom-color: #111;
+}
+
+.toc {
+  background-color: var(--background-lighter);
+}
+
+.keyword {
+  color: var(--accent) !important;
+}
+
+.hl.lean .token.binding-hl,
+.hl.lean .literal.string:hover,
+.hl.lean .token.typed:hover {
+  background-color: var(--accent-compl) !important;
+  border-radius: 2px !important;
+}
+
+.block {
+  background-color: var(--background-lighter);
+  padding: 0.4em;
+  border: 1px solid #ddd;
+  border-radius: 0.3em;
+}
+
+.tippy-box[data-theme~='lean'] {
+  background-color: var(--background-lighter) !important;
+  color: #111 !important;
+}

@@ -1,0 +1,9 @@
+.DS_Store
+*.aux
+*.log
+*.out
+*.pdf
+.lake/
+_out/
+node_modules/
+tmp/

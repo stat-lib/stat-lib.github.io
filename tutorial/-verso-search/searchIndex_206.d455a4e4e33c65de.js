@@ -1,0 +1,1 @@
+window.docContents[206].resolve({"/Installation-and-Setup/#Statlib--Installation-and-Setup":{"contents":"This tutorial guides you through installing Lean and setting up Statlib.\n\n\n\n\n\n","context":"Statlib","header":"1. Installation and Setup","id":"/Installation-and-Setup/#Statlib--Installation-and-Setup"}});

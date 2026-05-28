@@ -1,0 +1,126 @@
+{"9":
+ "<code>ProbabilityTheory.Kernel.{u_1, u_2} (α : Type u_1) (β : Type u_2) [MeasurableSpace α] [MeasurableSpace β] :\n  Type (max u_1 u_2)</code><span class=\"sep\"></span><code class=\"docstring\">A kernel from a measurable space `α` to another measurable space `β` is a measurable function\n`κ : α → Measure β`. The measurable space structure on `MeasureTheory.Measure β` is given by\n`MeasureTheory.Measure.instMeasurableSpace`. A map `κ : α → MeasureTheory.Measure β` is measurable\niff `∀ s : Set β, MeasurableSet s → Measurable (fun a ↦ κ a s)`. </code>",
+ "8":
+ "<code>Set.{u} (α : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A set is a collection of elements of some type `α`.\n\nAlthough `Set` is defined as `α → Prop`, this is an implementation detail which should not be\nrelied on. Instead, `setOf` and membership of a set (`∈`) should be used to convert between sets\nand predicates.\n</code>",
+ "77":
+ "<code>InferenceModelofKernel.IsUniformlyConsistent.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type}\n  [(i : ι) → MeasurableSpace (θ i)] [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)]\n  [(i : ι) → MeasurableSpace (X i)] [(i : ι) → MeasurableSpace (Y i)] (l : Filter ι)\n  (I : InferenceModelofKernel ι θ Ω S X Y) : Prop</code>",
+ "76": "<code>∀ (i : ι), κ i ∈ I.domain i</code>",
+ "75": "<code>(i : ι) → Kernel (θ i) (Ω i)</code>",
+ "74": "<code>(i : ι) → θ i</code>",
+ "73":
+ "<code>InferenceModelofKernel.IsConsistent.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (θ i)]\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] (l : Filter ι) (I : InferenceModelofKernel ι θ Ω S X Y) : Prop</code>",
+ "72":
+ "<code>Filter.limsup.{u_1, u_2} {α : Type u_1} {β : Type u_2} [ConditionallyCompleteLattice α] (u : β → α) (f : Filter β) : α</code><span class=\"sep\"></span><code class=\"docstring\">The `limsup` of a function `u` along a filter `f` is the infimum of the `a` such that\nthe inequality `u x ≤ a` eventually holds for `f`. </code>",
+ "71":
+ "<code>Filter.liminf.{u_1, u_2} {α : Type u_1} {β : Type u_2} [ConditionallyCompleteLattice α] (u : β → α) (f : Filter β) : α</code><span class=\"sep\"></span><code class=\"docstring\">The `liminf` of a function `u` along a filter `f` is the supremum of the `a` such that\nthe inequality `u x ≥ a` eventually holds for `f`. </code>",
+ "70": "<code>ι → ℝ≥0∞</code>",
+ "7":
+ "<code>InferenceModelofKernel.domain.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (θ i)]\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] (self : InferenceModelofKernel ι θ Ω S X Y) (i : ι) : Set (Kernel (θ i) (Ω i))</code>",
+ "69":
+ "<code>InferenceModelofMeasure.HasRateOfConvergence.{u_1} {ι : Type u_1} {Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (Ω i)]\n  [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)] [(i : ι) → MeasurableSpace (Y i)] (l : Filter ι)\n  (I : InferenceModelofMeasure ι Ω S X Y) (r : ι → ℝ≥0∞) : Prop</code>",
+ "68":
+ "<code>InferenceModelofMeasure.IsUniformlyConsistent.{u_1} {ι : Type u_1} {Ω S X Y : ι → Type}\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] (l : Filter ι) (I : InferenceModelofMeasure ι Ω S X Y) : Prop</code>",
+ "67": "<code>ℝ≥0∞</code>",
+ "66":
+ "<code>Filter.Tendsto.{u_1, u_2} {α : Type u_1} {β : Type u_2} (f : α → β) (l₁ : Filter α) (l₂ : Filter β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`Filter.Tendsto` is the generic \"limit of a function\" predicate.\n`Tendsto f l₁ l₂` asserts that for every `l₂` neighborhood `a`,\nthe `f`-preimage of `a` is an `l₁` neighborhood. </code>",
+ "65": "<code>∀ (i : ι), μ i ∈ I.domain i</code>",
+ "64": "<code>(i : ι) → Measure (Ω i)</code>",
+ "63":
+ "<code class=\"docstring\">The universe of propositions. `Prop ≡ Sort 0`.\n\nEvery proposition is propositionally equal to either `True` or `False`. </code>",
+ "62":
+ "<code>Filter.{u_1} (α : Type u_1) : Type u_1</code><span class=\"sep\"></span><code class=\"docstring\">A filter `F` on a type `α` is a collection of sets of `α` which contains the whole `α`,\nis upwards-closed, and is stable under intersection. We do not forbid this collection to be\nall sets of `α`. </code>",
+ "61": "<code>Filter ι</code>",
+ "60":
+ "<code>InferenceModelofMeasure.IsConsistent.{u_1} {ι : Type u_1} {Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (Ω i)]\n  [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)] [(i : ι) → MeasurableSpace (Y i)] (l : Filter ι)\n  (I : InferenceModelofMeasure ι Ω S X Y) : Prop</code>",
+ "6":
+ "<code>MeasurableSpace.{u_7} (α : Type u_7) : Type u_7</code><span class=\"sep\"></span><code class=\"docstring\">A measurable space is a space equipped with a σ-algebra. </code>",
+ "59":
+ "<code>∀ (i : ι), Measurable (Function.uncurry (I.loss_function i))</code>",
+ "58": "<code>(i : ι) → Y i → S i → ℝ≥0∞</code>",
+ "57": "<code>(i : ι) → Kernel (X i) (Y i)</code>",
+ "56": "<code>∀ (i : ι), Measurable (I.data i)</code>",
+ "55": "<code>(i : ι) → Ω i → X i</code>",
+ "54":
+ "<code>ProbabilityTheory.Kernel.measurable_imageToMeasure.{u_1, u_2} (θ : Type u_1) (Ω : Type u_2) [MeasurableSpace θ]\n  [Nonempty θ] [mΩ : MeasurableSpace Ω] (s : Set (Measure Ω)) : Measurable (imageToMeasure θ Ω s)</code>",
+ "53":
+ "<code>Measurable.comp.{u_1, u_2, u_3} {α : Type u_1} {β : Type u_2} {γ : Type u_3} {x✝ : MeasurableSpace α}\n  {x✝¹ : MeasurableSpace β} {x✝² : MeasurableSpace γ} {g : β → γ} {f : α → β} (hg : Measurable g) (hf : Measurable f) :\n  Measurable (g ∘ f)</code>",
+ "52":
+ "<code>∀ (i : ι), Measurable (I.functional i ∘ Kernel.imageToMeasure (θ i) (Ω i) (I.domain i))</code>",
+ "51":
+ "<code>ProbabilityTheory.Kernel.imageToMeasure.{u_1, u_2} (θ : Type u_1) (Ω : Type u_2) [MeasurableSpace θ] [Nonempty θ]\n  [mΩ : MeasurableSpace Ω] (s : Set (Measure Ω)) : ↑(of_measure θ Ω '' s) → ↑s</code><span class=\"sep\"></span><code class=\"docstring\">The inverse from an image of measures under `of_measure` back to those measures. </code>",
+ "50":
+ "<code>(i : ι) → ↑(Kernel.of_measure (θ i) (Ω i) '' I.domain i) → S i</code>",
+ "5": "<code>ι</code>",
+ "49":
+ "<code>ProbabilityTheory.Kernel.of_measure.{u_1, u_2} (θ : Type u_1) (Ω : Type u_2) [MeasurableSpace θ]\n  [mΩ : MeasurableSpace Ω] (μ : Measure Ω) : Kernel θ Ω</code><span class=\"sep\"></span><code class=\"docstring\">Each measure induces a constant kernel. </code>",
+ "48": "<code>(i : ι) → Set (Kernel (θ i) (Ω i))</code>",
+ "47":
+ "<code>Nonempty.{u} (α : Sort u) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`Nonempty α` is a typeclass that says that `α` is not an empty type,\nthat is, there exists an element in the type. It differs from `Inhabited α`\nin that `Nonempty α` is a `Prop`, which means that it does not actually carry\nan element of `α`, only a proof that *there exists* such an element.\nGiven `Nonempty α`, you can construct an element of `α` *nonconstructively*\nusing `Classical.choice`.\n</code>",
+ "46":
+ "<code>InferenceModelofKernel.of_InferenceModelofMeasure.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type}\n  [(i : ι) → MeasurableSpace (θ i)] [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)]\n  [(i : ι) → MeasurableSpace (X i)] [(i : ι) → MeasurableSpace (Y i)] [∀ (i : ι), Nonempty (θ i)]\n  (I : InferenceModelofMeasure ι Ω S X Y) : InferenceModelofKernel ι θ Ω S X Y</code>",
+ "45": "<code>μ ∈ I.domain i</code>",
+ "44": "<code>Measure (Ω i)</code>",
+ "43": "<code>InferenceModelofMeasure ι Ω S X Y</code>",
+ "42":
+ "<code>InferenceModelofMeasure.conditionalRisk.{u_1} {ι : Type u_1} {Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (Ω i)]\n  [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)] [(i : ι) → MeasurableSpace (Y i)]\n  (I : InferenceModelofMeasure ι Ω S X Y) {i : ι} {μ : Measure (Ω i)} (hμ : μ ∈ I.domain i) : ℝ≥0∞</code>",
+ "41":
+ "<code>InferenceModelofMeasure.measurable_loss_function.{u_1} {ι : Type u_1} {Ω S X Y : ι → Type}\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] (self : InferenceModelofMeasure ι Ω S X Y) (i : ι) :\n  Measurable (Function.uncurry (self.loss_function i))</code>",
+ "40":
+ "<code>InferenceModelofMeasure.loss_function.{u_1} {ι : Type u_1} {Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (Ω i)]\n  [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)] [(i : ι) → MeasurableSpace (Y i)]\n  (self : InferenceModelofMeasure ι Ω S X Y) (i : ι) : Y i → S i → ℝ≥0∞</code>",
+ "4":
+ "<code class=\"docstring\">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code>",
+ "39":
+ "<code>InferenceModelofMeasure.decision_rule.{u_1} {ι : Type u_1} {Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (Ω i)]\n  [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)] [(i : ι) → MeasurableSpace (Y i)]\n  (self : InferenceModelofMeasure ι Ω S X Y) (i : ι) : Kernel (X i) (Y i)</code>",
+ "38":
+ "<code>InferenceModelofMeasure.measurable_data.{u_1} {ι : Type u_1} {Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (Ω i)]\n  [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)] [(i : ι) → MeasurableSpace (Y i)]\n  (self : InferenceModelofMeasure ι Ω S X Y) (i : ι) : Measurable (self.data i)</code>",
+ "37":
+ "<code>InferenceModelofMeasure.data.{u_1} {ι : Type u_1} {Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (Ω i)]\n  [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)] [(i : ι) → MeasurableSpace (Y i)]\n  (self : InferenceModelofMeasure ι Ω S X Y) (i : ι) : Ω i → X i</code>",
+ "36":
+ "<code>InferenceModelofMeasure.measurable_functional.{u_1} {ι : Type u_1} {Ω S X Y : ι → Type}\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] (self : InferenceModelofMeasure ι Ω S X Y) (i : ι) : Measurable (self.functional i)</code>",
+ "35": "<code>(i : ι) → Set (Measure (Ω i))</code>",
+ "34":
+ "<code>InferenceModelofMeasure.functional.{u_1} {ι : Type u_1} {Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (Ω i)]\n  [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)] [(i : ι) → MeasurableSpace (Y i)]\n  (self : InferenceModelofMeasure ι Ω S X Y) (i : ι) : ↑(self.domain i) → S i</code>",
+ "33":
+ "<code>MeasureTheory.Measure.{u_6} (α : Type u_6) [MeasurableSpace α] : Type u_6</code><span class=\"sep\"></span><code class=\"docstring\">A measure is defined to be an outer measure that is countably additive on\nmeasurable sets, with the additional assumption that the outer measure is the canonical\nextension of the restricted measure.\n\nThe measure of a set `s`, denoted `μ s`, is an extended nonnegative real. The real-valued version\nis written `μ.real s`.\n</code>",
+ "32":
+ "<code>InferenceModelofMeasure.domain.{u_1} {ι : Type u_1} {Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (Ω i)]\n  [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)] [(i : ι) → MeasurableSpace (Y i)]\n  (self : InferenceModelofMeasure ι Ω S X Y) (i : ι) : Set (Measure (Ω i))</code>",
+ "31":
+ "<code>InferenceModelofMeasure.{u_1} (ι : Type u_1) (Ω S X Y : ι → Type) [(i : ι) → MeasurableSpace (Ω i)]\n  [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)] [(i : ι) → MeasurableSpace (Y i)] : Type u_1</code>",
+ "30":
+ "<code>Subtype.mk.{u} {α : Sort u} {p : α → Prop} (val : α) (property : p val) : Subtype p</code>",
+ "3": "<code>ι → Type</code>",
+ "29": "<code>Y i</code>",
+ "28": "<code>Ω i</code>",
+ "27": "<code>κ ∈ I.domain i</code>",
+ "26": "<code>Kernel (θ i) (Ω i)</code>",
+ "25": "<code>θ i</code>",
+ "24": "<code>InferenceModelofKernel ι θ Ω S X Y</code>",
+ "23":
+ "<code>InferenceModelofKernel.conditionalRisk.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (θ i)]\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] (I : InferenceModelofKernel ι θ Ω S X Y) {i : ι} (t : θ i) {κ : Kernel (θ i) (Ω i)}\n  (hκ : κ ∈ I.domain i) : ℝ≥0∞</code>",
+ "22":
+ "<code>Function.uncurry.{u_1, u_2, u_3} {α : Type u_1} {β : Type u_2} {φ : Sort u_3} : (α → β → φ) → α × β → φ</code><span class=\"sep\"></span><code class=\"docstring\">Transforms a two-parameter function into an equivalent function from pairs.\n\nExamples:\n* `Function.uncurry List.drop (1, [\"a\", \"b\", \"c\"]) = [\"b\", \"c\"]`\n* `[(\"orange\", 2), (\"android\", 3) ].map (Function.uncurry String.take) = [\"or\", \"and\"]`\n</code>",
+ "21": "<code>(i : ι) → Y i → S i → ℝ≥0∞</code>",
+ "20":
+ "<code>InferenceModelofKernel.measurable_loss_function.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type}\n  [(i : ι) → MeasurableSpace (θ i)] [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)]\n  [(i : ι) → MeasurableSpace (X i)] [(i : ι) → MeasurableSpace (Y i)] (self : InferenceModelofKernel ι θ Ω S X Y)\n  (i : ι) : Measurable (Function.uncurry (self.loss_function i))</code>",
+ "2":
+ "<code class=\"docstring\">The syntax `variable (X Y ... Z : Type*)` creates a new distinct implicit universe variable\n`&gt; 0` for each variable in the sequence. </code>",
+ "19":
+ "<code>InferenceModelofKernel.loss_function.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (θ i)]\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] (self : InferenceModelofKernel ι θ Ω S X Y) (i : ι) : Y i → S i → ℝ≥0∞</code>",
+ "18":
+ "<code>InferenceModelofKernel.decision_rule.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (θ i)]\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] (self : InferenceModelofKernel ι θ Ω S X Y) (i : ι) : Kernel (X i) (Y i)</code>",
+ "17": "<code>(i : ι) → Ω i → X i</code>",
+ "16":
+ "<code>InferenceModelofKernel.measurable_data.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (θ i)]\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] (self : InferenceModelofKernel ι θ Ω S X Y) (i : ι) : Measurable (self.data i)</code>",
+ "15":
+ "<code>InferenceModelofKernel.data.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (θ i)]\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] (self : InferenceModelofKernel ι θ Ω S X Y) (i : ι) : Ω i → X i</code>",
+ "14": "<code>(i : ι) → ↑(domain i) → S i</code>",
+ "13":
+ "<code>Measurable.{u_1, u_2} {α : Type u_1} {β : Type u_2} [MeasurableSpace α] [MeasurableSpace β] (f : α → β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A function `f` between measurable spaces is measurable if the preimage of every\nmeasurable set is measurable. </code>",
+ "12":
+ "<code>InferenceModelofKernel.measurable_functional.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type}\n  [(i : ι) → MeasurableSpace (θ i)] [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)]\n  [(i : ι) → MeasurableSpace (X i)] [(i : ι) → MeasurableSpace (Y i)] (self : InferenceModelofKernel ι θ Ω S X Y)\n  (i : ι) : Measurable (self.functional i)</code>",
+ "11": "<code>(i : ι) → Set (Kernel (θ i) (Ω i))</code>",
+ "10":
+ "<code>InferenceModelofKernel.functional.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (θ i)]\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] (self : InferenceModelofKernel ι θ Ω S X Y) (i : ι) : ↑(self.domain i) → S i</code>",
+ "1": "<code>Type u_1</code>",
+ "0":
+ "<code>InferenceModelofKernel.{u_1} (ι : Type u_1) (θ Ω S X Y : ι → Type) [(i : ι) → MeasurableSpace (θ i)]\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] : Type u_1</code>"}

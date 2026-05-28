@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      (function(){
+  const {protocol:proto, host:hostName, pathname:path, search:srch, hash:hsh} = window.location;
+  if (!(path.endsWith("/") || path.endsWith(".html"))) {
+    window.location.replace(`${proto}//${hostName}${path}/${srch}${hsh}`);
+  }
+})()</script>
+    <base href="./../"><meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>Statistical Risk and Markov Kernels</title><link rel="stylesheet" href="book.css">
+    <link rel="stylesheet" href="verso-vars.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js" integrity="sha384-zbcZAIxlvJtNE3Dp5nxLXdXtXyxwOdnILY1TDPVmKFhl4r4nSUG1r8bcFXGVa4Te" crossorigin="anonymous"></script>
+    <script defer="defer" src="-verso-search/elasticlunr.min.js"></script>
+    <script defer="defer" src="-verso-search/fuzzysort.min.js"></script>
+    <script defer="defer" src="-verso-search/searchIndex.js"></script>
+    <script defer="defer" src="-verso-search/search-config.js"></script>
+    <script type="module" src="-verso-search/search-init.js"></script>
+    <link rel="stylesheet" href="-verso-search/search-box.css">
+    <link rel="stylesheet" href="-verso-search/search-page.css">
+    <link rel="stylesheet" href="-verso-search/search-highlight.css">
+    <link rel="stylesheet" href="-verso-search/domain-display.css">
+    <script src="-verso-search/search-highlight.js" defer="defer"></script>
+    <script src="-verso-data/katex/katex.js"></script>
+    <script src="-verso-data/katex/math.js"></script>
+    <script src="-verso-data/popper.min.js"></script>
+    <script src="-verso-data/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="-verso-data/tippy-border.css">
+    <link rel="stylesheet" href="-verso-data/katex/katex.css">
+    <style>
+
+.hl.lean {
+  white-space: pre;
+  font-weight: normal;
+  font-style: normal;
+  font-size: inherit;
+}
+
+.hl.lean .keyword {
+  color: var(--verso-code-keyword-color,);
+  font-weight: var(--verso-code-keyword-weight, bold);
+  font-style: var(--verso-code-keyword-style, normal);
+  font-family: var(--verso-code-keyword-font-family,);
+}
+
+.hl.lean .const {
+  color: var(--verso-code-const-color,);
+  font-weight: var(--verso-code-const-weight, normal);
+  font-style: var(--verso-code-const-style, normal);
+  font-family: var(--verso-code-const-font-family,);
+}
+
+.hl.lean .var {
+  color: var(--verso-code-var-color,);
+  font-weight: var(--verso-code-var-weight, normal);
+  font-style: var(--verso-code-var-style, italic);
+  font-family: var(--verso-code-var-font-family,);
+
+  position: relative;
+}
+
+.hl.lean .literal, .hl.lean .unknown {
+  color: var(--verso-code-color,);
+  font-weight: normal;
+  font-style: normal;
+  font-family: var(--verso-code-font-family,);
+}
+
+.hover-container {
+  width: 0;
+  height: 0;
+  position: relative;
+  display: inline;
+}
+
+.hl.lean a {
+  color: inherit;
+  text-decoration: currentcolor underline dotted;
+}
+
+.hl.lean a:hover {
+  text-decoration: currentcolor underline solid;
+}
+
+.hl.lean .hover-info {
+  white-space: normal;
+}
+
+.hl.lean .token .hover-info {
+  display: none;
+  position: absolute;
+  background-color: #e5e5e5;
+  border: 1px solid black;
+  padding: 0.5rem;
+  z-index: 300;
+}
+
+.hl.lean .hover-info.messages {
+  max-height: 10rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+  padding: 0 0.5rem 0 0;
+  display: block;
+}
+
+.hl.lean .hover-info code {
+  white-space: pre-wrap;
+  background: none;
+  color: black;
+}
+
+.hl.lean .hover-info.messages > code {
+  padding: 0.5rem;
+  display: block;
+  width: fit-content;
+}
+
+.hl.lean .hover-info.messages > code:only-child {
+  margin: 0;
+}
+
+.hl.lean .hover-info.messages > code {
+  margin: 0.1rem;
+}
+
+.hl.lean .hover-info.messages > code:not(:first-child) {
+  margin-top: 0rem;
+}
+
+.hl.lean {
+}
+
+.hl.lean.block {
+  display: block;
+}
+
+.hl.lean.inline {
+  display: inline;
+  white-space: pre-wrap;
+}
+
+.hl.lean * {
+}
+
+.hl.lean .token {
+  transition: all 0.25s; /* Slight fade for highlights */
+}
+
+@media (hover: hover) {
+  .hl.lean .token.binding-hl, .hl.lean .literal.string:hover, .hl.lean .token.typed:hover {
+    background-color: #eee;
+    border-radius: 2px;
+    transition: none;
+  }
+}
+
+
+.hl.lean .has-info .token:not(.tactic-state):not(.tactic-state *), .hl.lean .has-info .inter-text:not(.tactic-state):not(.tactic-state *) {
+  text-decoration-style: wavy;
+  text-decoration-line: underline;
+  text-decoration-thickness: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.hl.lean .has-info .hover-info {
+  display: none;
+  position: absolute;
+  transform: translate(0.25rem, 0.3rem);
+  border: 1px solid black;
+  padding: 0.5rem;
+  z-index: 400;
+  text-align: left;
+}
+
+.hl.lean .has-info.error :not(.tactic-state):not(.tactic-state *){
+  text-decoration-color: red;
+}
+
+@media (hover: hover) {
+  .hl.lean .has-info.error:hover {
+    background-color: #ffb3b3;
+  }
+}
+
+.hl.lean .hover-info.messages > code.error {
+  background-color: #e5e5e5;
+  border-left: 0.2rem solid #ffb3b3;
+}
+
+.tippy-box[data-theme~='error'] .hl.lean .hover-info.messages > code.error {
+  background: none;
+  border: none;
+}
+
+.error .verso-message, .error .verso-message .token, .error .verso-message label {
+  color: var(--verso-error-color);
+}
+
+.error .verso-message .case-label:has(input[type="checkbox"])::before {
+  background-color: var(--verso-error-color) !important;
+}
+
+.hl.lean .has-info.warning :not(.tactic-state):not(.tactic-state *) {
+  text-decoration-color: var(--verso-warning-indicator-color);
+}
+
+@media (hover: hover) {
+  .hl.lean .has-info.warning:hover {
+    background-color:var(--verso-warning-color);
+  }
+}
+
+.hl.lean .hover-info.messages > code.warning {
+  background-color: var(--verso-warning-color);
+}
+
+.lean-output {
+  border-left: 0.2em solid transparent;
+  padding: 0 0 0 0.5em;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.lean-output.error {
+  border-color: var(--verso-error-indicator-color);
+}
+
+.lean-output.information {
+  border-color: var(--verso-info-indicator-color);
+}
+
+.lean-output.warning {
+  border-color: var(--verso-warning-indicator-color);
+}
+
+.hl.lean .hover-info.messages > code.error {
+  background-color: #e5e5e5;
+  border-left: 0.2rem solid var(--verso-warning-color);
+}
+
+.tippy-box[data-theme~='warning'] .hl.lean .hover-info.messages > code.warning {
+  background: none;
+  border: none;
+}
+
+
+.hl.lean .has-info.information :not(.tactic-state):not(.tactic-state *) {
+  text-decoration-color: var(--verso-info-indicator-color, blue);
+}
+
+@media (hover: hover) {
+  .hl.lean .has-info.information:hover {
+    background-color: #4777ff;
+  }
+}
+
+
+.hl.lean .hover-info.messages > code.information {
+  background-color: #e5e5e5;
+  border-left: 0.2rem solid #4777ff;
+}
+
+.tippy-box[data-theme~='info'] .hl.lean .hover-info.messages > code.information {
+  background: none;
+  border: none;
+}
+
+.hl.lean div.docstring {
+  font-family: var(--verso-text-font-family, sans-serif);
+  white-space: normal;
+  max-width: calc(min(40rem, 90vw));
+  width: max-content;
+}
+
+.hl.lean div.docstring > :last-child {
+  margin-bottom: 0;
+}
+
+.hl.lean div.docstring > :first-child {
+  margin-top: 0;
+}
+
+.hl.lean .hover-info .sep {
+  display: block;
+  width: auto;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0;
+  height: 1px;
+  border-top: 1px solid #ccc;
+}
+
+.hl.lean code {
+  font-family: var(--verso-code-font-family);
+}
+
+.hl.lean .tactic-state {
+  display: none;
+  position: relative;
+  width: fit-content;
+  border: 1px solid #888888;
+  border-radius: 0.1rem;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  background-color: #ffffff;
+}
+
+.hl.lean.popup .tactic-state {
+  position: static;
+  display: block;
+  width: auto;
+  border: none;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  background-color: #ffffff;
+}
+
+
+.hl.lean .tactic {
+  position: relative;
+  display: inline;
+  vertical-align: top;
+  /* Without these, mobile Safari will start making font sizes inconsistent when its text size adjustment feature is triggered.*/
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.hl.lean .tactic:has(.tactic-toggle:checked) {
+  display: inline-grid;
+  grid-template-columns: 1fr;
+}
+
+.hl.lean .tactic-toggle:checked ~ .tactic-state {
+  display: inline-block;
+  vertical-align: top;
+  grid-row: 2;
+  justify-self: start;
+}
+
+.hl.lean .tactic > label {
+  position: relative;
+  grid-row: 1;
+  display: inline;
+}
+
+@media (hover: hover) {
+  .hl.lean .tactic:has(.tactic-toggle:not(:checked)) > label:hover {
+    background-color: #eeeeee;
+  }
+}
+
+.hl.lean .tactic-toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  z-index: -10;
+}
+
+.hl.lean .tactic > label::after {
+  content: "";
+  border: 1px solid #bbbbbb;
+  /* These need to be em, not rem, to scale with the font */
+  border-radius: 1em;
+  height: 0.25em;
+  vertical-align: middle;
+  width: 0.6em;
+  margin-left: 0.1em;
+  margin-right: 0.1em;
+  display: inline-block;
+  transition: all 0.5s;
+}
+
+/*
+@media (hover: hover) {
+  .hl.lean .tactic > label:hover::after {
+    border: 1px solid #aaaaaa;
+    background-color: #aaaaaa;
+    transition: all 0.5s;
+  }
+}
+*/
+
+.hl.lean .tactic > label:has(+ .tactic-toggle:checked)::after {
+  border: 1px solid #999999;
+  background-color: #999999;
+  transition: all 0.5s;
+}
+
+.hl.lean .tactic-state .goal + .goal {
+  margin-top: 1.5em;
+}
+
+/*
+Some CSS frameworks customize details/summary in ways not compatible with Verso's output.
+*/
+
+.hl.lean details {
+  display: block !important;
+  margin: 0;
+}
+
+.hl.lean details summary {
+  display: list-item !important;
+  margin: 0;
+}
+
+.hl.lean details summary:focus {
+  outline: none;
+  outline-offset: none;
+  color: inherit;
+}
+
+.hl.lean ul > li {
+  margin-bottom: 0;
+}
+
+.hl.lean details summary::marker {
+  display: inline !important;
+}
+
+.hl.lean details > summary:first-of-type {
+  list-style-type: disclosure-closed;
+  list-style-position: inside;
+}
+
+.hl.lean details[open] > summary:first-of-type {
+  list-style-type: disclosure-open;
+}
+
+.hl.lean details summary::before, .hl.lean details summary::after {
+  content: "" !important;
+  background: none;
+  display: none;
+}
+
+.hl.lean .tactic-state summary {
+  /* These need to be em, not rem, to scale with the font */
+  margin-left: -0.5em;
+}
+
+.hl.lean .tactic-state details {
+  /* These need to be em, not rem, to scale with the font */
+  padding-left: 0.5em;
+}
+
+.hl.lean .case-label {
+  display: block;
+  position: relative;
+}
+
+.hl.lean .case-label input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  z-index: -10;
+}
+
+.hl.lean .case-label:has(input[type="checkbox"])::before {
+  display: inline-block;
+  background-color: black;
+  content: ' ';
+  transition: ease 0.2s;
+  margin-right: 0.7em;
+  clip-path: polygon(100% 0, 0 0, 50% 100%);
+  width: 0.6em;
+  height: 0.6em;
+  vertical-align: middle;
+}
+
+.hl.lean .case-label:has(input[type="checkbox"]:not(:checked))::before {
+  transform: rotate(-90deg);
+}
+
+.hl.lean .case-label:has(input[type="checkbox"]) {
+
+}
+
+.hl.lean .case-label:has(input[type="checkbox"]:checked) {
+
+}
+
+
+.hl.lean .labeled-case > :not(:first-child) {
+  max-height: 0px;
+  display: block;
+  overflow: hidden;
+  transition: max-height 0.1s ease-in;
+  /* These need to be em, not rem, to scale with the font */
+  margin-left: 0.5em;
+  margin-top: 0.1em;
+}
+
+.hl.lean .labeled-case:has(.case-label input[type="checkbox"]:checked) > :not(:first-child) {
+  max-height: 100%;
+}
+
+
+.hl.lean .goal-name::before {
+  font-style: normal;
+  content: "case ";
+}
+
+.hl.lean .goal-name {
+  font-style: italic;
+  font-family: var(--verso-code-font-family);
+  color: inherit;
+}
+
+.hl.lean .hypotheses {
+  display: table;
+}
+
+.hl.lean .hypothesis {
+  display: table-row;
+}
+
+.hl.lean .hypothesis > * {
+  display: table-cell;
+}
+
+
+.hl.lean .hypotheses .colon {
+  text-align: center;
+  /* This needs to be em, not rem, to scale with the font */
+  min-width: 1em;
+}
+
+.hl.lean .hypotheses .name {
+  text-align: right;
+}
+
+.hl.lean .hypotheses .name,
+.hl.lean .hypotheses .type,
+.hl.lean .conclusion .type {
+  font-family: var(--verso-code-font-family);
+}
+
+.tippy-box {
+  /* Without these, mobile Safari will start making font sizes inconsistent when its text size adjustment feature is triggered.*/
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.tippy-box[data-theme~='lean'] {
+  background-color: #e5e5e5;
+  color: black;
+  border: 1px solid black;
+}
+.tippy-box[data-theme~='lean'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: #e5e5e5;
+}
+.tippy-box[data-theme~='lean'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color: #e5e5e5;
+}
+.tippy-box[data-theme~='lean'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: #e5e5e5;
+}
+.tippy-box[data-theme~='lean'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: #e5e5e5;
+}
+
+.tippy-box[data-theme~='message'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: #e5e5e5;
+  border-width: 11px 11px 0;
+}
+.tippy-box[data-theme~='message'][data-placement^='top'] > .tippy-arrow::after {
+  bottom: -11px;
+  border-width: 11px 11px 0;
+}
+.tippy-box[data-theme~='message'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-width: 0 11px 11px;
+}
+.tippy-box[data-theme~='message'][data-placement^='bottom'] > .tippy-arrow::after {
+  top: -11px;
+  border-width: 0 11px 11px;
+}
+.tippy-box[data-theme~='message'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: #e5e5e5;
+  border-width: 11px 0 11px 11px;
+}
+.tippy-box[data-theme~='message'][data-placement^='left'] > .tippy-arrow::after {
+  right: -11px;
+  border-width: 11px 0 11px 11px;
+}
+
+.tippy-box[data-theme~='message'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: #e5e5e5;
+  border-width: 11px 11px 11px 0;
+}
+.tippy-box[data-theme~='message'][data-placement^='right'] > .tippy-arrow::after {
+  left: -11px;
+  border-width: 11px 11px 11px 0;
+}
+
+
+
+.tippy-box[data-theme~='warning'] {
+  background-color: #e5e5e5;
+  color: black;
+  border: 3px solid var(--verso-warning-color);
+}
+
+.tippy-box[data-theme~='error'] {
+  background-color: #e5e5e5;
+  color: black;
+  border: 3px solid #f7a7af;
+}
+
+.tippy-box[data-theme~='info'] {
+  background-color: #e5e5e5;
+  color: black;
+  border: 3px solid #99b3c2;
+}
+
+.tippy-box[data-theme~='tactic'] {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+.tippy-box[data-theme~='tactic'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: white;
+}
+.tippy-box[data-theme~='tactic'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color: white;
+}
+.tippy-box[data-theme~='tactic'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: white;
+}
+.tippy-box[data-theme~='tactic'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: white;
+}
+
+.extra-doc-links {
+  list-style-type: none;
+  margin-left: 0;
+  padding: 0;
+}
+
+.extra-doc-links > li {
+  display: inline-block;
+}
+
+.extra-doc-links > li:not(:last-child)::after {
+  content: '|';
+  display: inline-block;
+  margin: 0 0.25em;
+}
+
+.verso-message .trace {
+  display: block;
+}
+
+.verso-message .trace > summary::marker {
+  color: var(--verso-text-color);
+}
+
+.verso-message .trace-children {
+  margin: 0;
+  padding: 0;
+}
+
+.verso-message .trace-children > li {
+  list-style-type: none;
+  margin-left: 1.5em;
+}
+
+.verso-message .trace-children > li:not(:has(.trace)) {
+  margin-left: 0;
+}
+
+.verso-message .trace-class {
+  color: color-mix(in srgb, currentColor 70%, transparent);
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.verso-message .text {
+  white-space: pre-wrap;
+}
+
+</style><script>
+      
+window.onload = () => {
+
+    // Don't show hovers inside of closed tactic states
+    function blockedByTactic(elem) {
+      let parent = elem.parentNode;
+      while (parent && "classList" in parent) {
+        if (parent.classList.contains("tactic")) {
+          const toggle = parent.querySelector("input.tactic-toggle");
+          if (toggle) {
+            return !toggle.checked;
+          }
+        }
+        parent = parent.parentNode;
+      }
+      return false;
+    }
+
+    // Track whether any tippy is visible (O(1) check instead of DOM scan)
+    let visibleTippyCount = 0;
+    function blockedByTippy(elem) {
+      return visibleTippyCount > 0;
+    }
+
+    // Binding highlights via event delegation with cached lookups
+    const bindingCache = new Map(); // context+binding -> [token elements]
+    let highlightedTokens = [];
+    function getBindingTokens(context, binding) {
+      const key = context + "\0" + binding;
+      let tokens = bindingCache.get(key);
+      if (!tokens) {
+        tokens = [];
+        for (const example of document.querySelectorAll(".hl.lean")) {
+          if (example.dataset.leanContext == context) {
+            for (const tok of example.querySelectorAll(".token[data-binding=\"" + CSS.escape(binding) + "\"]")) {
+              tokens.push(tok);
+            }
+          }
+        }
+        bindingCache.set(key, tokens);
+      }
+      return tokens;
+    }
+    for (const container of document.querySelectorAll(".hl.lean")) {
+      container.addEventListener("mouseover", (event) => {
+        const c = event.target.closest(".token");
+        if (!c || !c.dataset.binding || c.dataset.binding === "" || !container.contains(c)) return;
+        if (blockedByTactic(c)) return;
+        const tokens = getBindingTokens(container.dataset.leanContext, c.dataset.binding);
+        for (const tok of tokens) {
+          tok.classList.add("binding-hl");
+        }
+        highlightedTokens = tokens;
+      });
+      container.addEventListener("mouseout", (event) => {
+        const c = event.target.closest(".token");
+        if (!c || !container.contains(c)) return;
+        for (const tok of highlightedTokens) {
+          tok.classList.remove("binding-hl");
+        }
+        highlightedTokens = [];
+      });
+    }
+    /* Render docstrings */
+    if ('undefined' !== typeof marked) {
+        for (const d of document.querySelectorAll("code.docstring, pre.docstring")) {
+            const str = d.innerText;
+            const html = marked.parse(str);
+            const rendered = document.createElement("div");
+            rendered.classList.add("docstring");
+            rendered.innerHTML = html;
+            d.parentNode.replaceChild(rendered, d);
+        }
+    }
+    // Add hovers
+    let docsJson = "-verso-docs.json";
+    fetch(docsJson).then((resp) => resp.json()).then((versoDocData) => {
+
+      function hideParentTooltips(element) {
+        let parent = element.parentElement;
+        while (parent) {
+          const tippyInstance = parent._tippy;
+          if (tippyInstance) {
+            tippyInstance.hide();
+          }
+          parent = parent.parentElement;
+        }
+      }
+
+
+
+      const defaultTippyProps = {
+        /* DEBUG -- remove the space: * /
+        onHide(any) { return false; },
+        trigger: "click",
+        // */
+        /* theme: "lean", */
+        maxWidth: "none",
+        appendTo: () => document.body,
+        interactive: true,
+        delay: [100, null],
+        /* ignoreAttributes: true, */
+        followCursor: 'initial',
+        onShow(inst) {
+          if (inst.reference.className == 'tactic') {
+            const toggle = inst.reference.querySelector("input.tactic-toggle");
+            if (toggle && toggle.checked) {
+              return false;
+            }
+            hideParentTooltips(inst.reference);
+            if (blockedByTippy(inst.reference)) { return false; }
+
+          } else if (inst.reference.querySelector(".hover-info") || "versoHover" in inst.reference.dataset) {
+            if (blockedByTactic(inst.reference)) { return false };
+            if (blockedByTippy(inst.reference)) { return false; }
+          } else { // Nothing to show here!
+            return false;
+          }
+        },
+        onShown(inst) { visibleTippyCount++; },
+        onHidden(inst) { visibleTippyCount = Math.max(0, visibleTippyCount - 1); },
+        content (tgt) {
+          const content = document.createElement("span");
+          if (tgt.className == 'tactic') {
+            const state = tgt.querySelector(".tactic-state").cloneNode(true);
+            state.style.display = "block";
+            content.appendChild(state);
+            content.style.display = "block";
+            content.className = "hl lean popup";
+          } else {
+            content.className = "hl lean";
+            content.style.display = "block";
+            content.style.maxHeight = "300px";
+            content.style.overflowY = "auto";
+            content.style.overflowX = "hidden";
+            const hoverId = tgt.dataset.versoHover;
+            const hoverInfo = tgt.querySelector(".hover-info");
+            if (hoverId) { // Docstrings from the table
+              // TODO stop doing an implicit conversion from string to number here
+              let data = versoDocData[hoverId];
+              if (data) {
+                const info = document.createElement("span");
+                info.className = "hover-info";
+                info.style.display = "block";
+                info.innerHTML = data;
+                content.appendChild(info);
+                /* Render docstrings - TODO server-side */
+                if ('undefined' !== typeof marked) {
+                    for (const d of content.querySelectorAll("code.docstring, pre.docstring")) {
+                        const str = d.innerText;
+                        const html = marked.parse(str);
+                        const rendered = document.createElement("div");
+                        rendered.classList.add("docstring");
+                        rendered.innerHTML = html;
+                        d.parentNode.replaceChild(rendered, d);
+                    }
+                }
+              } else {
+                content.innerHTML = "Failed to load doc ID: " + hoverId;
+              }
+            } else if (hoverInfo) { // The inline info, still used for compiler messages
+              content.appendChild(hoverInfo.cloneNode(true));
+            }
+            const extraLinks = tgt.parentElement.dataset['versoLinks'];
+            if (extraLinks) {
+              try {
+                const extras = JSON.parse(extraLinks);
+                const links = document.createElement('ul');
+                links.className = 'extra-doc-links';
+                extras.forEach((l) => {
+                  const li = document.createElement('li');
+                  li.innerHTML = "<a href=\"" + l['href'] + "\" title=\"" + l.long + "\">" + l.short + "</a>";
+                  links.appendChild(li);
+                });
+                content.appendChild(links);
+              } catch (error) {
+                console.error(error);
+              }
+            }
+          }
+          return content;
+        }
+      };
+
+
+      document.querySelectorAll('.hl.lean .const.token, .hl.lean .keyword.token, .hl.lean .literal.token, .hl.lean .option.token, .hl.lean .var.token, .hl.lean .typed.token, .hl.lean .level-var, .hl.lean .level-const, .hl.lean .level-op, .hl.lean .sort').forEach(element => {
+        element.setAttribute('data-tippy-theme', 'lean');
+      });
+      document.querySelectorAll('.hl.lean .has-info.warning').forEach(element => {
+        element.setAttribute('data-tippy-theme', 'warning message');
+      });
+      document.querySelectorAll('.hl.lean .has-info.information').forEach(element => {
+        element.setAttribute('data-tippy-theme', 'info message');
+      });
+      document.querySelectorAll('.hl.lean .has-info.error').forEach(element => {
+        element.setAttribute('data-tippy-theme', 'error message');
+      });
+      document.querySelectorAll('.hl.lean .tactic').forEach(element => {
+        element.setAttribute('data-tippy-theme', 'tactic');
+      });
+      // Skip tokens inside closed tactics — they interfere with tactic tippys
+      const closedTactics = new Set();
+      document.querySelectorAll('.hl.lean .tactic').forEach(tactic => {
+        const toggle = tactic.querySelector('input.tactic-toggle');
+        if (toggle && !toggle.checked) closedTactics.add(tactic);
+      });
+      function isInsideClosedTactic(el) {
+        const tactic = el.closest('.tactic');
+        return tactic && tactic !== el && closedTactics.has(tactic);
+      }
+
+      const tokenSelector = '.hl.lean .const.token, .hl.lean .keyword.token, .hl.lean .literal.token, .hl.lean .option.token, .hl.lean .var.token, .hl.lean .typed.token, .hl.lean .has-info, .hl.lean .tactic, .hl.lean .level-var, .hl.lean .level-const, .hl.lean .level-op, .hl.lean .sort';
+      tippy(Array.from(document.querySelectorAll(tokenSelector)).filter(el => !isInsideClosedTactic(el)), defaultTippyProps);
+
+      // Create/destroy token tippys when tactic checkbox toggles
+      const tacticTippySelector = '.const.token, .keyword.token, .literal.token, .option.token, .var.token, .typed.token, .has-info, .level-var, .level-const, .level-op, .sort';
+      document.querySelectorAll('.hl.lean .tactic').forEach(tactic => {
+        const toggle = tactic.querySelector('input.tactic-toggle');
+        if (toggle) toggle.addEventListener('change', () => {
+          if (toggle.checked) {
+            closedTactics.delete(tactic);
+            tactic.querySelectorAll('.token').forEach(tok => {
+              if (!tok._tippy && tok.matches(tacticTippySelector)) {
+                tippy(tok, defaultTippyProps);
+              }
+            });
+          } else {
+            closedTactics.add(tactic);
+            tactic.querySelectorAll('.token').forEach(tok => {
+              if (tok._tippy) tok._tippy.destroy();
+            });
+          }
+        });
+      });
+  });
+}
+</script>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="static/scripts.js"></script>
+    </head>
+  <body>
+    <header>
+      <div class="header-logo-wrapper"></div>
+      <div class="header-title-wrapper">
+        <a href="" class="header-title"><h1>
+            Statlib</h1>
+          </a></div>
+      </header>
+    <label for="toggle-toc" id="toggle-toc-click"><span class="line line1"></span><span class="line line2"></span><span class="line line3"></span></label><div class="with-toc">
+      <div class="toc-backdrop" onclick="document.getElementById('toggle-toc-click')?.click()"></div>
+      <nav id="toc">
+        <input type="checkbox" id="toggle-toc"><div class="first">
+          <a href="" class="toc-title"><h1>
+              Statlib</h1>
+            </a><div class="split-tocs">
+            <div class="split-toc book">
+              <div class="title">
+                <label for="--verso-manual-toc-----bookRoot" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-----bookRoot" checked="checked"></label><span class="">Table of Contents</span></div>
+              <table><tr class="numbered"><td class="num">1.</td><td><a href="Installation-and-Setup/#Statlib--Installation-and-Setup">Installation and Setup</a></td></tr><tr class="current numbered"><td class="num">2.</td><td><a href="Statistical-Risk-and-Markov-Kernels/#Statlib--Statistical-Risk-and-Markov-Kernels">Statistical Risk and Markov Kernels</a></td></tr></table></div>
+            <div class="split-toc">
+              <div class="title">
+                <label for="--verso-manual-toc-Statlib--Statistical-Risk-and-Markov-Kernels" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-Statlib--Statistical-Risk-and-Markov-Kernels" checked="checked"></label><span class="number">2.</span> <span class="current"><a href="Statistical-Risk-and-Markov-Kernels/#Statlib--Statistical-Risk-and-Markov-Kernels">Statistical Risk and Markov Kernels</a></span></div>
+              <table><tr class="numbered"><td class="num">2.1.</td><td><a href="Statistical-Risk-and-Markov-Kernels/#Statlib--Statistical-Risk-and-Markov-Kernels--Markov-kernels">Markov kernels</a></td></tr><tr class="numbered"><td class="num">2.2.</td><td><a href="Statistical-Risk-and-Markov-Kernels/#Statlib--Statistical-Risk-and-Markov-Kernels--Kernel-indexed-statistical-risk">Kernel-indexed statistical risk</a></td></tr><tr class="numbered"><td class="num">2.3.</td><td><a href="Statistical-Risk-and-Markov-Kernels/#Statlib--Statistical-Risk-and-Markov-Kernels--Measure-indexed-statistical-risk">Measure-indexed statistical risk</a></td></tr><tr class="numbered"><td class="num">2.4.</td><td><a href="Statistical-Risk-and-Markov-Kernels/#Statlib--Statistical-Risk-and-Markov-Kernels--Consistency-and-rates">Consistency and rates</a></td></tr><tr class="numbered"><td class="num">2.5.</td><td><a href="Statistical-Risk-and-Markov-Kernels/#Statlib--Statistical-Risk-and-Markov-Kernels--Guiding-questions">Guiding questions</a></td></tr></table></div>
+            </div>
+          </div>
+        <div class="last">
+          <ul id="meta-links">
+            <li>
+              <a href="https://github.com/stat-lib/stat-lib.github.io">Source Code</a></li>
+            <li>
+              <a href="https://github.com/stat-lib/stat-lib.github.io/issues">Report Issues</a></li>
+            </ul>
+          </div>
+        </nav>
+      <main><div class="content-wrapper">
+          <nav class="prev-next-buttons">
+            <a class="local-button active" href="Installation-and-Setup/#Statlib--Installation-and-Setup" rel="prev" title="1. Installation and Setup"><span class="arrow">←</span><span class="where">1. Installation and Setup</span></a><div></div>
+            </nav>
+          <section>
+            <h1>
+              2. Statistical Risk and Markov Kernels<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Statlib--Statistical-Risk-and-Markov-Kernels" title="Permalink">🔗</a></span></h1>
+            <p>
+              Statistical decision theory gives a mathematical language for discussing
+optimality and accuracy in statistical methods. Informally, the workflow has
+four stages:</p>
+            <ol start="1">
+              <li>
+                <p>
+                  run an experiment to study an object of interest;</p>
+                </li>
+              <li>
+                <p>
+                  use the observation from the experiment to choose an action or decision;</p>
+                </li>
+              <li>
+                <p>
+                  quantify the precision of that action;</p>
+                </li>
+              <li>
+                <p>
+                  search for the best decision rule for the workflow.</p>
+                </li>
+              </ol>
+            <p>
+              Because the process moves from one measurable object to the next, a natural
+general framework is that of Markov kernels.</p>
+            <section>
+              <h2 id="Statlib--Statistical-Risk-and-Markov-Kernels--Markov-kernels">
+                2.1. Markov kernels<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Statlib--Statistical-Risk-and-Markov-Kernels--Markov-kernels" title="Permalink">🔗</a></span></h2>
+              <p>
+                Given two measurable spaces <code class="math inline">(Z_1,\mathcal{M}_1)</code> and
+<code class="math inline">(Z_2,\mathcal{M}_2)</code>, a Markov kernel from <code class="math inline">Z_1</code> to <code class="math inline">Z_2</code> is a map</p>
+              <p>
+                <code class="math display">K : Z_1 \times \mathcal{M}_2 \to [0,1]</code></p>
+              <p>
+                such that:</p>
+              <ol start="1">
+                <li>
+                  <p>
+                    for every <code class="math inline">z_1 \in Z_1</code>, <code class="math inline">K(z_1,\cdot)</code> is a probability measure on
+   <code class="math inline">(Z_2,\mathcal{M}_2)</code>;</p>
+                  </li>
+                <li>
+                  <p>
+                    for every <code class="math inline">A \in \mathcal{M}_2</code>, the function <code class="math inline">K(\cdot,A)</code> is measurable
+   on <code class="math inline">(Z_1,\mathcal{M}_1)</code>.</p>
+                  </li>
+                </ol>
+              <p>
+                In Lean, Statlib uses Mathlib's <code>ProbabilityTheory.Kernel</code> interface for this
+notion.</p>
+              </section>
+            <section>
+              <h2 id="Statlib--Statistical-Risk-and-Markov-Kernels--Kernel-indexed-statistical-risk">
+                2.2. Kernel-indexed statistical risk<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Statlib--Statistical-Risk-and-Markov-Kernels--Kernel-indexed-statistical-risk" title="Permalink">🔗</a></span></h2>
+              <p>
+                For each <code class="math inline">n \in \mathbb{N}</code>, the kernel-indexed setup consists of:</p>
+              <ul>
+                <li>
+                  <p>
+                    measurable spaces <code class="math inline">(\Theta_n,\mathcal{A}_n)</code> for parameters and
+  <code class="math inline">(\Omega_n,\mathcal{G}_n)</code> for experimental randomness;</p>
+                  </li>
+                <li>
+                  <p>
+                    a Markov kernel
+  <code class="math inline">K_n : (\Theta_n,\mathcal{A}_n) \to (\Omega_n,\mathcal{G}_n)</code> describing
+  the experimental randomness conditional on a parameter;</p>
+                  </li>
+                <li>
+                  <p>
+                    a measurable space <code class="math inline">(S_n,\mathcal{F}_n)</code> for the object of interest and a
+  measurable functional <code class="math inline">\Psi_n : \mathcal{K}_n \to S_n</code>, where
+  <code class="math inline">\mathcal{K}_n</code> is a class of Markov kernels equipped with the
+  sigma-algebra generated by point evaluations <code class="math inline">K_n(\theta_n,A_n)</code>;</p>
+                  </li>
+                <li>
+                  <p>
+                    a measurable observation space <code class="math inline">(\mathcal{X}_n,\mathcal{B}_n)</code> and a
+  measurable observation map <code class="math inline">X_n : \Omega_n \to \mathcal{X}_n</code>;</p>
+                  </li>
+                <li>
+                  <p>
+                    a measurable decision space <code class="math inline">(\mathcal{Y}_n,\mathcal{C}_n)</code> and a
+  randomized decision rule from <code class="math inline">(\mathcal{X}_n,\mathcal{B}_n)</code> to
+  <code class="math inline">(\mathcal{Y}_n,\mathcal{C}_n)</code>;</p>
+                  </li>
+                <li>
+                  <p>
+                    a jointly measurable loss function
+  <code class="math inline">\ell_n : \mathcal{Y}_n \times S_n \to [0,+\infty]</code>.</p>
+                  </li>
+                </ul>
+              <p>
+                The conditional risk at parameter <code class="math inline">\theta_n</code> is the average loss</p>
+              <p>
+                <code class="math display">\operatorname{Risk}(T_n,\Psi_n;K_n;\theta_n)
+   =
+   \int\!\int
+     \ell_n(y_n,\Psi_n(K_n))\,
+     dT_n(X_n(\omega),dy_n)\,
+     dK_n(\theta_n,d\omega).</code></p>
+              <code class="hl lean block" data-lean-context="examples"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.structureTk-8670">structure</span><span class="inter-text"> </span><span class="const token" data-binding="const-InferenceModelofKernel" data-verso-hover="0" id="InferenceModelofKernel">InferenceModelofKernel</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12378" data-verso-hover="1">ι</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-2022587232982003368" data-verso-hover="2">Type*</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12382" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12386" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12390" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12394" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12398" data-verso-hover="3">Y</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12378" data-verso-hover="1">ι</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059" data-verso-hover="4">Type</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12402" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-MeasurableSpace" data-verso-hover="6">MeasurableSpace</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12382" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12402" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">[</span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12410" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-MeasurableSpace" data-verso-hover="6">MeasurableSpace</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12386" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12410" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12418" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-MeasurableSpace" data-verso-hover="6">MeasurableSpace</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12390" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12418" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12426" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-MeasurableSpace" data-verso-hover="6">MeasurableSpace</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12394" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12426" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">[</span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12434" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-MeasurableSpace" data-verso-hover="6">MeasurableSpace</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12398" data-verso-hover="3">Y</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12434" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="keyword token" data-binding="kw-occ-null-8909">where</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-InferenceModelofKernel.domain" data-verso-hover="7" id="InferenceModelofKernel___domain">domain</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12454" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12378" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Set" data-verso-hover="8">Set</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-ProbabilityTheory.Kernel" data-verso-hover="9">Kernel</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12382" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12454" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12386" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12454" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-InferenceModelofKernel.functional" data-verso-hover="10" id="InferenceModelofKernel___functional">functional</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12491" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12378" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12488" data-verso-hover="11">domain</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12491" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12390" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12491" data-verso-hover="5">i</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-InferenceModelofKernel.measurable_functional" data-verso-hover="12" id="InferenceModelofKernel___measurable_functional">measurable_functional</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12513" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12378" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Measurable" data-verso-hover="13">Measurable</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12511" data-verso-hover="14">functional</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12513" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-InferenceModelofKernel.data" data-verso-hover="15" id="InferenceModelofKernel___data">data</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12658" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12378" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12386" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12658" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12394" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12658" data-verso-hover="5">i</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-InferenceModelofKernel.measurable_data" data-verso-hover="16" id="InferenceModelofKernel___measurable_data">measurable_data</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12664" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12378" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Measurable" data-verso-hover="13">Measurable</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12662" data-verso-hover="17">data</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12664" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-InferenceModelofKernel.decision_rule" data-verso-hover="18" id="InferenceModelofKernel___decision_rule">decision_rule</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12782" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12378" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-ProbabilityTheory.Kernel" data-verso-hover="9">Kernel</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12394" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12782" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12398" data-verso-hover="3">Y</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12782" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-InferenceModelofKernel.loss_function" data-verso-hover="19" id="InferenceModelofKernel___loss_function">loss_function</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12811" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12378" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12398" data-verso-hover="3">Y</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12811" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12390" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12811" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="unknown token" data-binding="">ℝ≥0∞</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-InferenceModelofKernel.measurable_loss_function" data-verso-hover="20" id="InferenceModelofKernel___measurable_loss_function">measurable_loss_function</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12822" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12378" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Measurable" data-verso-hover="13">Measurable</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12817" data-verso-hover="21">loss_function</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12822" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-Function.uncurry" data-verso-hover="22">uncurry</span></code><code class="hl lean block" data-lean-context="examples"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.noncomputable-10370">noncomputable</span><span class="inter-text"> </span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.definition-10384">def</span><span class="inter-text"> </span><span class="const token" data-binding="const-InferenceModelofKernel.conditionalRisk" data-verso-hover="23" id="InferenceModelofKernel___conditionalRisk">conditionalRisk</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17387" data-verso-hover="24">I</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel" data-verso-hover="0">InferenceModelofKernel</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17854" data-verso-hover="1">ι</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17858" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17862" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17866" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17870" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17874" data-verso-hover="3">Y</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.17389" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17854" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17391" data-verso-hover="25">t</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17858" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17389" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.17422" data-verso-hover="26">κ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-ProbabilityTheory.Kernel" data-verso-hover="9">Kernel</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17858" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17389" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17862" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17389" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17530" data-verso-hover="27">hκ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17422" data-verso-hover="26">κ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∈</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17387" data-verso-hover="24">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___domain" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.domain" data-verso-hover="7">domain</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17389" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">ℝ≥0∞</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">∫⁻</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17609" data-verso-hover="28">ω</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17862" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17389" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∫⁻</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17741" data-verso-hover="29">y</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17874" data-verso-hover="3">Y</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17389" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17387" data-verso-hover="24">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___loss_function" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.loss_function" data-verso-hover="19">loss_function</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17389" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17741" data-verso-hover="29">y</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17387" data-verso-hover="24">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___functional" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.functional" data-verso-hover="10">functional</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17389" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="const-Subtype.mk" data-verso-hover="30">⟨</span><span class="var token" data-binding="var-_uniq.17422" data-verso-hover="26">κ</span><span class="unknown token" data-binding="const-Subtype.mk" data-verso-hover="30">,</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17530" data-verso-hover="27">hκ</span><span class="unknown token" data-binding="const-Subtype.mk" data-verso-hover="30">⟩</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∂</span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17387" data-verso-hover="24">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___decision_rule" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.decision_rule" data-verso-hover="18">decision_rule</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17389" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17387" data-verso-hover="24">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___data" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.data" data-verso-hover="15">data</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17389" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17609" data-verso-hover="28">ω</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∂</span><span class="var token" data-binding="var-_uniq.17422" data-verso-hover="26">κ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17391" data-verso-hover="25">t</span></code></section>
+            <section>
+              <h2 id="Statlib--Statistical-Risk-and-Markov-Kernels--Measure-indexed-statistical-risk">
+                2.3. Measure-indexed statistical risk<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Statlib--Statistical-Risk-and-Markov-Kernels--Measure-indexed-statistical-risk" title="Permalink">🔗</a></span></h2>
+              <p>
+                In many applications, one works at a lower level of generality with a class of
+probability measures on <code class="math inline">\Omega_n</code>. The measure-indexed setup consists of:</p>
+              <ul>
+                <li>
+                  <p>
+                    a sequence indexed by <code class="math inline">n \in \mathbb{N}</code>;</p>
+                  </li>
+                <li>
+                  <p>
+                    a measurable space <code class="math inline">(\Omega_n,\mathcal{G}_n)</code> for experimental randomness;</p>
+                  </li>
+                <li>
+                  <p>
+                    a class of probability measures <code class="math inline">\mathcal{P}_n</code> on
+  <code class="math inline">(\Omega_n,\mathcal{G}_n)</code>;</p>
+                  </li>
+                <li>
+                  <p>
+                    a measurable space <code class="math inline">(S_n,\mathcal{F}_n)</code> for the object of interest and a
+  measurable functional <code class="math inline">\Psi_n : \mathcal{P}_n \to S_n</code>;</p>
+                  </li>
+                <li>
+                  <p>
+                    a measurable observation space <code class="math inline">(\mathcal{X}_n,\mathcal{B}_n)</code> and a
+  measurable observation map <code class="math inline">X_n : \Omega_n \to \mathcal{X}_n</code>;</p>
+                  </li>
+                <li>
+                  <p>
+                    a measurable decision space <code class="math inline">(\mathcal{Y}_n,\mathcal{C}_n)</code> and a
+  randomized decision rule from <code class="math inline">(\mathcal{X}_n,\mathcal{B}_n)</code> to
+  <code class="math inline">(\mathcal{Y}_n,\mathcal{C}_n)</code>;</p>
+                  </li>
+                <li>
+                  <p>
+                    a jointly measurable loss function
+  <code class="math inline">\ell_n : \mathcal{Y}_n \times S_n \to [0,+\infty]</code>.</p>
+                  </li>
+                </ul>
+              <p>
+                The average loss at <code class="math inline">P_n \in \mathcal{P}_n</code> is</p>
+              <p>
+                <code class="math display">\operatorname{Risk}(T_n,\Psi_n;P_n)
+   =
+   \int\!\int
+     \ell_n(y_n,\Psi_n(P_n))\,
+     dT_n(X_n(\omega),dy_n)\,
+     dP_n(\omega).</code></p>
+              <code class="hl lean block" data-lean-context="examples"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.structureTk-1434">structure</span><span class="inter-text"> </span><span class="const token" data-binding="const-InferenceModelofMeasure" data-verso-hover="31" id="InferenceModelofMeasure">InferenceModelofMeasure</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.2" data-verso-hover="1">ι</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-2022587232982003368" data-verso-hover="2">Type*</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.6" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.10" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18" data-verso-hover="3">Y</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2" data-verso-hover="1">ι</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059" data-verso-hover="4">Type</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.22" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-MeasurableSpace" data-verso-hover="6">MeasurableSpace</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.6" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.22" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">[</span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.30" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-MeasurableSpace" data-verso-hover="6">MeasurableSpace</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.10" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.30" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.38" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-MeasurableSpace" data-verso-hover="6">MeasurableSpace</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.14" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.38" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.46" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-MeasurableSpace" data-verso-hover="6">MeasurableSpace</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.18" data-verso-hover="3">Y</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.46" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="keyword token" data-binding="kw-occ-null-1635">where</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-InferenceModelofMeasure.domain" data-verso-hover="32" id="InferenceModelofMeasure___domain">domain</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.64" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Set" data-verso-hover="8">Set</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-MeasureTheory.Measure" data-verso-hover="33">Measure</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.6" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.64" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-InferenceModelofMeasure.functional" data-verso-hover="34" id="InferenceModelofMeasure___functional">functional</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.84" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.81" data-verso-hover="35">domain</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.84" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.10" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.84" data-verso-hover="5">i</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-InferenceModelofMeasure.measurable_functional" data-verso-hover="36" id="InferenceModelofMeasure___measurable_functional">measurable_functional</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.106" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Measurable" data-verso-hover="13">Measurable</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.104" data-verso-hover="14">functional</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.106" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-InferenceModelofMeasure.data" data-verso-hover="37" id="InferenceModelofMeasure___data">data</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.237" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.6" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.237" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.237" data-verso-hover="5">i</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-InferenceModelofMeasure.measurable_data" data-verso-hover="38" id="InferenceModelofMeasure___measurable_data">measurable_data</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.243" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Measurable" data-verso-hover="13">Measurable</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.241" data-verso-hover="17">data</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.243" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-InferenceModelofMeasure.decision_rule" data-verso-hover="39" id="InferenceModelofMeasure___decision_rule">decision_rule</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.353" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-ProbabilityTheory.Kernel" data-verso-hover="9">Kernel</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.14" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.353" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.18" data-verso-hover="3">Y</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.353" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-InferenceModelofMeasure.loss_function" data-verso-hover="40" id="InferenceModelofMeasure___loss_function">loss_function</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.380" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.18" data-verso-hover="3">Y</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.380" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.10" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.380" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="unknown token" data-binding="">ℝ≥0∞</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-InferenceModelofMeasure.measurable_loss_function" data-verso-hover="41" id="InferenceModelofMeasure___measurable_loss_function">measurable_loss_function</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.391" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Measurable" data-verso-hover="13">Measurable</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.386" data-verso-hover="21">loss_function</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.391" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-Function.uncurry" data-verso-hover="22">uncurry</span></code><code class="hl lean block" data-lean-context="examples"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.noncomputable-2330">noncomputable</span><span class="inter-text"> </span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.definition-2344">def</span><span class="inter-text"> </span><span class="const token" data-binding="const-InferenceModelofMeasure.conditionalRisk" data-verso-hover="42" id="InferenceModelofMeasure___conditionalRisk">conditionalRisk</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3734" data-verso-hover="43">I</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure" data-verso-hover="31">InferenceModelofMeasure</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4865" data-verso-hover="1">ι</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4873" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4877" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4881" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4885" data-verso-hover="3">Y</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.3736" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4865" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">}</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.3751" data-verso-hover="44">μ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-MeasureTheory.Measure" data-verso-hover="33">Measure</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4873" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3736" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3918" data-verso-hover="45">hμ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3751" data-verso-hover="44">μ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∈</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3734" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___domain" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.domain" data-verso-hover="32">domain</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3736" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">ℝ≥0∞</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">∫⁻</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3935" data-verso-hover="28">ω</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4873" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3736" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∫⁻</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4185" data-verso-hover="29">y</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4885" data-verso-hover="3">Y</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3736" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3734" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___loss_function" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.loss_function" data-verso-hover="40">loss_function</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3736" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4185" data-verso-hover="29">y</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3734" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___functional" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.functional" data-verso-hover="34">functional</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3736" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="const-Subtype.mk" data-verso-hover="30">⟨</span><span class="var token" data-binding="var-_uniq.3751" data-verso-hover="44">μ</span><span class="unknown token" data-binding="const-Subtype.mk" data-verso-hover="30">,</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3918" data-verso-hover="45">hμ</span><span class="unknown token" data-binding="const-Subtype.mk" data-verso-hover="30">⟩</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∂</span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3734" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___decision_rule" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.decision_rule" data-verso-hover="39">decision_rule</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3736" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3734" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___data" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.data" data-verso-hover="37">data</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3736" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3935" data-verso-hover="28">ω</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∂</span><span class="var token" data-binding="var-_uniq.3751" data-verso-hover="44">μ</span></code><code class="hl lean block" data-lean-context="examples"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.noncomputable-9645">noncomputable</span><span class="inter-text"> </span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.definition-9659">def</span><span class="inter-text"> </span><span class="const token" data-binding="const-InferenceModelofKernel.of_InferenceModelofMeasure" data-verso-hover="46" id="InferenceModelofKernel___of_InferenceModelofMeasure">of_InferenceModelofMeasure</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16380" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nonempty" data-verso-hover="47">Nonempty</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17858" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16380" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.16476" data-verso-hover="43">I</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure" data-verso-hover="31">InferenceModelofMeasure</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17854" data-verso-hover="1">ι</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17862" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17866" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17870" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17874" data-verso-hover="3">Y</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+    </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel" data-verso-hover="0">InferenceModelofKernel</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17854" data-verso-hover="1">ι</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17858" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17862" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17866" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17870" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17874" data-verso-hover="3">Y</span><span class="inter-text"> </span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.whereStructInst-9805">where</span><span class="inter-text">
+  </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___domain" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.domain" data-verso-hover="48">domain</span></a><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.16650" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17854" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-ProbabilityTheory.Kernel.of_measure" data-verso-hover="49">Kernel.of_measure</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17858" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16650" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17862" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16650" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">''</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.16476" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___domain" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.domain" data-verso-hover="32">domain</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16650" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___functional" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.functional" data-verso-hover="50">functional</span></a><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.16725" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17854" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.16476" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___functional" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.functional" data-verso-hover="34">functional</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16725" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∘</span><span class="inter-text"> </span><span class="const token" data-binding="const-ProbabilityTheory.Kernel.imageToMeasure" data-verso-hover="51">Kernel.imageToMeasure</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17858" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16725" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17862" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16725" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.16476" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___domain" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.domain" data-verso-hover="32">domain</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16725" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___measurable_functional" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.measurable_functional" data-verso-hover="52">measurable_functional</span></a><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.16851" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17854" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.16476" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___measurable_functional" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.measurable_functional" data-verso-hover="36">measurable_functional</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16851" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-Measurable.comp" data-verso-hover="53">comp</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-ProbabilityTheory.Kernel.measurable_imageToMeasure" data-verso-hover="54">Kernel.measurable_imageToMeasure</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17858" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16851" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17862" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16851" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.16476" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___domain" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.domain" data-verso-hover="32">domain</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16851" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___data" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.data" data-verso-hover="55">data</span></a><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16476" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___data" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.data" data-verso-hover="37">data</span></a><span class="inter-text">
+  </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___measurable_data" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.measurable_data" data-verso-hover="56">measurable_data</span></a><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16476" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___measurable_data" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.measurable_data" data-verso-hover="38">measurable_data</span></a><span class="inter-text">
+  </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___decision_rule" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.decision_rule" data-verso-hover="57">decision_rule</span></a><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16476" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___decision_rule" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.decision_rule" data-verso-hover="39">decision_rule</span></a><span class="inter-text">
+  </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___loss_function" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.loss_function" data-verso-hover="58">loss_function</span></a><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16476" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___loss_function" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.loss_function" data-verso-hover="40">loss_function</span></a><span class="inter-text">
+  </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___measurable_loss_function" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.measurable_loss_function" data-verso-hover="59">measurable_loss_function</span></a><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16476" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___measurable_loss_function" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.measurable_loss_function" data-verso-hover="41">measurable_loss_function</span></a></code></section>
+            <section>
+              <h2 id="Statlib--Statistical-Risk-and-Markov-Kernels--Consistency-and-rates">
+                2.4. Consistency and rates<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Statlib--Statistical-Risk-and-Markov-Kernels--Consistency-and-rates" title="Permalink">🔗</a></span></h2>
+              <p>
+                The same setup leads to three basic asymptotic notions.</p>
+              <p>
+                Given a class <code class="math inline">\mathcal{P}_n</code>, an <code class="math inline">S_n</code>-valued functional <code class="math inline">\Psi_n</code>, data
+<code class="math inline">X_n</code>, decision rules <code class="math inline">T_n</code>, and a loss function <code class="math inline">\ell_n</code>:</p>
+              <ul>
+                <li>
+                  <p>
+                    <code class="math inline">T_n</code> is pointwise consistent if, for every
+  <code class="math inline">P_n \in \mathcal{P}_n</code>,
+  <code class="math inline">\operatorname{Risk}(T_n,\Psi_n;P_n) \to 0</code> as <code class="math inline">n \to \infty</code>;</p>
+                  </li>
+                <li>
+                  <p>
+                    <code class="math inline">T_n</code> is uniformly consistent over
+  <code class="math inline">\tilde{\mathcal{P}}_n \subseteq \mathcal{P}_n</code> if
+  <code class="math inline">\sup_{P_n \in \tilde{\mathcal{P}}_n}
+    \operatorname{Risk}(T_n,\Psi_n;P_n) \to 0</code> as <code class="math inline">n \to \infty</code>;</p>
+                  </li>
+                <li>
+                  <p>
+                    <code class="math inline">T_n</code> has rate of convergence <code class="math inline">r_n(\tilde{\mathcal{P}}_n)</code> if</p>
+                  </li>
+                </ul>
+              <p>
+                <code class="math display">0 &lt;
+   \liminf_{n\to\infty}
+     \frac{
+       \sup_{P_n\in\tilde{\mathcal{P}}_n}
+         \operatorname{Risk}(T_n,\Psi_n;P_n)}
+      {r_n(\tilde{\mathcal{P}}_n)}
+   \le
+   \limsup_{n\to\infty}
+     \frac{
+       \sup_{P_n\in\tilde{\mathcal{P}}_n}
+         \operatorname{Risk}(T_n,\Psi_n;P_n)}
+      {r_n(\tilde{\mathcal{P}}_n)}
+   &lt; \infty.</code></p>
+              <code class="hl lean block" data-lean-context="examples"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.definition-2700">def</span><span class="inter-text"> </span><span class="const token" data-binding="const-InferenceModelofMeasure.IsConsistent" data-verso-hover="60" id="InferenceModelofMeasure___IsConsistent">IsConsistent</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4335" data-verso-hover="61">l</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Filter" data-verso-hover="62">Filter</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4865" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4423" data-verso-hover="43">I</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure" data-verso-hover="31">InferenceModelofMeasure</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4865" data-verso-hover="1">ι</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4873" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4877" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4881" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4885" data-verso-hover="3">Y</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-14430969920833713138" data-verso-hover="63">Prop</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4446" data-verso-hover="64">μ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4431" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-MeasureTheory.Measure" data-verso-hover="33">Measure</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4873" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4431" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4553" data-verso-hover="65">hμ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4451" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4446" data-verso-hover="64">μ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4451" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∈</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4423" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___domain" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.domain" data-verso-hover="32">domain</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4451" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text">
+    </span><span class="const token" data-binding="const-Filter.Tendsto" data-verso-hover="66">Tendsto</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Term.fun-2873">fun</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4562" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">=&gt;</span><span class="inter-text"> </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___conditionalRisk" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.conditionalRisk" data-verso-hover="42">conditionalRisk</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4423" data-verso-hover="43">I</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4553" data-verso-hover="65">hμ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4562" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4335" data-verso-hover="61">l</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="unknown token" data-binding="">𝓝</span><span class="inter-text"> </span><span class="typed token" data-binding="" data-verso-hover="67">0</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+
+</span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.definition-2921">def</span><span class="inter-text"> </span><span class="const token" data-binding="const-InferenceModelofMeasure.IsUniformlyConsistent" data-verso-hover="68" id="InferenceModelofMeasure___IsUniformlyConsistent">IsUniformlyConsistent</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4920" data-verso-hover="61">l</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Filter" data-verso-hover="62">Filter</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4865" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.5008" data-verso-hover="43">I</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure" data-verso-hover="31">InferenceModelofMeasure</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4865" data-verso-hover="1">ι</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4873" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4877" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4881" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4885" data-verso-hover="3">Y</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-14430969920833713138" data-verso-hover="63">Prop</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-Filter.Tendsto" data-verso-hover="66">Tendsto</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Term.fun-3026">fun</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5019" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">=&gt;</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">⨆</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.5077" data-verso-hover="64">μ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5061" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-MeasureTheory.Measure" data-verso-hover="33">Measure</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4873" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5061" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="unknown token" data-binding="">⨆</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.5286" data-verso-hover="65">hμ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5120" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5077" data-verso-hover="64">μ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5120" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∈</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5008" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___domain" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.domain" data-verso-hover="32">domain</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5120" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___conditionalRisk" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.conditionalRisk" data-verso-hover="42">conditionalRisk</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5008" data-verso-hover="43">I</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.5286" data-verso-hover="65">hμ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5019" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+    </span><span class="var token" data-binding="var-_uniq.4920" data-verso-hover="61">l</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="unknown token" data-binding="">𝓝</span><span class="inter-text"> </span><span class="typed token" data-binding="" data-verso-hover="67">0</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+
+</span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.definition-3156">def</span><span class="inter-text"> </span><span class="const token" data-binding="const-InferenceModelofMeasure.HasRateOfConvergence" data-verso-hover="69" id="InferenceModelofMeasure___HasRateOfConvergence">HasRateOfConvergence</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.5663" data-verso-hover="61">l</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Filter" data-verso-hover="62">Filter</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4865" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.5751" data-verso-hover="43">I</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure" data-verso-hover="31">InferenceModelofMeasure</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4865" data-verso-hover="1">ι</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4873" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4877" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4881" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4885" data-verso-hover="3">Y</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.5755" data-verso-hover="70">r</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4865" data-verso-hover="1">ι</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="unknown token" data-binding="">ℝ≥0∞</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+    </span><span class="sort token" data-binding="sort-14430969920833713138" data-verso-hover="63">Prop</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text">
+  </span><span class="typed token" data-binding="" data-verso-hover="67">0</span><span class="inter-text"> </span><span class="unknown token" data-binding="">&lt;</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5663" data-verso-hover="61">l</span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-Filter.liminf" data-verso-hover="71">liminf</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Term.fun-3293">fun</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5806" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">=&gt;</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="unknown token" data-binding="">⨆</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.5833" data-verso-hover="64">μ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5818" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-MeasureTheory.Measure" data-verso-hover="33">Measure</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4873" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5818" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">,</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">⨆</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.5978" data-verso-hover="65">hμ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5876" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5833" data-verso-hover="64">μ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5876" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∈</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5751" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___domain" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.domain" data-verso-hover="32">domain</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5876" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___conditionalRisk" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.conditionalRisk" data-verso-hover="42">conditionalRisk</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5751" data-verso-hover="43">I</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.5978" data-verso-hover="65">hμ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5806" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">/</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5755" data-verso-hover="70">r</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5806" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∧</span><span class="inter-text">
+    </span><span class="var token" data-binding="var-_uniq.5663" data-verso-hover="61">l</span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-Filter.limsup" data-verso-hover="72">limsup</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Term.fun-3433">fun</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.6339" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">=&gt;</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="unknown token" data-binding="">⨆</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.6366" data-verso-hover="64">μ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.6351" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-MeasureTheory.Measure" data-verso-hover="33">Measure</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4873" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.6351" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">,</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">⨆</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.6510" data-verso-hover="65">hμ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.6408" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.6366" data-verso-hover="64">μ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.6408" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∈</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5751" data-verso-hover="43">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___domain" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.domain" data-verso-hover="32">domain</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.6408" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___conditionalRisk" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofMeasure.conditionalRisk" data-verso-hover="42">conditionalRisk</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5751" data-verso-hover="43">I</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.6510" data-verso-hover="65">hμ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.6339" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">/</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5755" data-verso-hover="70">r</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.6339" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">&lt;</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∞</span></code><code class="hl lean block" data-lean-context="examples"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.definition-10759">def</span><span class="inter-text"> </span><span class="const token" data-binding="const-InferenceModelofKernel.IsConsistent" data-verso-hover="73" id="InferenceModelofKernel___IsConsistent">IsConsistent</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17917" data-verso-hover="61">l</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Filter" data-verso-hover="62">Filter</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17854" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.18036" data-verso-hover="24">I</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel" data-verso-hover="0">InferenceModelofKernel</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17854" data-verso-hover="1">ι</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17858" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17862" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17866" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17870" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17874" data-verso-hover="3">Y</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-14430969920833713138" data-verso-hover="63">Prop</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.18046" data-verso-hover="74">t</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18044" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17858" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18044" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.18081" data-verso-hover="75">κ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18050" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-ProbabilityTheory.Kernel" data-verso-hover="9">Kernel</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17858" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18050" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17862" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18050" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.18194" data-verso-hover="76">hκ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18086" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18081" data-verso-hover="75">κ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18086" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∈</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18036" data-verso-hover="24">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___domain" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.domain" data-verso-hover="7">domain</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18086" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text">
+    </span><span class="const token" data-binding="const-Filter.Tendsto" data-verso-hover="66">Tendsto</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Term.fun-10958">fun</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18203" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">=&gt;</span><span class="inter-text"> </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___conditionalRisk" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.conditionalRisk" data-verso-hover="23">conditionalRisk</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18036" data-verso-hover="24">I</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.18046" data-verso-hover="74">t</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18203" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.18194" data-verso-hover="76">hκ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18203" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17917" data-verso-hover="61">l</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="unknown token" data-binding="">𝓝</span><span class="inter-text"> </span><span class="typed token" data-binding="" data-verso-hover="67">0</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+
+</span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.definition-11012">def</span><span class="inter-text"> </span><span class="const token" data-binding="const-InferenceModelofKernel.IsUniformlyConsistent" data-verso-hover="77" id="InferenceModelofKernel___IsUniformlyConsistent">IsUniformlyConsistent</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.18643" data-verso-hover="61">l</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Filter" data-verso-hover="62">Filter</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17854" data-verso-hover="1">ι</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.18762" data-verso-hover="24">I</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel" data-verso-hover="0">InferenceModelofKernel</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17854" data-verso-hover="1">ι</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17858" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17862" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17866" data-verso-hover="3">S</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17870" data-verso-hover="3">X</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17874" data-verso-hover="3">Y</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-14430969920833713138" data-verso-hover="63">Prop</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.18772" data-verso-hover="74">t</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18770" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17858" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18770" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-Filter.Tendsto" data-verso-hover="66">Tendsto</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Term.fun-11142">fun</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18780" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">=&gt;</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">⨆</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.18853" data-verso-hover="75">κ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18822" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-ProbabilityTheory.Kernel" data-verso-hover="9">Kernel</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17858" data-verso-hover="3">θ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18822" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17862" data-verso-hover="3">Ω</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18822" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="unknown token" data-binding="">⨆</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.19004" data-verso-hover="76">hκ</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18896" data-verso-hover="5">i</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18853" data-verso-hover="75">κ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18896" data-verso-hover="5">i</span><span class="inter-text"> </span><span class="unknown token" data-binding="">∈</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18762" data-verso-hover="24">I</span><span class="unknown token" data-binding="">.</span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___domain" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.domain" data-verso-hover="7">domain</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18896" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><a href="Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___conditionalRisk" title="Definition of example"><span class="const token" data-binding="const-InferenceModelofKernel.conditionalRisk" data-verso-hover="23">conditionalRisk</span></a><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18762" data-verso-hover="24">I</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.18772" data-verso-hover="74">t</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18780" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.19004" data-verso-hover="76">hκ</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.18780" data-verso-hover="5">i</span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+    </span><span class="var token" data-binding="var-_uniq.18643" data-verso-hover="61">l</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="unknown token" data-binding="">𝓝</span><span class="inter-text"> </span><span class="typed token" data-binding="" data-verso-hover="67">0</span><span class="unknown token" data-binding="">)</span></code></section>
+            <section>
+              <h2 id="Statlib--Statistical-Risk-and-Markov-Kernels--Guiding-questions">
+                2.5. Guiding questions<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Statlib--Statistical-Risk-and-Markov-Kernels--Guiding-questions" title="Permalink">🔗</a></span></h2>
+              <p>
+                The roadmap can be organized around the following questions:</p>
+              <ul>
+                <li>
+                  <p>
+                    Does there exist a pointwise consistent sequence of decision rules?</p>
+                  </li>
+                <li>
+                  <p>
+                    Given <code class="math inline">\tilde{\mathcal{P}}_n \subseteq \mathcal{P}_n</code>, does there exist a
+  uniformly consistent sequence of decision rules over
+  <code class="math inline">\tilde{\mathcal{P}}_n</code>?</p>
+                  </li>
+                <li>
+                  <p>
+                    Given <code class="math inline">\tilde{\mathcal{P}}_n \subseteq \mathcal{P}_n</code> and a candidate rate
+  <code class="math inline">r_n(\tilde{\mathcal{P}}_n)</code>, does there exist a decision rule with that
+  rate of convergence?</p>
+                  </li>
+                <li>
+                  <p>
+                    If <code class="math inline">r_n(P_n)</code> is the rate of convergence of <code class="math inline">T_n</code> at some
+  <code class="math inline">P_n \in \mathcal{P}_n</code>, is there a probability measure <code class="math inline">\mathbb{Q}</code> on
+  <code class="math inline">([0,\infty],\mathcal{B}([0,\infty]))</code> such that</p>
+                  </li>
+                </ul>
+              <p>
+                <code class="math display">P_n \circ
+   \left(r_n(P_n)\ell_n(X_n,\Psi_n(P_n))\right)
+   \rightsquigarrow \mathbb{Q}</code></p>
+              <p>
+                as <code class="math inline">n \to \infty</code>?
+</p>
+              </section>
+            </section>
+          <nav class="prev-next-buttons">
+            <a class="local-button active" href="Installation-and-Setup/#Statlib--Installation-and-Setup" rel="prev" title="1. Installation and Setup"><span class="arrow">←</span><span class="where">1. Installation and Setup</span></a><div></div>
+            </nav>
+          </div>
+        </main></div>
+    </body>
+  </html>
+

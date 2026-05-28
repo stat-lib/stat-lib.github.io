@@ -1,0 +1,425 @@
+{"Verso.Genre.Manual.section":
+ {"title": "Sections or chapters of the manual",
+  "description": null,
+  "contents":
+  {"Statlib--Statistical-Risk-and-Markov-Kernels--Measure-indexed-statistical-risk":
+   [{"id":
+     "Statlib--Statistical-Risk-and-Markov-Kernels--Measure-indexed-statistical-risk",
+     "data":
+     {"title": "Measure-indexed statistical risk",
+      "shortTitle": null,
+      "sectionNum": "2.3.",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null},
+       {"title": "Statistical Risk and Markov Kernels",
+        "shortTitle": null,
+        "number": "2"},
+       {"title": "Measure-indexed statistical risk",
+        "shortTitle": null,
+        "number": "3"}]},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "Statlib--Statistical-Risk-and-Markov-Kernels--Markov-kernels":
+   [{"id": "Statlib--Statistical-Risk-and-Markov-Kernels--Markov-kernels",
+     "data":
+     {"title": "Markov kernels",
+      "shortTitle": null,
+      "sectionNum": "2.1.",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null},
+       {"title": "Statistical Risk and Markov Kernels",
+        "shortTitle": null,
+        "number": "2"},
+       {"title": "Markov kernels", "shortTitle": null, "number": "1"}]},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "Statlib--Statistical-Risk-and-Markov-Kernels--Kernel-indexed-statistical-risk":
+   [{"id":
+     "Statlib--Statistical-Risk-and-Markov-Kernels--Kernel-indexed-statistical-risk",
+     "data":
+     {"title": "Kernel-indexed statistical risk",
+      "shortTitle": null,
+      "sectionNum": "2.2.",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null},
+       {"title": "Statistical Risk and Markov Kernels",
+        "shortTitle": null,
+        "number": "2"},
+       {"title": "Kernel-indexed statistical risk",
+        "shortTitle": null,
+        "number": "2"}]},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "Statlib--Statistical-Risk-and-Markov-Kernels--Guiding-questions":
+   [{"id": "Statlib--Statistical-Risk-and-Markov-Kernels--Guiding-questions",
+     "data":
+     {"title": "Guiding questions",
+      "shortTitle": null,
+      "sectionNum": "2.5.",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null},
+       {"title": "Statistical Risk and Markov Kernels",
+        "shortTitle": null,
+        "number": "2"},
+       {"title": "Guiding questions", "shortTitle": null, "number": "5"}]},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "Statlib--Statistical-Risk-and-Markov-Kernels--Consistency-and-rates":
+   [{"id":
+     "Statlib--Statistical-Risk-and-Markov-Kernels--Consistency-and-rates",
+     "data":
+     {"title": "Consistency and rates",
+      "shortTitle": null,
+      "sectionNum": "2.4.",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null},
+       {"title": "Statistical Risk and Markov Kernels",
+        "shortTitle": null,
+        "number": "2"},
+       {"title": "Consistency and rates", "shortTitle": null, "number": "4"}]},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "Statlib--Statistical-Risk-and-Markov-Kernels":
+   [{"id": "Statlib--Statistical-Risk-and-Markov-Kernels",
+     "data":
+     {"title": "Statistical Risk and Markov Kernels",
+      "shortTitle": null,
+      "sectionNum": "2.",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null},
+       {"title": "Statistical Risk and Markov Kernels",
+        "shortTitle": null,
+        "number": "2"}]},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "Statlib--Installation-and-Setup--Installing-Statlib":
+   [{"id": "Statlib--Installation-and-Setup--Installing-Statlib",
+     "data":
+     {"title": "Installing Statlib",
+      "shortTitle": null,
+      "sectionNum": "1.2.",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null},
+       {"title": "Installation and Setup", "shortTitle": null, "number": "1"},
+       {"title": "Installing Statlib", "shortTitle": null, "number": "2"}]},
+     "address": "/Installation-and-Setup/"}],
+   "Statlib--Installation-and-Setup--Installing-Lean":
+   [{"id": "Statlib--Installation-and-Setup--Installing-Lean",
+     "data":
+     {"title": "Installing Lean",
+      "shortTitle": null,
+      "sectionNum": "1.1.",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null},
+       {"title": "Installation and Setup", "shortTitle": null, "number": "1"},
+       {"title": "Installing Lean", "shortTitle": null, "number": "1"}]},
+     "address": "/Installation-and-Setup/"}],
+   "Statlib--Installation-and-Setup":
+   [{"id": "Statlib--Installation-and-Setup",
+     "data":
+     {"title": "Installation and Setup",
+      "shortTitle": null,
+      "sectionNum": "1.",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null},
+       {"title": "Installation and Setup", "shortTitle": null, "number": "1"}]},
+     "address": "/Installation-and-Setup/"}],
+   "Statlib":
+   [{"id": "Statlib",
+     "data":
+     {"title": "Statlib",
+      "shortTitle": "Statlib",
+      "sectionNum": "",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null}]},
+     "address": "/"}]}},
+ "Verso.Genre.Manual.example":
+ {"title": "Verso.Genre.Manual.example",
+  "description": null,
+  "contents":
+  {"InferenceModelofMeasure.measurable_loss_function":
+   [{"id": "InferenceModelofMeasure___measurable_loss_function",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___measurable_loss_function":
+      {"display": "measurable_loss_function",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Measure-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofMeasure.measurable_functional":
+   [{"id": "InferenceModelofMeasure___measurable_functional",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___measurable_functional":
+      {"display": "measurable_functional",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Measure-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofMeasure.measurable_data":
+   [{"id": "InferenceModelofMeasure___measurable_data",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___measurable_data":
+      {"display": "measurable_data",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Measure-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofMeasure.loss_function":
+   [{"id": "InferenceModelofMeasure___loss_function",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___loss_function":
+      {"display": "loss_function",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Measure-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofMeasure.functional":
+   [{"id": "InferenceModelofMeasure___functional",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___functional":
+      {"display": "functional",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Measure-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofMeasure.domain":
+   [{"id": "InferenceModelofMeasure___domain",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___domain":
+      {"display": "domain",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Measure-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofMeasure.decision_rule":
+   [{"id": "InferenceModelofMeasure___decision_rule",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___decision_rule":
+      {"display": "decision_rule",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Measure-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofMeasure.data":
+   [{"id": "InferenceModelofMeasure___data",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___data":
+      {"display": "data",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Measure-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofMeasure.conditionalRisk":
+   [{"id": "InferenceModelofMeasure___conditionalRisk",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___conditionalRisk":
+      {"display": "conditionalRisk",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Measure-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofMeasure.IsUniformlyConsistent":
+   [{"id": "InferenceModelofMeasure___IsUniformlyConsistent",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___IsUniformlyConsistent":
+      {"display": "IsUniformlyConsistent",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Consistency and rates"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofMeasure.IsConsistent":
+   [{"id": "InferenceModelofMeasure___IsConsistent",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___IsConsistent":
+      {"display": "IsConsistent",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Consistency and rates"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofMeasure.HasRateOfConvergence":
+   [{"id": "InferenceModelofMeasure___HasRateOfConvergence",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___HasRateOfConvergence":
+      {"display": "HasRateOfConvergence",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Consistency and rates"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofMeasure":
+   [{"id": "InferenceModelofMeasure",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure":
+      {"display": "InferenceModelofMeasure",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Measure-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofKernel.of_InferenceModelofMeasure":
+   [{"id": "InferenceModelofKernel___of_InferenceModelofMeasure",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___of_InferenceModelofMeasure":
+      {"display": "of_InferenceModelofMeasure",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Measure-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofKernel.measurable_loss_function":
+   [{"id": "InferenceModelofKernel___measurable_loss_function",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___measurable_loss_function":
+      {"display": "measurable_loss_function",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Kernel-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofKernel.measurable_functional":
+   [{"id": "InferenceModelofKernel___measurable_functional",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___measurable_functional":
+      {"display": "measurable_functional",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Kernel-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofKernel.measurable_data":
+   [{"id": "InferenceModelofKernel___measurable_data",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___measurable_data":
+      {"display": "measurable_data",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Kernel-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofKernel.loss_function":
+   [{"id": "InferenceModelofKernel___loss_function",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___loss_function":
+      {"display": "loss_function",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Kernel-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofKernel.functional":
+   [{"id": "InferenceModelofKernel___functional",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___functional":
+      {"display": "functional",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Kernel-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofKernel.domain":
+   [{"id": "InferenceModelofKernel___domain",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___domain":
+      {"display": "domain",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Kernel-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofKernel.decision_rule":
+   [{"id": "InferenceModelofKernel___decision_rule",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___decision_rule":
+      {"display": "decision_rule",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Kernel-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofKernel.data":
+   [{"id": "InferenceModelofKernel___data",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___data":
+      {"display": "data",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Kernel-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofKernel.conditionalRisk":
+   [{"id": "InferenceModelofKernel___conditionalRisk",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___conditionalRisk":
+      {"display": "conditionalRisk",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Kernel-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofKernel.IsUniformlyConsistent":
+   [{"id": "InferenceModelofKernel___IsUniformlyConsistent",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___IsUniformlyConsistent":
+      {"display": "IsUniformlyConsistent",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Consistency and rates"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofKernel.IsConsistent":
+   [{"id": "InferenceModelofKernel___IsConsistent",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel___IsConsistent":
+      {"display": "IsConsistent",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Consistency and rates"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "InferenceModelofKernel":
+   [{"id": "InferenceModelofKernel",
+     "data":
+     {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofKernel":
+      {"display": "InferenceModelofKernel",
+       "context":
+       ["Statlib",
+        "Statistical Risk and Markov Kernels",
+        "Kernel-indexed statistical risk"]}},
+     "address": "/Statistical-Risk-and-Markov-Kernels/"}]}},
+ "Verso.Genre.Manual.doc.tech":
+ {"title": "Terminology",
+  "description": "Definitions of technical terms",
+  "contents": {}},
+ "Verso.Genre.Manual.doc.tactic.conv":
+ {"title": "Conversion Tactics",
+  "description": "Tactics for performing targeted rewriting of subterms",
+  "contents": {}},
+ "Verso.Genre.Manual.doc.tactic":
+ {"title": "Tactic Documentation",
+  "description": "Detailed descriptions of tactics",
+  "contents": {}},
+ "Verso.Genre.Manual.doc.suggestion":
+ {"title": "Lean constant suggestions",
+  "description": "Search suggestions for Lean constants",
+  "contents": {}},
+ "Verso.Genre.Manual.doc.option":
+ {"title": "Compiler options", "description": null, "contents": {}},
+ "Verso.Genre.Manual.doc":
+ {"title": "Lean constant reference",
+  "description": "Documentation for Lean constants",
+  "contents": {}}}
