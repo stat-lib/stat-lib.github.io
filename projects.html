@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — Statlib</title>
+<meta name="description" content="Active and proposed Statlib formalization projects.">
+<link rel="stylesheet" href="site.css?v=20260603-clean">
+<style>
+  .site-page .project {
+    border-top: 1px solid #e6e6e6;
+    margin-bottom: 42px;
+    padding-top: 24px;
+  }
+
+  .site-page .project h2 {
+    font-size: 21px;
+    margin-bottom: 16px;
+  }
+
+  .site-page .project p {
+    margin-bottom: 14px;
+  }
+
+  .site-page .project p.project-label {
+    font-weight: bold;
+    margin-bottom: 2px;
+  }
+
+  .site-page .project p + .project-label,
+  .site-page .project ul + .project-label {
+    margin-top: 16px;
+  }
+
+  .site-page .project-link {
+    font-size: 16px;
+  }
+
+  .site-page ul.items {
+    list-style: disc;
+    margin: 0 0 16px 24px;
+    padding: 0;
+  }
+
+  .site-page ul.items li {
+    border-bottom: 0;
+    font-size: 17px;
+    margin: 2px 0;
+    padding: 0;
+  }
+
+  .site-page ul.items li::before { content: none; }
+</style>
+</head>
+<body class="site-page">
+
+<nav>
+  <a href="index.html" class="brand">Statlib</a>
+  <div class="links">
+    <a href="index.html">About</a>
+    <a href="tutorial/index.html">Tutorial</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="contribute.html">Contribute</a>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <h1>Projects</h1>
+
+    <p class="intro">
+      We welcome researchers in sub-areas of statistics to propose projects, contribute projects, and help evolve the library! These projects connect concrete formalization work with the broader Statlib <a href="roadmap.html">roadmap</a>.
+    </p>
+
+    <section class="project" id="semiparametric-efficiency-theory">
+      <h2>1. Semiparametric Efficiency Theory</h2>
+      <p class="project-label">Description.</p>
+      <p>
+        This project formalizes foundational results in semiparametric efficiency theory, especially the asymptotic theory underlying efficient estimation in statistical models.
+      </p>
+      <p class="project-label">Milestones.</p>
+      <ul class="items">
+        <li>Contiguity</li>
+        <li>Local asymptotic normality, or LAN</li>
+        <li>Hájek–Le Cam Local Asymptotic Minimax Theorem</li>
+        <li>Convolution theorem</li>
+        <li>Argmax Theorem</li>
+      </ul>
+      <p class="project-label">Maintainer.</p>
+      <p>Rajarshi Mukherjee; Aaron Lin</p>
+      <p class="project-link"><strong>Roadmap.</strong> <a href="roadmap.html#sec-1-4">1.4 Semiparametric Efficiency Theories</a></p>
+    </section>
+
+    <section class="project" id="id-algorithm-and-causal-inference">
+      <h2>2. ID Algorithm and Causal Inference</h2>
+      <p class="project-label">Description.</p>
+      <p>
+        This project focuses on formalizing tools from causal inference, especially graphical models and identification theory. A central goal is to formalize the ID algorithm and related results about causal effects.
+      </p>
+      <p class="project-label">Milestones.</p>
+      <ul class="items">
+        <li>Graphical models</li>
+        <li>Causal diagrams</li>
+        <li>Identification of causal effects</li>
+        <li>ID algorithm</li>
+      </ul>
+      <p class="project-label">Maintainer.</p>
+      <p>Qingyuan Zhao</p>
+      <p class="project-link"><strong>Roadmap.</strong> <a href="roadmap.html#sec-1-12">1.12 Causal Identification Theories</a></p>
+    </section>
+
+    <section class="project" id="decision-theory-and-statistical-experiments">
+      <h2>3. Decision Theory and Statistical Experiments</h2>
+      <p class="project-label">Description.</p>
+      <p>
+        This project studies the formalization of statistical experiments, their comparisons, and convergence, along with other decision-theoretic foundations such as the minimax theorem and complete class theorem.
+      </p>
+      <p class="project-label">Milestones.</p>
+      <ul class="items">
+        <li>Convergence of Statistical Experiments</li>
+        <li>Sufficiency, Completion, and Ancillarity of Sigma Fields</li>
+        <li>Minimax theorem</li>
+        <li>Complete Class Theorem</li>
+      </ul>
+      <p class="project-label">Maintainer.</p>
+      <p>Zixiao Wang</p>
+      <p class="project-link"><strong>Roadmap.</strong> <a href="roadmap.html#sec-1-1">1.1 Fundamentals of Decision Theory</a>; <a href="roadmap.html#sec-1-2">1.2 Comparison of Experiments</a></p>
+    </section>
+
+    <section class="project" id="empirical-process-foundations">
+      <h2>4. Empirical Process Foundations</h2>
+      <p class="project-label">Description.</p>
+      <p>
+        This project develops the foundations of empirical process theory needed for asymptotic statistics.
+      </p>
+      <p class="project-label">Milestones.</p>
+      <ul class="items">
+        <li>Maximal inequalities</li>
+        <li>Glivenko–Cantelli lemma</li>
+        <li>Donsker's theorem</li>
+      </ul>
+      <p class="project-label">Maintainer.</p>
+      <p>Debarghya Mukherjee</p>
+      <p class="project-link"><strong>Roadmap.</strong> <a href="roadmap.html#sec-1-13">1.13 Core Probabilistic Toolbox</a></p>
+    </section>
+
+    <section class="project" id="propose-a-project">
+      <h2>Propose a Project</h2>
+      <p>
+        If you would like to propose a new project, please contact Rajarshi Mukherjee at <a href="mailto:ram521@mail.harvard.edu">ram521@mail.harvard.edu</a>.
+      </p>
+    </section>
+
+  </div>
+</main>
+
+</body>
+</html>

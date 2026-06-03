@@ -18,15 +18,14 @@
   nav {
     border-bottom: 1px solid #ddd;
     padding: 16px 0; margin-bottom: 48px;
-    display: flex; justify-content: space-between; align-items: baseline;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 18px;
   }
   nav .brand { font-size: 20px; font-weight: bold; text-decoration: none; color: #111; }
-  nav .links { display: flex; gap: 24px; }
+  nav .links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
   nav .links a { font-family: system-ui, sans-serif; font-size: 14px; color: #555; text-decoration: none; }
   nav .links a:hover { color: #111; }
   nav .links a.active { color: #111; font-weight: 600; }
 
-  h1 { font-size: 32px; font-weight: normal; margin-bottom: 8px; }
   .subtitle { color: #666; font-size: 18px; margin-bottom: 12px; font-style: italic; }
   .intro { color: #444; font-size: 16px; margin-bottom: 14px; max-width: 720px; }
   .intro + .topic-toc { margin-top: 36px; }
@@ -124,9 +123,13 @@
 
   footer { color: #999; font-family: system-ui, sans-serif; font-size: 13px; margin-top: 56px; padding-top: 24px; border-top: 1px solid #eee; }
   footer a { color: #999; }
+  @media (max-width: 620px) {
+    nav { align-items: flex-start; flex-direction: column; }
+  }
 </style>
+<link rel="stylesheet" href="site.css?v=20260603-clean">
 </head>
-<body>
+<body class="site-page">
 
 <nav>
   <a href="index.html" class="brand">Statlib</a>
@@ -134,18 +137,20 @@
     <a href="index.html">About</a>
     <a href="tutorial/index.html">Tutorial</a>
     <a href="roadmap.html" class="active">Roadmap</a>
+    <a href="projects.html">Projects</a>
     <a href="contribute.html">Contribute</a>
-    <a href="docs/">API</a>
   </div>
 </nav>
 
-<h1>Roadmap</h1>
-<p class="intro">
-  We have curated a broad selection of core topics by reviewing foundational textbooks and leading journals in mathematical statistics, prioritizing the bedrock theories that have underpinned research over the last two decades. This list is intentionally non-exhaustive. Our goal is to systematically expand it to encompass modern research programs, such as high-dimensional statistics, random matrix theory, conformal inference, the theory of E-values, and computational-statistical trade-offs.
-</p>
-<p class="intro">
-  Furthermore, we recognize that much of contemporary and classical theoretical statistics relies fundamentally on empirical process theory and concentration inequalities. Given the immense depth of these fields, we have not yet charted specific results. Instead, we aim to populate these areas organically through community engagement, collaborating to discuss and prioritize our formalization efforts.
-</p>
+<main>
+  <div class="wrap">
+    <h1>Roadmap</h1>
+    <p class="intro">
+      We have curated a broad selection of core topics by reviewing foundational textbooks and leading journals in mathematical statistics, prioritizing the bedrock theories that have underpinned research over the last two decades. This list is intentionally non-exhaustive. Our goal is to systematically expand it to encompass modern research programs, such as high-dimensional statistics, random matrix theory, conformal inference, the theory of E-values, and computational-statistical trade-offs.
+    </p>
+    <p class="intro">
+      Furthermore, we recognize that much of contemporary and classical theoretical statistics relies fundamentally on empirical process theory and concentration inequalities. Given the immense depth of these fields, we have not yet charted specific results. Instead, we aim to populate these areas organically through community engagement, collaborating to discuss and prioritize our formalization efforts.
+    </p>
 
 <div class="topic-toc">
   <div class="topic-toc-title">Contents</div>
@@ -453,6 +458,8 @@
     </ul>
   </div>
 </div>
+  </div>
+</main>
 
 <script>
   window.MathJax = {
