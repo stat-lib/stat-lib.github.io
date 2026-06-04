@@ -28,24 +28,40 @@ Rajarshi Mukherjee; Aaron Lin
 
 **Roadmap.** [1.4 Semiparametric Efficiency Theories](roadmap.html#sec-1-4)
 
-## 2. ID Algorithm and Causal Inference {#id-algorithm-and-causal-inference .project}
+## 2. Graphical models {#graphical-models .project}
 
-#### Description.
+The project will formalize important results in graphical models.
 
-This project focuses on formalizing tools from causal inference, especially graphical models and identification theory. A central goal is to formalize the ID algorithm and related results about causal effects.
+### Milestones achieved
 
-#### Milestones.
+None.
 
-- Graphical models
-- Causal diagrams
-- Identification of causal effects
-- ID algorithm
+### Current projects
 
-#### Maintainer.
+- Trek rule and Wright's path analysis.
+- Invariant connections under marginalization.
+
+### Potential future projects
+
+#### Graphs
+- d/m-separation and the augmentation criterion.
+- commutativity of intervention and marginalization for SWIGs.
+
+#### Linear SEMs
+- m-separation implies conditional independence in cyclic Gaussian linear SEMs (Spirtes, Koster).
+- trek-separation criterion for linear SEMs (Sullivant, Talaska, Draisma).
+
+#### Statistical models
+
+- Undirected graphs: Hammersley-Clifford theorem.
+- Relations between different models in subclasses of ADMGs.
+- Markov equivalence class for DAGs.
+
+### Maintainer
 
 Qingyuan Zhao
 
-**Roadmap.** [1.12 Causal Identification Theories](roadmap.html#sec-1-12)
+**Roadmap.** [1.12 Causal Identification Theories](roadmap.html#sec-1-12) (To be updated.)
 
 ## 3. Decision Theory and Statistical Experiments {#decision-theory-and-statistical-experiments .project}
 
