@@ -205,16 +205,45 @@ body.site-page {
   background: var(--surface);
   margin-top: 36px;
   margin-bottom: 48px;
-  padding-top: 18px;
-  padding-bottom: 18px;
+  padding: 18px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .site-page .topic-toc-part {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 650;
+  margin: 10px 0 8px;
+}
+
+.site-page .topic-toc a {
+  color: var(--muted);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.site-page .topic-toc a:hover {
+  color: var(--text);
+  text-decoration: underline;
 }
 
 .site-page .topic-toc-sub {
+  columns: 2;
   column-gap: 34px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-page .topic-toc-sub li {
+  break-inside: avoid;
+  padding: 2px 0;
+}
+
+.site-page .topic-toc-sub a {
+  display: block;
 }
 
 .site-page .project .meta,
@@ -317,6 +346,10 @@ body.site-page {
     align-items: flex-start;
     flex-direction: column;
   }
+
+  .site-page .topic-toc-sub {
+    columns: 1;
+  }
 }
 
 @media (max-width: 620px) {
@@ -330,9 +363,5 @@ body.site-page {
   .site-page nav {
     padding-left: 22px;
     padding-right: 22px;
-  }
-
-  .site-page .topic-toc-sub {
-    columns: 1;
   }
 }
