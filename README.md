@@ -1,31 +1,36 @@
 # Statlib Website
 
-This repository serves the public Statlib website as static HTML.
+This repository serves the public Statlib website as static HTML generated from Markdown.
 
-## Editing Content
+## Update the Website
 
-Most hand-written pages are sourced from Markdown files in `content/`:
+Edit Markdown files in `content/`, not the generated root HTML files.
 
 - `content/index.md` builds `index.html`
 - `content/roadmap.md` builds `roadmap.html`
 - `content/projects.md` builds `projects.html`
 - `content/contribute.md` builds `contribute.html`
 
-Edit the Markdown files first, then regenerate the HTML:
+After editing Markdown, rebuild the HTML:
 
 ```sh
 python3 tools/build_site.py
 ```
 
-Commit both the Markdown source and generated HTML. This keeps GitHub Pages deployment simple while allowing collaborators to edit the roadmap and project pages without touching HTML.
+Commit both files: the Markdown source and the regenerated HTML.
 
-Pull requests run a build check that fails if the generated HTML is stale.
+## Markdown Rules
 
-## Roadmap Format
+- Use normal Markdown paragraphs, links, headings, and `-` bullet lists.
+- Keep stable section IDs when renaming headings, because other pages may link to them.
+- External links are automatically opened in a new tab.
+- The roadmap table of contents is generated automatically from `.topic` and `.section` headings.
 
-Use ordinary Markdown headings and lists. Stable section links are written as heading attributes:
+Roadmap section example:
 
 ```md
+## Classical Cores (1920's-1990's) {#topic-i .topic}
+
 ### 1.4 Semiparametric Efficiency Theories {#sec-1-4 .section}
 
 #### Definitions.
@@ -33,8 +38,24 @@ Use ordinary Markdown headings and lists. Stable section links are written as he
 - **Parametric Submodels and Tangent spaces**
 ```
 
-The roadmap table of contents is generated from headings marked with `.topic` and `.section`.
+Project section example:
 
-## Generated Files
+```md
+## 1. Semiparametric Efficiency Theory {#semiparametric-efficiency-theory .project}
 
-Root HTML pages include a generated-file comment. Do not hand-edit those files unless you also move the same change back into `content/`.
+#### Milestones.
+
+- Contiguity
+- Local asymptotic normality
+```
+
+## Pull Requests
+
+Before opening a PR:
+
+```sh
+python3 tools/build_site.py
+git status
+```
+
+Include the changed `content/*.md` files and the regenerated `.html` files. CI fails if the generated HTML is stale.

@@ -217,10 +217,6 @@ body.site-page {
   column-gap: 34px;
 }
 
-.site-page ul.items li {
-  border-bottom: 1px solid #f0f0f0;
-}
-
 .site-page .project .meta,
 .site-page .todo-meta {
   color: var(--muted);
