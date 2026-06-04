@@ -5,132 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Roadmap — Statlib</title>
 <meta name="description" content="Theorems and concepts queued for formalization, by topic.">
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 17px; line-height: 1.6; color: #111; background: #fff;
-    max-width: 800px; margin: 0 auto; padding: 0 24px 80px;
-  }
-  a { color: #111; }
-  a:hover { color: #555; }
-
-  nav {
-    border-bottom: 1px solid #ddd;
-    padding: 16px 0; margin-bottom: 48px;
-    display: flex; justify-content: space-between; align-items: baseline; gap: 18px;
-  }
-  nav .brand { font-size: 20px; font-weight: bold; text-decoration: none; color: #111; }
-  nav .links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
-  nav .links a { font-family: system-ui, sans-serif; font-size: 14px; color: #555; text-decoration: none; }
-  nav .links a:hover { color: #111; }
-  nav .links a.active { color: #111; font-weight: 600; }
-
-  .subtitle { color: #666; font-size: 18px; margin-bottom: 12px; font-style: italic; }
-  .intro { color: #444; font-size: 16px; margin-bottom: 14px; max-width: 720px; }
-  .intro + .topic-toc { margin-top: 36px; }
-  .intro code { font-family: "SF Mono", Menlo, monospace; font-size: 0.88em; background: #f3f3f3; padding: 1px 5px; border-radius: 2px; }
-
-  /* Topic-level TOC */
-  .topic-toc {
-    border: 1px solid #e0e0e0; background: #fafafa;
-    padding: 14px 18px; margin: 0 0 40px;
-    font-family: system-ui, sans-serif; font-size: 14px;
-  }
-  .topic-toc-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 10px; }
-  .topic-toc-part { font-size: 14px; font-weight: 600; color: #222; margin: 12px 0 4px; }
-  .topic-toc-part:first-of-type { margin-top: 0; }
-  .topic-toc-part a { text-decoration: none; color: #222; }
-  .topic-toc-part a:hover { text-decoration: underline; }
-  .topic-toc-sub { list-style: none; padding: 0 0 0 12px; margin: 0; columns: 2; column-gap: 24px; }
-  .topic-toc-sub li { padding: 2px 0; break-inside: avoid; }
-  .topic-toc-sub a { text-decoration: none; color: #555; }
-  .topic-toc-sub a:hover { color: #111; text-decoration: underline; }
-
-  /* Topic */
-  .topic { margin: 0 0 48px; }
-  .topic h2 {
-    font-size: 22px; font-weight: normal;
-    padding-top: 24px; border-top: 1px solid #ddd;
-    margin-bottom: 8px;
-  }
-  .topic h2 .roman {
-    font-family: system-ui, sans-serif; font-size: 13px; font-weight: 600;
-    color: #999; text-transform: uppercase; letter-spacing: 0.06em;
-    display: block; margin-bottom: 4px;
-  }
-  .topic-intro {
-    font-size: 15px; color: #555; font-style: italic;
-    margin: 8px 0 24px; max-width: 640px;
-  }
-
-  /* Section (1.x) inside topic */
-  .section {
-    margin: 28px 0;
-  }
-  .section h3 {
-    font-size: 18px; font-weight: normal;
-    margin-bottom: 6px;
-  }
-
-  /* Citation line under section h3 */
-  .refs {
-    font-family: system-ui, sans-serif; font-size: 13px; color: #666;
-    margin: 0 0 16px; line-height: 1.5;
-  }
-  .refs-label {
-    font-size: 11px; font-weight: 600; text-transform: uppercase;
-    letter-spacing: 0.08em; color: #999; margin-right: 8px;
-  }
-
-  /* Definitions / Theorems sub-group label */
-  .sub-group {
-    font-family: system-ui, sans-serif;
-    font-size: 11px; font-weight: 600; text-transform: uppercase;
-    letter-spacing: 0.08em; color: #999;
-    margin: 16px 0 6px;
-  }
-
-  /* Items */
-  ul.items { list-style: none; padding: 0; margin: 0; }
-  ul.items li {
-    padding: 7px 0 7px 18px;
-    border-bottom: 1px solid #f0f0f0;
-    position: relative;
-  }
-  ul.items li:last-child { border-bottom: none; }
-  ul.items li::before {
-    content: "·";
-    position: absolute; left: 4px; top: 7px;
-    color: #999; font-size: 18px;
-  }
-  ul.items .name { font-size: 15px; color: #111; }
-  ul.items .name code { font-family: "SF Mono", Menlo, monospace; font-size: 13px; background: #f3f3f3; padding: 1px 4px; }
-
-  /* Margin notes */
-  .note {
-    font-family: system-ui, sans-serif; font-size: 14px; color: #555;
-    background: #fafafa; border-left: 3px solid #ddd;
-    padding: 16px 20px; margin: 40px 0 16px;
-  }
-  .note strong { color: #111; display: block; margin-bottom: 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; }
-  .note ul { list-style: disc; padding-left: 20px; margin: 0 0 10px; }
-  .note li { padding: 3px 0; }
-  .note p { margin-top: 8px; }
-
-  /* MathJax tweaks */
-  mjx-container { font-size: 0.95em !important; }
-
-  footer { color: #999; font-family: system-ui, sans-serif; font-size: 13px; margin-top: 56px; padding-top: 24px; border-top: 1px solid #eee; }
-  footer a { color: #999; }
-  @media (max-width: 620px) {
-    nav { align-items: flex-start; flex-direction: column; }
-  }
-</style>
 <link rel="stylesheet" href="site.css?v=20260603-clean">
 </head>
 <body class="site-page">
 
+<!-- Generated from content/*.md by tools/build_site.py. Edit Markdown source, not this file. -->
 <nav>
   <a href="index.html" class="brand">Statlib</a>
   <div class="links">
@@ -145,319 +24,300 @@
 <main>
   <div class="wrap">
     <h1>Roadmap</h1>
-    <p class="intro">
-      We have curated a broad selection of core topics by reviewing foundational textbooks and leading journals in mathematical statistics, prioritizing the bedrock theories that have underpinned research over the last two decades. This list is intentionally non-exhaustive. Our goal is to systematically expand it to encompass modern research programs, such as high-dimensional statistics, random matrix theory, conformal inference, the theory of E-values, and computational-statistical trade-offs.
-    </p>
-    <p class="intro">
-      Furthermore, we recognize that much of contemporary and classical theoretical statistics relies fundamentally on empirical process theory and concentration inequalities. Given the immense depth of these fields, we have not yet charted specific results. Instead, we aim to populate these areas organically through community engagement, collaborating to discuss and prioritize our formalization efforts.
-    </p>
-
-<div class="topic-toc">
-  <div class="topic-toc-title">Contents</div>
-  <div class="topic-toc-part"><a href="#topic-i">Classical Cores (1920's-1990's)</a></div>
-  <ul class="topic-toc-sub">
+    <p class="intro">We have curated a broad selection of core topics by reviewing foundational textbooks and leading journals in mathematical statistics, prioritizing the bedrock theories that have underpinned research over the last two decades. This list is intentionally non-exhaustive. Our goal is to systematically expand it to encompass modern research programs, such as high-dimensional statistics, random matrix theory, conformal inference, the theory of E-values, and computational-statistical trade-offs.</p>
+    <p class="intro">Furthermore, we recognize that much of contemporary and classical theoretical statistics relies fundamentally on empirical process theory and concentration inequalities. Given the immense depth of these fields, we have not yet charted specific results. Instead, we aim to populate these areas organically through community engagement, collaborating to discuss and prioritize our formalization efforts.</p>
+    <div class="topic-toc">
+    <div class="topic-toc-title">Contents</div>
+    <div class="topic-toc-part"><a href="#topic-i">Classical Cores (1920&#x27;s-1990&#x27;s)</a></div>
+    <ul class="topic-toc-sub">
     <li><a href="#sec-1-1">1.1 Fundamentals of Decision Theory</a></li>
     <li><a href="#sec-1-2">1.2 Comparison of Experiments</a></li>
     <li><a href="#sec-1-3">1.3 Local Asymptotic Theories</a></li>
     <li><a href="#sec-1-4">1.4 Semiparametric Efficiency Theories</a></li>
     <li><a href="#sec-1-5">1.5 Nonparametric Function Estimation Theories</a></li>
     <li><a href="#sec-1-6">1.6 Minimax Lower Bound Methods</a></li>
-    <li><a href="#sec-1-7">1.7 Ingster's Nonparametric Detection Theory</a></li>
-    <li><a href="#sec-1-8">1.8 Donoho–Johnstone Gaussian Sequence Model</a></li>
+    <li><a href="#sec-1-7">1.7 Ingster&#x27;s Nonparametric Detection Theory</a></li>
+    <li><a href="#sec-1-8">1.8 Donoho-Johnstone Gaussian Sequence Model</a></li>
     <li><a href="#sec-1-9">1.9 Function Space Theories and Wavelets</a></li>
     <li><a href="#sec-1-10">1.10 Functional Estimation Theories</a></li>
     <li><a href="#sec-1-11">1.11 Fundamentals of Bayesian Statistics</a></li>
     <li><a href="#sec-1-12">1.12 Causal Identification Theories</a></li>
     <li><a href="#sec-1-13">1.13 Core Probabilistic Toolbox</a></li>
-  </ul>
-</div>
-
-<div class="topic" id="topic-i">
-  <h2>Classical Cores (1920's-1990's)</h2>
-
-  <div class="section" id="sec-1-1">
+    </ul>
+    </div>
+    <section id="topic-i" class="topic">
+    <h2>Classical Cores (1920&#x27;s-1990&#x27;s)</h2>
+    <section id="sec-1-1" class="section">
     <h3>1.1 Fundamentals of Decision Theory</h3>
     <div class="sub-group">Definitions</div>
     <ul class="items">
-      <li><span class="name"><strong>Decision Theoretic Setup</strong></span></li>
-      <li><span class="name"><strong>Bayes risk</strong>; <strong>Minimax risk</strong></span></li>
-      <li><span class="name"><strong>Admissible decision rules</strong>.</span></li>
-      <li><span class="name"><strong>Complete</strong> and <strong>Essentially complete classes</strong></span></li>
-      <li><span class="name"><strong>Invariant / equivariant decision rules under a group action</strong></span></li>
+    <li><strong>Decision Theoretic Setup</strong></li>
+    <li><strong>Bayes risk</strong>; <strong>Minimax risk</strong></li>
+    <li><strong>Admissible decision rules</strong></li>
+    <li><strong>Complete</strong> and <strong>Essentially complete classes</strong></li>
+    <li><strong>Invariant / equivariant decision rules under a group action</strong></li>
     </ul>
     <div class="sub-group">Theorems / methods.</div>
     <ul class="items">
-      <li><span class="name"><strong>Wald's existence theorem</strong></span></li>
-      <li><span class="name"><strong>Wald's complete-class theorem</strong></span></li>
-      <li><span class="name"><strong>Pointwise characterization of Bayes rules</strong></span></li>
-      <li><span class="name"><strong>Minimax–Bayes duality</strong></span></li>
-      <li><span class="name"><strong>Stein's phenomenon</strong></span></li>
-      <li><span class="name"><strong>James–Stein shrinkage estimation</strong></span></li>
-      <li><span class="name"><strong>Hunt–Stein theorem</strong></span></li>
-      <li><span class="name"><strong>Pitman estimators under location/scale invariance</strong></span></li>
-      <li><span class="name"><strong>Sufficient Statistics, Factorization Theorem</strong></span></li>
-      <li><span class="name"><strong>Complete Statistics, Ancillary Statistics, Basu's Theorem</strong></span></li>
-      <li><span class="name"><strong>Sufficiency reduction &amp; Rao–Blackwell / Lehmann–Scheffé UMVUE theory</strong></span></li>
+    <li><strong>Wald&#x27;s existence theorem</strong></li>
+    <li><strong>Wald&#x27;s complete-class theorem</strong></li>
+    <li><strong>Pointwise characterization of Bayes rules</strong></li>
+    <li><strong>Minimax-Bayes duality</strong></li>
+    <li><strong>Stein&#x27;s phenomenon</strong></li>
+    <li><strong>James-Stein shrinkage estimation</strong></li>
+    <li><strong>Hunt-Stein theorem</strong></li>
+    <li><strong>Pitman estimators under location/scale invariance</strong></li>
+    <li><strong>Sufficient Statistics, Factorization Theorem</strong></li>
+    <li><strong>Complete Statistics, Ancillary Statistics, Basu&#x27;s Theorem</strong></li>
+    <li><strong>Sufficiency reduction and Rao-Blackwell / Lehmann-Scheffé UMVUE theory</strong></li>
     </ul>
-  </div>
-
-  <div class="section" id="sec-1-2">
+    </section>
+    <section id="sec-1-2" class="section">
     <h3>1.2 Comparison of Experiments</h3>
     <div class="sub-group">Definitions.</div>
     <ul class="items">
-      <li><span class="name"><strong>Statistical Experiment</strong></span></li>
-      <li><span class="name"><strong>Markov-kernel / decision-rule formulation of an experiment</strong></span></li>
-      <li><span class="name"><strong>Sufficiency of one experiment for another</strong></span></li>
-      <li><span class="name"><strong>Le Cam's deficiency &amp; Le Cam pseudo-distance</strong></span></li>
-      <li><span class="name"><strong>Equivalent experiments</strong></span></li>
+    <li><strong>Statistical Experiment</strong></li>
+    <li><strong>Markov-kernel / decision-rule formulation of an experiment</strong></li>
+    <li><strong>Sufficiency of one experiment for another</strong></li>
+    <li><strong>Le Cam&#x27;s deficiency and Le Cam pseudo-distance</strong></li>
+    <li><strong>Equivalent experiments</strong></li>
     </ul>
     <div class="sub-group">Theorems/methods.</div>
     <ul class="items">
-      <li><span class="name"><strong>Blackwell's theorem</strong></span></li>
-      <li><span class="name"><strong>Le Cam's randomization criterion</strong></span></li>
-      <li><span class="name"><strong>Bayes-risk characterization of Le Cam's deficiency</strong></span></li>
-      <li><span class="name"><strong>Convergence of experiments</strong></span></li>
-      <li><span class="name"><strong>Asymptotic equivalence of experiments</strong></span></li>
+    <li><strong>Blackwell&#x27;s theorem</strong></li>
+    <li><strong>Le Cam&#x27;s randomization criterion</strong></li>
+    <li><strong>Bayes-risk characterization of Le Cam&#x27;s deficiency</strong></li>
+    <li><strong>Convergence of experiments</strong></li>
+    <li><strong>Asymptotic equivalence of experiments</strong></li>
     </ul>
-  </div>
-
-  <div class="section" id="sec-1-3">
+    </section>
+    <section id="sec-1-3" class="section">
     <h3>1.3 Local Asymptotic Theories</h3>
     <div class="sub-group">Definitions</div>
     <ul class="items">
-      <li><span class="name"><strong>Contiguity</strong></span></li>
-      <li><span class="name"><strong>Local likelihood ratio process</strong></span></li>
-      <li><span class="name"><strong>Quadratic Mean Differentiability (QMD), Score, &amp; Fisher Information</strong></span></li>
-      <li><span class="name"><strong>Local Asymptotic Normality (LAN)</strong></span></li>
-      <li><span class="name"><strong>Local Asymptotic Mixed Normality (LAMN)</strong></span></li>
-      <li><span class="name"><strong>Regular estimation</strong></span></li>
+    <li><strong>Contiguity</strong></li>
+    <li><strong>Local likelihood ratio process</strong></li>
+    <li><strong>Quadratic Mean Differentiability (QMD), Score, and Fisher Information</strong></li>
+    <li><strong>Local Asymptotic Normality (LAN)</strong></li>
+    <li><strong>Local Asymptotic Mixed Normality (LAMN)</strong></li>
+    <li><strong>Regular estimation</strong></li>
     </ul>
     <div class="sub-group">Theorems/methods.</div>
     <ul class="items">
-      <li><span class="name"><strong>Le Cam's Lemmas</strong></span></li>
-      <li><span class="name"><strong>QMD &amp; LAN Expansion</strong></span></li>
-      <li><span class="name"><strong>Hájek's convolution theorem</strong></span></li>
-      <li><span class="name"><strong>Hájek's local asymptotic minimax theorem</strong></span></li>
-      <li><span class="name"><strong>Properties of MLE &amp; Asymptotic Efficiency</strong></span></li>
-      <li><span class="name"><strong>Testing Efficiency — Pitman, Bahadur</strong></span></li>
+    <li><strong>Le Cam&#x27;s Lemmas</strong></li>
+    <li><strong>QMD and LAN Expansion</strong></li>
+    <li><strong>Hájek&#x27;s convolution theorem</strong></li>
+    <li><strong>Hájek&#x27;s local asymptotic minimax theorem</strong></li>
+    <li><strong>Properties of MLE and Asymptotic Efficiency</strong></li>
+    <li><strong>Testing Efficiency: Pitman, Bahadur</strong></li>
     </ul>
-  </div>
-
-  <div class="section" id="sec-1-4">
+    </section>
+    <section id="sec-1-4" class="section">
     <h3>1.4 Semiparametric Efficiency Theories</h3>
     <div class="sub-group">Definitions.</div>
     <ul class="items">
-      <li><span class="name"><strong>Parametric Submodels &amp; Tangent spaces</strong></span></li>
-      <li><span class="name"><strong>Efficient score &amp; Information</strong></span></li>
-      <li><span class="name"><strong>Efficient influence function</strong></span></li>
-      <li><span class="name"><strong>Functionals &amp; Pathwise Differentiability</strong></span></li>
-      <li><span class="name"><strong>Canonical gradient</strong></span></li>
-      <li><span class="name"><strong>Asymptotically linear estimators</strong></span></li>
+    <li><strong>Parametric Submodels and Tangent spaces</strong></li>
+    <li><strong>Efficient score and Information</strong></li>
+    <li><strong>Efficient influence function</strong></li>
+    <li><strong>Functionals and Pathwise Differentiability</strong></li>
+    <li><strong>Canonical gradient</strong></li>
+    <li><strong>Asymptotically linear estimators</strong></li>
     </ul>
     <div class="sub-group">Theorems/methods.</div>
     <ul class="items">
-      <li><span class="name"><strong>Nonparametric Information Bound and Local Asymptotic Minimaxity</strong></span></li>
-      <li><span class="name"><strong>Nonparametric Convolution theorem</strong></span></li>
-      <li><span class="name"><strong>Construction of Efficient estimators &amp; Cross-Fitting</strong></span></li>
+    <li><strong>Nonparametric Information Bound and Local Asymptotic Minimaxity</strong></li>
+    <li><strong>Nonparametric Convolution theorem</strong></li>
+    <li><strong>Construction of Efficient estimators and Cross-Fitting</strong></li>
     </ul>
-  </div>
-
-  <div class="section" id="sec-1-5">
+    </section>
+    <section id="sec-1-5" class="section">
     <h3>1.5 Nonparametric Function Estimation Theories</h3>
     <div class="sub-group">Definitions/ objects.</div>
     <ul class="items">
-      <li><span class="name"><strong>Kernel Smoothing</strong></span></li>
-      <li><span class="name"><strong>Histogram and partition-based estimators</strong></span></li>
-      <li><span class="name"><strong>Series / Projection / orthogonal-series estimators</strong></span></li>
-      <li><span class="name"><strong>Sieve estimators</strong></span></li>
-      <li><span class="name"><strong>Local polynomial regression</strong></span></li>
-      <li><span class="name"><strong>Stone's theorem on universal consistency</strong></span></li>
-      <li><span class="name"><strong>Asymptotic Properties of Kernel Smoothing Estimators</strong></span></li>
-      <li><span class="name"><strong>Asymptotic Theory of Cross-validation</strong></span></li>
-      <li><span class="name"><strong>Pointwise vs. global rates</strong></span></li>
-      <li><span class="name"><strong>Curse of dimensionality</strong></span></li>
-      <li><span class="name"><strong>Stone's minimax-optimal rate theorem</strong></span></li>
+    <li><strong>Kernel Smoothing</strong></li>
+    <li><strong>Histogram and partition-based estimators</strong></li>
+    <li><strong>Series / Projection / orthogonal-series estimators</strong></li>
+    <li><strong>Sieve estimators</strong></li>
+    <li><strong>Local polynomial regression</strong></li>
+    <li><strong>Stone&#x27;s theorem on universal consistency</strong></li>
+    <li><strong>Asymptotic Properties of Kernel Smoothing Estimators</strong></li>
+    <li><strong>Asymptotic Theory of Cross-validation</strong></li>
+    <li><strong>Pointwise vs. global rates</strong></li>
+    <li><strong>Curse of dimensionality</strong></li>
+    <li><strong>Stone&#x27;s minimax-optimal rate theorem</strong></li>
     </ul>
-  </div>
-
-  <div class="section" id="sec-1-6">
+    </section>
+    <section id="sec-1-6" class="section">
     <h3>1.6 Minimax Lower Bound Methods</h3>
     <div class="sub-group">Definitions.</div>
     <ul class="items">
-      <li><span class="name"><strong>Reduction from estimation to testing</strong></span></li>
-      <li><span class="name"><strong>Packing number, Covering number, Metric Entropy</strong></span></li>
+    <li><strong>Reduction from estimation to testing</strong></li>
+    <li><strong>Packing number, Covering number, Metric Entropy</strong></li>
     </ul>
     <div class="sub-group">Theorems / methods.</div>
     <ul class="items">
-      <li><span class="name"><strong>Le Cam's two-point method</strong></span></li>
-      <li><span class="name"><strong>Le Cam's convex-hull method</strong></span></li>
-      <li><span class="name"><strong>Assouad's lemma</strong></span></li>
-      <li><span class="name"><strong>Birgé's refinement of Assouad</strong></span></li>
-      <li><span class="name"><strong>Fano's Lemma</strong></span></li>
-      <li><span class="name"><strong>Yang–Barron metric-entropy method</strong></span></li>
+    <li><strong>Le Cam&#x27;s two-point method</strong></li>
+    <li><strong>Le Cam&#x27;s convex-hull method</strong></li>
+    <li><strong>Assouad&#x27;s lemma</strong></li>
+    <li><strong>Birgé&#x27;s refinement of Assouad</strong></li>
+    <li><strong>Fano&#x27;s Lemma</strong></li>
+    <li><strong>Yang-Barron metric-entropy method</strong></li>
     </ul>
-  </div>
-
-  <div class="section" id="sec-1-7">
-    <h3>1.7 Ingster's Nonparametric Detection Theory</h3>
+    </section>
+    <section id="sec-1-7" class="section">
+    <h3>1.7 Ingster&#x27;s Nonparametric Detection Theory</h3>
     <div class="sub-group">Definitions</div>
     <ul class="items">
-      <li><span class="name"><strong>Minimax Separation Rates</strong></span></li>
-      <li><span class="name"><strong>Detection boundary</strong></span></li>
+    <li><strong>Minimax Separation Rates</strong></li>
+    <li><strong>Detection boundary</strong></li>
     </ul>
     <div class="sub-group">Theorems/methods.</div>
     <ul class="items">
-      <li><span class="name"><strong>Minimax separation rate over Hölder/ Sobolev / Besov classes</strong></span></li>
-      <li><span class="name"><strong>Analysis of Chi-square-type test statistics</strong></span></li>
-      <li><span class="name"><strong>Wavelet-based and quadratic-form tests</strong></span></li>
-      <li><span class="name"><strong>Lower bound via two-point or mixture reduction</strong></span></li>
-      <li><span class="name"><strong>Adaptive minimax tests</strong></span></li>
+    <li><strong>Minimax separation rate over Hölder / Sobolev / Besov classes</strong></li>
+    <li><strong>Analysis of Chi-square-type test statistics</strong></li>
+    <li><strong>Wavelet-based and quadratic-form tests</strong></li>
+    <li><strong>Lower bound via two-point or mixture reduction</strong></li>
+    <li><strong>Adaptive minimax tests</strong></li>
     </ul>
-  </div>
-
-  <div class="section" id="sec-1-8">
-    <h3>1.8 Donoho–Johnstone Gaussian Sequence Model</h3>
+    </section>
+    <section id="sec-1-8" class="section">
+    <h3>1.8 Donoho-Johnstone Gaussian Sequence Model</h3>
     <div class="sub-group">Definitions</div>
     <ul class="items">
-      <li><span class="name"><strong>Gaussian sequence models</strong></span></li>
-      <li><span class="name"><strong>Weak and Strong Sparsity classes</strong></span></li>
-      <li><span class="name"><strong>Ellipsoids and Besov balls</strong></span></li>
-      <li><span class="name"><strong>Soft- and hard-thresholding rules</strong></span></li>
-      <li><span class="name"><strong>SureShrink, VisuShrink, block thresholding</strong></span></li>
+    <li><strong>Gaussian sequence models</strong></li>
+    <li><strong>Weak and Strong Sparsity classes</strong></li>
+    <li><strong>Ellipsoids and Besov balls</strong></li>
+    <li><strong>Soft- and hard-thresholding rules</strong></li>
+    <li><strong>SureShrink, VisuShrink, block thresholding</strong></li>
     </ul>
     <div class="sub-group">Theorems / methods.</div>
     <ul class="items">
-      <li><span class="name"><strong>Sharp Minimax risk over $\ell^p$-balls &amp; Ellipsoids &amp; Pinsker's Theorem</strong></span></li>
-      <li><span class="name"><strong>Simultaneous near-minimax over Besov balls &amp; Donoho–Johnstone universal-threshold theorem</strong></span></li>
-      <li><span class="name"><strong>Block thresholding &amp; sharp minimax-optimal constants</strong></span></li>
-      <li><span class="name"><strong>SURE risk estimator &amp; SureShrink data-driven thresholding</strong></span></li>
-      <li><span class="name"><strong>Maxiset theory</strong></span></li>
-      <li><span class="name"><strong>Asymptotic equivalence to other nonparametric models</strong></span></li>
+    <li><strong>Sharp Minimax risk over $\ell^p$-balls, Ellipsoids, and Pinsker&#x27;s Theorem</strong></li>
+    <li><strong>Simultaneous near-minimax over Besov balls and Donoho-Johnstone universal-threshold theorem</strong></li>
+    <li><strong>Block thresholding and sharp minimax-optimal constants</strong></li>
+    <li><strong>SURE risk estimator and SureShrink data-driven thresholding</strong></li>
+    <li><strong>Maxiset theory</strong></li>
+    <li><strong>Asymptotic equivalence to other nonparametric models</strong></li>
     </ul>
-  </div>
-
-  <div class="section" id="sec-1-9">
+    </section>
+    <section id="sec-1-9" class="section">
     <h3>1.9 Function Space Theories and Wavelets</h3>
     <div class="sub-group">Definitions.</div>
     <ul class="items">
-      <li><span class="name"><strong>Hölder spaces</strong>, <strong>Sobolev spaces</strong>, <strong>Besov spaces</strong>,<strong>Triebel–Lizorkin spaces</strong>, <strong>Nikolskii-Anisotropic Smoothness Spaces</strong>.</span></li>
-      <li><span class="name"><strong>Modulus of continuity characterizations</strong></span></li>
-      <li><span class="name"><strong>Orthonormal wavelet basis</strong></span></li>
-      <li><span class="name"><strong>Multi-resolution analysis (MRA)</strong></span></li>
-      <li><span class="name"><strong>Daubechies compactly-supported wavelets</strong></span></li>
+    <li><strong>Hölder spaces</strong>, <strong>Sobolev spaces</strong>, <strong>Besov spaces</strong>, <strong>Triebel-Lizorkin spaces</strong>, <strong>Nikolskii-Anisotropic Smoothness Spaces</strong></li>
+    <li><strong>Modulus of continuity characterizations</strong></li>
+    <li><strong>Orthonormal wavelet basis</strong></li>
+    <li><strong>Multi-resolution analysis (MRA)</strong></li>
+    <li><strong>Daubechies compactly-supported wavelets</strong></li>
     </ul>
     <div class="sub-group">Theorems / methods.</div>
     <ul class="items">
-      <li><span class="name"><strong>Wavelet characterization of Function Spaces</strong></span></li>
-      <li><span class="name"><strong>Wavelet Basis Approximation theorems</strong>:</span></li>
-      <li><span class="name"><strong>Jackson and Bernstein inequalities</strong></span></li>
-      <li><span class="name"><strong>Embeddings of Function spaces</strong></span></li>
+    <li><strong>Wavelet characterization of Function Spaces</strong></li>
+    <li><strong>Wavelet Basis Approximation theorems</strong></li>
+    <li><strong>Jackson and Bernstein inequalities</strong></li>
+    <li><strong>Embeddings of Function spaces</strong></li>
     </ul>
-  </div>
-
-  <div class="section" id="sec-1-10">
+    </section>
+    <section id="sec-1-10" class="section">
     <h3>1.10 Functional Estimation Theories</h3>
     <div class="sub-group">Definitions</div>
     <ul class="items">
-      <li><span class="name"><strong>Donoho–Liu "geometrizing rates"</strong></span></li>
+    <li><strong>Donoho-Liu &quot;geometrizing rates&quot;</strong></li>
     </ul>
     <div class="sub-group">Theorems / methods.</div>
     <ul class="items">
-      <li><span class="name"><strong>Birgé–Massart oracle inequality for penalized model-selection estimators</strong></span></li>
-      <li><span class="name"><strong>Lepski's method &amp; Adaptive minimax rates</strong></span></li>
-      <li><span class="name"><strong>Donoho–Liu rates for quadratic functionals</strong></span></li>
-      <li><span class="name"><strong>Elbow Effect for Functional Estimation</strong></span></li>
-      <li><span class="name"><strong>Modulus-of-continuity / hardest-one-dimensional-subproblems</strong></span></li>
-      <li><span class="name"><strong>General Nonlinear Integrated functional Estimation</strong></span></li>
-      <li><span class="name"><strong>Higher Order Influence Functions</strong></span></li>
+    <li><strong>Birgé-Massart oracle inequality for penalized model-selection estimators</strong></li>
+    <li><strong>Lepski&#x27;s method and Adaptive minimax rates</strong></li>
+    <li><strong>Donoho-Liu rates for quadratic functionals</strong></li>
+    <li><strong>Elbow Effect for Functional Estimation</strong></li>
+    <li><strong>Modulus-of-continuity / hardest-one-dimensional-subproblems</strong></li>
+    <li><strong>General Nonlinear Integrated functional Estimation</strong></li>
+    <li><strong>Higher Order Influence Functions</strong></li>
     </ul>
-  </div>
-
-  <div class="section" id="sec-1-11">
+    </section>
+    <section id="sec-1-11" class="section">
     <h3>1.11 Fundamentals of Bayesian Statistics</h3>
     <div class="sub-group">Definitions</div>
     <ul class="items">
-      <li><span class="name"><strong>Prior on Space of Probability measures</strong></span></li>
-      <li><span class="name"><strong>RCP, Posterior distribution &amp; marginal likelihood</strong></span></li>
-      <li><span class="name"><strong>Bayes' theorem</strong></span></li>
-      <li><span class="name"><strong>Conjugate families of priors</strong></span></li>
-      <li><span class="name"><strong>Improper priors and conditions for proper posteriors</strong></span></li>
-      <li><span class="name"><strong>Posterior predictive distribution</strong></span></li>
-      <li><span class="name"><strong>Bayes factor</strong></span></li>
-      <li><span class="name"><strong>Credible intervals / sets</strong></span></li>
-      <li><span class="name"><strong>Exchangeable sequences</strong></span></li>
+    <li><strong>Prior on Space of Probability measures</strong></li>
+    <li><strong>RCP, Posterior distribution and marginal likelihood</strong></li>
+    <li><strong>Bayes&#x27; theorem</strong></li>
+    <li><strong>Conjugate families of priors</strong></li>
+    <li><strong>Improper priors and conditions for proper posteriors</strong></li>
+    <li><strong>Posterior predictive distribution</strong></li>
+    <li><strong>Bayes factor</strong></li>
+    <li><strong>Credible intervals / sets</strong></li>
+    <li><strong>Exchangeable sequences</strong></li>
     </ul>
     <div class="sub-group">Theorems / methods.</div>
     <ul class="items">
-      <li><span class="name"><strong>de Finetti's theorem</strong></span></li>
-      <li><span class="name"><strong>Hewitt–Savage zero-one law for exchangeable events</strong></span></li>
-      <li><span class="name"><strong>Doob's consistency theorem</strong></span></li>
-      <li><span class="name"><strong>Schwartz's theorem</strong></span></li>
-      <li><span class="name"><strong>Bernstein–von Mises theorems</strong></span></li>
-      <li><span class="name"><strong>Diaconis–Freedman inconsistency counterexamples</strong></span></li>
-      <li><span class="name"><strong>Lindley's paradox</strong></span></li>
-      <li><span class="name"><strong>Robbins' empirical Bayes / compound decision theory</strong></span></li>
-      <li><span class="name"><strong>Stein's empirical-Bayes interpretation of the James–Stein estimator</strong></span></li>
+    <li><strong>de Finetti&#x27;s theorem</strong></li>
+    <li><strong>Hewitt-Savage zero-one law for exchangeable events</strong></li>
+    <li><strong>Doob&#x27;s consistency theorem</strong></li>
+    <li><strong>Schwartz&#x27;s theorem</strong></li>
+    <li><strong>Bernstein-von Mises theorems</strong></li>
+    <li><strong>Diaconis-Freedman inconsistency counterexamples</strong></li>
+    <li><strong>Lindley&#x27;s paradox</strong></li>
+    <li><strong>Robbins&#x27; empirical Bayes / compound decision theory</strong></li>
+    <li><strong>Stein&#x27;s empirical-Bayes interpretation of the James-Stein estimator</strong></li>
     </ul>
-  </div>
-
-  <div class="section" id="sec-1-12">
+    </section>
+    <section id="sec-1-12" class="section">
     <h3>1.12 Causal Identification Theories</h3>
     <div class="sub-group">Definitions</div>
     <ul class="items">
-      <li><span class="name"><strong>Potential outcomes &amp; counterfactuals</strong></span></li>
-      <li><span class="name"><strong>Stable Unit Treatment Value Assumption (SUTVA)</strong></span></li>
-      <li><span class="name"><strong>Causal estimands</strong></span></li>
-      <li><span class="name"><strong>Causal Bayesian network / causal DAG</strong></span></li>
-      <li><span class="name"><strong>Structural Causal Model (SCM)</strong> -</span></li>
-      <li><span class="name"><strong>Intervention / do-operator</strong></span></li>
-      <li><span class="name"><strong>Interventional distribution</strong></span></li>
-      <li><span class="name"><strong>d-separation</strong></span></li>
-      <li><span class="name"><strong>Confounding / unmeasured confounding</strong></span></li>
-      <li><span class="name"><strong>Back-door path</strong>, <strong>front-door path</strong>, <strong>collider</strong>, <strong>chain</strong>, <strong>fork</strong></span></li>
-      <li><span class="name"><strong>Adjustment sets</strong></span></li>
-      <li><span class="name"><strong>Propensity score</strong></span></li>
-      <li><span class="name"><strong>Instrumental variables (IV)</strong></span></li>
-      <li><span class="name"><strong>Compliance types</strong></span></li>
-      <li><span class="name"><strong>Time-varying treatments &amp; Confounder</strong></span></li>
-      <li><span class="name"><strong>Sequential exchangeability</strong></span></li>
-      <li><span class="name"><strong>Marginal Structural Model (MSM)</strong></span></li>
-      <li><span class="name"><strong>Structural Nested Mean Model (SNMM) / Structural Nested Model (SNM)</strong></span></li>
-      <li><span class="name"><strong>Mediation effects</strong></span></li>
-      <li><span class="name"><strong>Partial identification</strong></span></li>
+    <li><strong>Potential outcomes and counterfactuals</strong></li>
+    <li><strong>Stable Unit Treatment Value Assumption (SUTVA)</strong></li>
+    <li><strong>Causal estimands</strong></li>
+    <li><strong>Causal Bayesian network / causal DAG</strong></li>
+    <li><strong>Structural Causal Model (SCM)</strong></li>
+    <li><strong>Intervention / do-operator</strong></li>
+    <li><strong>Interventional distribution</strong></li>
+    <li><strong>d-separation</strong></li>
+    <li><strong>Confounding / unmeasured confounding</strong></li>
+    <li><strong>Back-door path</strong>, <strong>front-door path</strong>, <strong>collider</strong>, <strong>chain</strong>, <strong>fork</strong></li>
+    <li><strong>Adjustment sets</strong></li>
+    <li><strong>Propensity score</strong></li>
+    <li><strong>Instrumental variables (IV)</strong></li>
+    <li><strong>Compliance types</strong></li>
+    <li><strong>Time-varying treatments and Confounder</strong></li>
+    <li><strong>Sequential exchangeability</strong></li>
+    <li><strong>Marginal Structural Model (MSM)</strong></li>
+    <li><strong>Structural Nested Mean Model (SNMM) / Structural Nested Model (SNM)</strong></li>
+    <li><strong>Mediation effects</strong></li>
+    <li><strong>Partial identification</strong></li>
     </ul>
     <div class="sub-group">Theorems / methods.</div>
     <ul class="items">
-      <li><span class="name"><strong>Verma–Pearl d-separation theorem</strong></span></li>
-      <li><span class="name"><strong>Markov factorization theorem</strong></span></li>
-      <li><span class="name"><strong>Back-door criterion</strong></span></li>
-      <li><span class="name"><strong>Adjustment formula</strong></span></li>
-      <li><span class="name"><strong>Front-door criterion</strong></span></li>
-      <li><span class="name"><strong>Do-calculus, soundness theorem</strong></span></li>
-      <li><span class="name"><strong>Shpitser–Pearl completeness theorem</strong></span></li>
-      <li><span class="name"><strong>ID algorithm</strong></span></li>
-      <li><span class="name"><strong>Robins' g-formula</strong></span></li>
-      <li><span class="name"><strong>G-computation algorithm</strong></span></li>
-      <li><span class="name"><strong>Identification of dynamic treatment regimes</strong></span></li>
-      <li><span class="name"><strong>Marginal Structural Model identification</strong></span></li>
-      <li><span class="name"><strong>Structural Nested Mean Model identification</strong></span></li>
-      <li><span class="name"><strong>Doubly robust identification / estimation</strong></span></li>
-      <li><span class="name"><strong>Rosenbaum–Rubin theorem</strong></span></li>
-      <li><span class="name"><strong>LATE theorems</strong></span></li>
-      <li><span class="name"><strong>Manski bounds</strong></span></li>
-      <li><span class="name"><strong>Verma constraints</strong></span></li>
-      <li><span class="name"><strong>Mediation identifications</strong></span></li>
+    <li><strong>Verma-Pearl d-separation theorem</strong></li>
+    <li><strong>Markov factorization theorem</strong></li>
+    <li><strong>Back-door criterion</strong></li>
+    <li><strong>Adjustment formula</strong></li>
+    <li><strong>Front-door criterion</strong></li>
+    <li><strong>Do-calculus, soundness theorem</strong></li>
+    <li><strong>Shpitser-Pearl completeness theorem</strong></li>
+    <li><strong>ID algorithm</strong></li>
+    <li><strong>Robins&#x27; g-formula</strong></li>
+    <li><strong>G-computation algorithm</strong></li>
+    <li><strong>Identification of dynamic treatment regimes</strong></li>
+    <li><strong>Marginal Structural Model identification</strong></li>
+    <li><strong>Structural Nested Mean Model identification</strong></li>
+    <li><strong>Doubly robust identification / estimation</strong></li>
+    <li><strong>Rosenbaum-Rubin theorem</strong></li>
+    <li><strong>LATE theorems</strong></li>
+    <li><strong>Manski bounds</strong></li>
+    <li><strong>Verma constraints</strong></li>
+    <li><strong>Mediation identifications</strong></li>
     </ul>
-  </div>
-
-  <div class="section" id="sec-1-13">
+    </section>
+    <section id="sec-1-13" class="section">
     <h3>1.13 Core Probabilistic Toolbox</h3>
     <ul class="items">
-      <li><span class="name"><strong>Empirical Process Theory</strong></span></li>
-      <li><span class="name"><strong>Concentration Inequalities</strong></span></li>
+    <li><strong>Empirical Process Theory</strong></li>
+    <li><strong>Concentration Inequalities</strong></li>
     </ul>
-  </div>
-</div>
+    </section>
+    </section>
   </div>
 </main>
 

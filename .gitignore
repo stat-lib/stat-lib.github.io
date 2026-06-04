@@ -7,3 +7,4 @@
 _out/
 node_modules/
 tmp/
+test-results/
