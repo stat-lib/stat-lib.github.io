@@ -6,7 +6,9 @@ intro: true
 
 # Projects
 
-We welcome researchers in sub-areas of statistics to propose projects, contribute projects, and help evolve the library! These projects connect concrete formalization work with the broader Statlib [roadmap](roadmap.html).
+We welcome researchers from all areas to propose projects of many kinds, including computer science projects, dataset-building efforts, automatic theorem proving tools, and research on human-AI collaboration. This is a space to experiment with what research, education, and related enterprises may look like in the future.
+
+At the moment, many listed projects focus on sub-areas of statistics and help evolve the library. These projects connect concrete formalization work with the broader Statlib [roadmap](roadmap.html).
 
 ## 1. Semiparametric Efficiency Theory {#semiparametric-efficiency-theory .project}
 
