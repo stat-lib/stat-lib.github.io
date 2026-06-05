@@ -1,7 +1,40 @@
-{"9":
+{"99":
+ "<code>Prod.snd.{u, v} {α : Type u} {β : Type v} (self : α × β) : β</code><span class=\"sep\"></span><code class=\"docstring\">The second element of a pair. </code>",
+ "98":
+ "<code>Prod.fst.{u, v} {α : Type u} {β : Type v} (self : α × β) : α</code><span class=\"sep\"></span><code class=\"docstring\">The first element of a pair. </code>",
+ "97": "<code>Filter (ℝ × E)</code>",
+ "96": "<code>E →ₗ[ℝ] ↥(Lp ℝ 2 (P θ))</code>",
+ "95":
+ "<code>AddCommMonoid.{u} (M : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">An additive commutative monoid is an additive monoid with commutative `(+)`. </code>",
+ "94":
+ "<code>QMD.HasHadamardQuadraticMeanDerivWithinAt.{u_1, u_2} {Ω : Type u_1} {E : Type u_2} {mΩ : MeasurableSpace Ω}\n  [AddCommMonoid E] [Module ℝ E] [TopologicalSpace E] (P : E → Measure Ω) (μ : Measure Ω) (s : Set E) (θ : E)\n  (A : E →ₗ[ℝ] ↥(Lp ℝ 2 (P θ))) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Hadamard-style quadratic mean differentiability within a set. Along every path `θ + t • a` with\n`t → 0`, `a → h`, and eventually staying in `s`, the `L²(μ)` remainder with direction `h` tends to\nzero. We do not assume that the derivative is continuous. </code>",
+ "93": "<code>ℝ</code>",
+ "92":
+ "<code>ENNReal.toReal (a : ℝ≥0∞) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">`toReal x` returns `x` if it is real, `0` otherwise. </code>",
+ "91":
+ "<code>MeasureTheory.Measure.rnDeriv.{u_2} {α : Type u_2} {m : MeasurableSpace α} (μ ν : Measure α) : α → ℝ≥0∞</code><span class=\"sep\"></span><code class=\"docstring\">If a pair of measures `HaveLebesgueDecomposition`, then `rnDeriv` chooses the\nmeasurable function from `HaveLebesgueDecomposition`, otherwise it returns the zero function.\nFor sigma-finite measures, `μ = μ.singularPart ν + ν.withDensity (μ.rnDeriv ν)`. </code>",
+ "90": "<code>Ω</code>",
+ "9":
  "<code>ProbabilityTheory.Kernel.{u_1, u_2} (α : Type u_1) (β : Type u_2) [MeasurableSpace α] [MeasurableSpace β] :\n  Type (max u_1 u_2)</code><span class=\"sep\"></span><code class=\"docstring\">A kernel from a measurable space `α` to another measurable space `β` is a measurable function\n`κ : α → Measure β`. The measurable space structure on `MeasureTheory.Measure β` is given by\n`MeasureTheory.Measure.instMeasurableSpace`. A map `κ : α → MeasureTheory.Measure β` is measurable\niff `∀ s : Set β, MeasurableSet s → Measurable (fun a ↦ κ a s)`. </code>",
+ "89":
+ "<code>MeasureTheory.lpNorm.{u_1, u_4} {α : Type u_1} {E : Type u_4} {m0 : MeasurableSpace α} [NormedAddCommGroup E]\n  (f : α → E) (p : ℝ≥0∞) (μ : Measure α) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">Real-valued `ℒp` seminorm, equal to `0` for `p = 0`, to `(∫ ‖f a‖^p ∂μ) ^ p⁻¹` for `0 &lt; p &lt; ∞`\nand to `essSup ‖f‖ μ` for `p = ∞`.\n\nThis is well-defined only if `MemLp f p μ`. Otherwise, it equals `0`. </code>",
+ "88": "<code>E →ₗ[ℝ] ↥(Lp ℝ 2 (P x))</code>",
+ "87": "<code>E</code>",
+ "86": "<code>Set E</code>",
+ "85": "<code>Measure Ω</code>",
+ "84": "<code>E → Measure Ω</code>",
+ "83":
+ "<code>TopologicalSpace.{u} (X : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A topology on `X`. </code>",
+ "82":
+ "<code>Module.{u, v} (R : Type u) (M : Type v) [Semiring R] [AddCommMonoid M] : Type (max u v)</code><span class=\"sep\"></span><code class=\"docstring\">A module is a generalization of vector spaces to a scalar semiring.\nIt consists of a scalar semiring `R` and an additive monoid of \"vectors\" `M`,\nconnected by a \"scalar multiplication\" operation `r • x : M`\n(where `r : R` and `x : M`) with some natural associativity and\ndistributivity axioms similar to those on a ring. </code>",
+ "81":
+ "<code>AddCommGroup.{u} (G : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">An additive commutative group is an additive group with commutative `(+)`. </code>",
+ "80": "<code>MeasurableSpace Ω</code>",
  "8":
  "<code>Set.{u} (α : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A set is a collection of elements of some type `α`.\n\nAlthough `Set` is defined as `α → Prop`, this is an implementation detail which should not be\nrelied on. Instead, `setOf` and membership of a set (`∈`) should be used to convert between sets\nand predicates.\n</code>",
+ "79": "<code>Type u_2</code>",
+ "78":
+ "<code>QMD.HasQuadraticMeanDerivWithinAt.{u_1, u_2} {Ω : Type u_1} {E : Type u_2} {mΩ : MeasurableSpace Ω} [AddCommGroup E]\n  [Module ℝ E] [TopologicalSpace E] (P : E → Measure Ω) (μ : Measure Ω) (s : Set E) (x : E)\n  (A : E →ₗ[ℝ] ↥(Lp ℝ 2 (P x))) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Quadratic mean differentiability within a set.  The `L²(μ)` remainder is `o(y - x)` as\n`y → x` within `s`. We do not assume that the derivative is continuous. </code>",
  "77":
  "<code>InferenceModelofKernel.IsUniformlyConsistent.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type}\n  [(i : ι) → MeasurableSpace (θ i)] [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)]\n  [(i : ι) → MeasurableSpace (X i)] [(i : ι) → MeasurableSpace (Y i)] (l : Filter ι)\n  (I : InferenceModelofKernel ι θ Ω S X Y) : Prop</code>",
  "76": "<code>∀ (i : ι), κ i ∈ I.domain i</code>",
@@ -106,19 +139,180 @@
  "<code class=\"docstring\">The syntax `variable (X Y ... Z : Type*)` creates a new distinct implicit universe variable\n`&gt; 0` for each variable in the sequence. </code>",
  "19":
  "<code>InferenceModelofKernel.loss_function.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (θ i)]\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] (self : InferenceModelofKernel ι θ Ω S X Y) (i : ι) : Y i → S i → ℝ≥0∞</code>",
+ "189":
+ "<code>inv_mul_cancel_left₀.{u_2} {G₀ : Type u_2} [GroupWithZero G₀] {a : G₀} (h : a ≠ 0) (b : G₀) : a⁻¹ * (a * b) = b</code>",
+ "188":
+ "<code>integral_const_mul_of_integrable.{u_1, u_8} {X : Type u_1} [MeasurableSpace X] {μ : Measure X} {A : Type u_8}\n  [NonUnitalNormedRing A] [NormedSpace ℝ A] [IsScalarTower ℝ A A] [SMulCommClass ℝ A A] {f : X → A}\n  (hf : Integrable f μ) {c : A} : ∫ (x : X), c * f x ∂μ = c * ∫ (x : X), f x ∂μ</code>",
+ "187":
+ "<code>mul_comm.{u_1} {G : Type u_1} [CommMagma G] (a b : G) : a * b = b * a</code>",
+ "186":
+ "<code>smul_eq_mul.{u_9} {α : Type u_9} [Mul α] (a b : α) : a • b = a * b</code>",
+ "185":
+ "<code>Pi.smul_apply.{u_1, u_2, u_5} {ι : Type u_1} {α : Type u_2} {M : ι → Type u_5} [(i : ι) → SMul α (M i)] (a : α)\n  (f : (i : ι) → M i) (i : ι) : (a • f) i = a • f i</code>",
+ "184": "<code>↑↑(p.1 • A h) ω = (p.1 • ↑↑(A h)) ω</code>",
+ "183": "<code>↑↑(p.1 • A h) ω ≠ (p.1 • ↑↑(A h)) ω</code>",
+ "182":
+ "<code class=\"docstring\">`by_cases! h : p` runs the `by_cases h : p` tactic, followed by\n`push Not at h` in the second subgoal. For example,\n- `by_cases! h : a &lt; b` creates one goal with hypothesis `h : a &lt; b` and\n  another with `h : b ≤ a`.\n- `by_cases! h : a ≠ b` creates one goal with hypothesis `h : a ≠ b` and\n  another with `h : a = b`.\n</code>",
+ "181":
+ "<code>Ne.{u} {α : Sort u} (a b : α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`a ≠ b`, or `Ne a b` is defined as `¬ (a = b)` or `a = b → False`,\nand asserts that `a` and `b` are not equal.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≠` in identifiers is `ne`.</code>",
+ "180":
+ "<code>↑↑(p.1 • A h) ω ≠ (p.1 • ↑↑(A h)) ω → (P θ).rnDeriv μ ω = 0</code>",
  "18":
  "<code>InferenceModelofKernel.decision_rule.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (θ i)]\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] (self : InferenceModelofKernel ι θ Ω S X Y) (i : ι) : Kernel (X i) (Y i)</code>",
+ "179":
+ "<code>MeasureTheory.Lp.coeFn_smul.{u_1, u_2, u_4} {α : Type u_1} {𝕜 : Type u_2} {E : Type u_4} {m : MeasurableSpace α}\n  {p : ℝ≥0∞} {μ : Measure α} [NormedAddCommGroup E] [NormedRing 𝕜] [Module 𝕜 E] [IsBoundedSMul 𝕜 E] (c : 𝕜)\n  (f : ↥(Lp E p μ)) : ↑↑(c • f) =ᶠ[ae μ] c • ↑↑f</code>",
+ "178":
+ "<code>MeasureTheory.Measure.rnDeriv_eq_zero_of_ae_eq.{u_1, u_2} {Ω : Type u_1} {β : Type u_2} {mΩ : MeasurableSpace Ω}\n  {μ ν : Measure Ω} [ν.HaveLebesgueDecomposition μ] {Z Z' : Ω → β} (hνμ : ν ≪ μ) (hZ : Z =ᶠ[ae ν] Z') :\n  ∀ᵐ (ω : Ω) ∂μ, Z ω ≠ Z' ω → ν.rnDeriv μ ω = 0</code><span class=\"sep\"></span><code class=\"docstring\">If two versions of a random variable agree almost everywhere under a measure `ν` that is\nabsolutely continuous with respect to `μ`, then the Radon-Nikodym derivative of `ν` with respect\nto `μ` vanishes `μ`-almost everywhere on the set where the two versions differ. </code>",
+ "177":
+ "<code>MeasureTheory.ae.{u_1, u_3} {α : Type u_1} {F : Type u_3} [FunLike F (Set α) ℝ≥0∞] [OuterMeasureClass F α] (μ : F) :\n  Filter α</code><span class=\"sep\"></span><code class=\"docstring\">The “almost everywhere” filter of co-null sets. </code>",
+ "176":
+ "<code>MeasureTheory.integral_congr_ae.{u_1, u_5} {α : Type u_1} {G : Type u_5} [NormedAddCommGroup G] [NormedSpace ℝ G]\n  {m : MeasurableSpace α} {μ : Measure α} {f g : α → G} (h : f =ᶠ[ae μ] g) : ∫ (a : α), f a ∂μ = ∫ (a : α), g a ∂μ</code>",
+ "175":
+ "<code>Or.inl {a b : Prop} (h : a) : a ∨ b</code><span class=\"sep\"></span><code class=\"docstring\">`Or.inl` is \"left injection\" into an `Or`. If `h : a` then `Or.inl h : a ∨ b`. </code>",
+ "174":
+ "<code>Or (a b : Prop) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`Or a b`, or `a ∨ b`, is the disjunction of propositions. There are two\nconstructors for `Or`, called `Or.inl : a → a ∨ b` and `Or.inr : b → a ∨ b`,\nand you can use `match` or `cases` to destruct an `Or` assumption into the\ntwo cases.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∨` in identifiers is `or`.</code>",
+ "173":
+ "<code>inv_eq_zero.{u_2} {G₀ : Type u_2} [GroupWithZero G₀] {a : G₀} : a⁻¹ = 0 ↔ a = 0</code>",
+ "172":
+ "<code>mul_eq_mul_left_iff.{u_1} {M₀ : Type u_1} [MulZeroClass M₀] [IsLeftCancelMulZero M₀] {a b c : M₀} :\n  a * b = a * c ↔ b = c ∨ a = 0</code>",
+ "171":
+ "<code>add_right_inj.{u_1} {G : Type u_1} [Add G] [IsLeftCancelAdd G] (a : G) {b c : G} : a + b = a + c ↔ b = c</code>",
+ "170":
+ "<code>map_smul.{u_8, u_9, u_10, u_11} {F : Type u_8} {M : Type u_9} {X : Type u_10} {Y : Type u_11} [SMul M X] [SMul M Y]\n  [FunLike F X Y] [MulActionHomClass F M X Y] (f : F) (c : M) (x : X) : f (c • x) = c • f x</code>",
  "17": "<code>(i : ι) → Ω i → X i</code>",
+ "169":
+ "<code>mul_add.{v} {R : Type v} [Mul R] [Add R] [LeftDistribClass R] (a b c : R) : a * (b + c) = a * b + a * c</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `left_distrib`.</code>",
+ "168":
+ "<code>MeasureTheory.Integrable.const_mul.{u_1, u_8} {α : Type u_1} {m : MeasurableSpace α} {μ : Measure α} {𝕜 : Type u_8}\n  [NormedRing 𝕜] {f : α → 𝕜} (h : Integrable f μ) (c : 𝕜) : Integrable (fun x =&gt; c * f x) μ</code>",
+ "167":
+ "<code>QMD.Lp.integrable_mul_sqrt_rnDeriv_mul_sqrt_rnDeriv_add.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace Ω} {m₁ μ : Measure Ω}\n  [IsFiniteMeasure m₁] (m₂ : Measure Ω) [IsFiniteMeasure m₂] [SigmaFinite m₁] [m₁.HaveLebesgueDecomposition μ]\n  (hm₁ : m₁ ≪ μ) (u : ↥(Lp ℝ 2 m₁)) :\n  Integrable (fun ω =&gt; ↑↑u ω * √(m₁.rnDeriv μ ω).toReal * (√(m₂.rnDeriv μ ω).toReal + √(m₁.rnDeriv μ ω).toReal)) μ</code><span class=\"sep\"></span><code class=\"docstring\">Integrability for `u * √(dm₁/dμ) * (√(dm₂/dμ) + √(dm₁/dμ))`. </code>",
+ "166":
+ "<code>mul_assoc.{u_1} {G : Type u_1} [Semigroup G] (a b c : G) : a * b * c = a * (b * c)</code>",
+ "165":
+ "<code class=\"docstring\">This is a \"finishing\" tactic modification of `simp`. It has two forms.\n\n* `simpa [rules, ⋯] using e` will simplify the goal and the type of\n`e` using `rules`, then try to close the goal using `e`.\n\nSimplifying the type of `e` makes it more likely to match the goal\n(which has also been simplified). This construction also tends to be\nmore robust under changes to the simp lemma set.\n\n* `simpa [rules, ⋯]` will simplify the goal and the type of a\nhypothesis `this` if present in the context, then try to close the goal using\nthe `assumption` tactic.\n</code>",
+ "164":
+ "<code>QMD.Lp.integrable_sqrt_rnDeriv_sub_sqrt_rnDeriv_sub_const_mul_mul_sqrt_rnDeriv_add.{u_1} {Ω : Type u_1}\n  {mΩ : MeasurableSpace Ω} {m₁ m₂ μ : Measure Ω} [IsFiniteMeasure m₁] [IsFiniteMeasure m₂] [SigmaFinite m₂]\n  [m₂.HaveLebesgueDecomposition μ] (hm₂ : m₂ ≪ μ) (c : ℝ) (u : ↥(Lp ℝ 2 m₂)) :\n  Integrable\n    (fun ω =&gt;\n      (√(m₁.rnDeriv μ ω).toReal - √(m₂.rnDeriv μ ω).toReal - c * ↑↑u ω * √(m₂.rnDeriv μ ω).toReal) *\n        (√(m₁.rnDeriv μ ω).toReal + √(m₂.rnDeriv μ ω).toReal))\n    μ</code><span class=\"sep\"></span><code class=\"docstring\">Integrability for the QMD remainder multiplied by the sum of the two square-root densities. </code>",
+ "163":
+ "<code class=\"docstring\">`exact e` closes the main goal if its target type matches that of `e`.\n</code>",
+ "162":
+ "<code>MeasureTheory.Integrable.{u_5, u_8} {ε : Type u_5} [TopologicalSpace ε] [ContinuousENorm ε] {α : Type u_8}\n  {x✝ : MeasurableSpace α} (f : α → ε) (μ : Measure α := by volume_tac) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`Integrable f μ` means that `f` is measurable and that the integral `∫⁻ a, ‖f a‖ ∂μ` is finite.\n`Integrable f` means `Integrable f volume`. </code>",
+ "161":
+ "<code>MeasureTheory.integral_add.{u_1, u_5} {α : Type u_1} {G : Type u_5} [NormedAddCommGroup G] [NormedSpace ℝ G]\n  {m : MeasurableSpace α} {μ : Measure α} {f g : α → G} (hf : Integrable f μ) (hg : Integrable g μ) :\n  ∫ (a : α), f a + g a ∂μ = ∫ (a : α), f a ∂μ + ∫ (a : α), g a ∂μ</code>",
+ "160":
+ "<code>add_mul.{v} {R : Type v} [Mul R] [Add R] [RightDistribClass R] (a b c : R) : (a + b) * c = a * c + b * c</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `right_distrib`.</code>",
  "16":
  "<code>InferenceModelofKernel.measurable_data.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (θ i)]\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] (self : InferenceModelofKernel ι θ Ω S X Y) (i : ι) : Measurable (self.data i)</code>",
+ "159":
+ "<code>QMD.integral_diff_sq_eq_zero.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace Ω} {m₁ m₂ μ : Measure Ω} [SigmaFinite μ]\n  [IsProbabilityMeasure m₁] [IsProbabilityMeasure m₂] (hm₁ : m₁ ≪ μ) (hm₂ : m₂ ≪ μ) :\n  ∫ (ω : Ω),\n      (√(m₁.rnDeriv μ ω).toReal - √(m₂.rnDeriv μ ω).toReal) * (√(m₁.rnDeriv μ ω).toReal + √(m₂.rnDeriv μ ω).toReal) ∂μ =\n    0</code><span class=\"sep\"></span><code class=\"docstring\">The difference of squares formula for two square root densities of probability measures. </code>",
+ "158":
+ "<code class=\"docstring\">`rw` is like `rewrite`, but also tries to close the goal by \"cheap\" (reducible) `rfl` afterwards.\n</code>",
+ "157":
+ "<code class=\"docstring\">The `simp` tactic uses lemmas and hypotheses to simplify the main goal target or\nnon-dependent hypotheses. It has many variants:\n- `simp` simplifies the main goal target using lemmas tagged with the attribute `[simp]`.\n- `simp [h₁, h₂, ..., hₙ]` simplifies the main goal target using the lemmas tagged\n  with the attribute `[simp]` and the given `hᵢ`'s, where the `hᵢ`'s are expressions.-\n- If an `hᵢ` is a defined constant `f`, then `f` is unfolded. If `f` has equational lemmas associated\n  with it (and is not a projection or a `reducible` definition), these are used to rewrite with `f`.\n- `simp [*]` simplifies the main goal target using the lemmas tagged with the\n  attribute `[simp]` and all hypotheses.\n- `simp only [h₁, h₂, ..., hₙ]` is like `simp [h₁, h₂, ..., hₙ]` but does not use `[simp]` lemmas.\n- `simp [-id₁, ..., -idₙ]` simplifies the main goal target using the lemmas tagged\n  with the attribute `[simp]`, but removes the ones named `idᵢ`.\n- `simp at h₁ h₂ ... hₙ` simplifies the hypotheses `h₁ : T₁` ... `hₙ : Tₙ`. If\n  the target or another hypothesis depends on `hᵢ`, a new simplified hypothesis\n  `hᵢ` is introduced, but the old one remains in the local context.\n- `simp at *` simplifies all the hypotheses and the target.\n- `simp [*] at *` simplifies target and all (propositional) hypotheses using the\n  other hypotheses.\n</code>",
+ "156":
+ "<code class=\"docstring\">Step-wise reasoning over transitive relations.\n```\ncalc\n  a = b := pab\n  b = c := pbc\n  ...\n  y = z := pyz\n```\nproves `a = z` from the given step-wise proofs. `=` can be replaced with any\nrelation implementing the typeclass `Trans`. Instead of repeating the right-\nhand sides, subsequent left-hand sides can be replaced with `_`.\n```\ncalc\n  a = b := pab\n  _ = c := pbc\n  ...\n  _ = z := pyz\n```\nIt is also possible to write the *first* relation as `&lt;lhs&gt;\\n  _ = &lt;rhs&gt; :=\n&lt;proof&gt;`. This is useful for aligning relation symbols, especially on longer\nidentifiers:\n```\ncalc abc\n  _ = bce := pabce\n  _ = cef := pbcef\n  ...\n  _ = xyz := pwxyz\n```\n\n`calc` works as a term, as a tactic or as a `conv` tactic.\n\nSee [Theorem Proving in Lean 4][tpil4] for more information.\n\n[tpil4]: https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#calculational-proofs\n</code>",
+ "155": "<code>IsProbabilityMeasure (P θ)</code>",
+ "154": "<code>IsProbabilityMeasure (P (θ + p.1 • p.2))</code>",
+ "153":
+ "<code class=\"docstring\">The `have` tactic is for adding opaque definitions and hypotheses to the local context of the main goal.\nThe definitions forget their associated value and cannot be unfolded, unlike definitions added by the `let` tactic.\n\n* `have h : t := e` adds the hypothesis `h : t` if `e` is a term of type `t`.\n* `have h := e` uses the type of `e` for `t`.\n* `have : t := e` and `have := e` use `this` for the name of the hypothesis.\n* `have pat := e` for a pattern `pat` is equivalent to `match e with | pat =&gt; _`,\n  where `_` stands for the tactics that follow this one.\n  It is convenient for types that have only one applicable constructor.\n  For example, given `h : p ∧ q ∧ r`, `have ⟨h₁, h₂, h₃⟩ := h` produces the\n  hypotheses `h₁ : p`, `h₂ : q`, and `h₃ : r`.\n* The syntax `have (eq := h) pat := e` is equivalent to `match h : e with | pat =&gt; _`,\n  which adds the equation `h : e = pat` to the local context.\n\nThe tactic supports all the same syntax variants and options as the `have` term.\n\n## Properties and relations\n\n* It is not possible to unfold a variable introduced using `have`, since the definition's value is forgotten.\n  The `let` tactic introduces definitions that can be unfolded.\n* The `have h : t := e` is like doing `let h : t := e; clear_value h`.\n* The `have` tactic is preferred for propositions, and `let` is preferred for non-propositions.\n* Sometimes `have` is used for non-propositions to ensure that the variable is never unfolded,\n  which may be important for performance reasons.\n    Consider using the equivalent `let +nondep` to indicate the intent.\n\n</code>",
+ "152": "<code>p.1 ∈ {0}ᶜ</code>",
+ "151":
+ "<code>Compl.compl.{u_1} {α : Type u_1} [self : Compl α] : α → α</code><span class=\"sep\"></span><code class=\"docstring\">Set / lattice complement \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `ᶜ` in identifiers is `compl`.</code>",
+ "150":
+ "<code>Singleton.singleton.{u, v} {α : outParam (Type u)} {β : Type v} [self : Singleton α β] : α → β</code><span class=\"sep\"></span><code class=\"docstring\">`singleton x` is a collection with the single element `x` (notation: `{x}`). \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `{x}` in identifiers is `singleton`.</code>",
  "15":
  "<code>InferenceModelofKernel.data.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (θ i)]\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] (self : InferenceModelofKernel ι θ Ω S X Y) (i : ι) : Ω i → X i</code>",
+ "149": "<code>θ + p.1 • p.2 ∈ s</code>",
+ "148":
+ "<code>tendsto_nhdsWithin_iff.{u_1, u_2} {α : Type u_1} {β : Type u_2} [TopologicalSpace α] {a : α} {l : Filter β} {s : Set α}\n  {f : β → α} : Tendsto f l (𝓝[s] a) ↔ Tendsto f l (𝓝 a) ∧ ∀ᶠ (n : β) in l, f n ∈ s</code>",
+ "147":
+ "<code class=\"docstring\">`filter_upwards [h₁, ⋯, hₙ]` replaces a goal of the form `s ∈ f` and terms\n`h₁ : t₁ ∈ f, ⋯, hₙ : tₙ ∈ f` with `∀ x, x ∈ t₁ → ⋯ → x ∈ tₙ → x ∈ s`.\nThe list is an optional parameter, `[]` being its default value.\n\n`filter_upwards [h₁, ⋯, hₙ] with a₁ a₂ ⋯ aₖ` is a short form for\n`{ filter_upwards [h₁, ⋯, hₙ], intro a₁ a₂ ⋯ aₖ }`.\n\n`filter_upwards [h₁, ⋯, hₙ] using e` is a short form for\n`{ filter_upwards [h1, ⋯, hn], exact e }`.\n\nCombining both shortcuts is done by writing `filter_upwards [h₁, ⋯, hₙ] with a₁ a₂ ⋯ aₖ using e`.\nNote that in this case, the `aᵢ` terms can be used in `e`.\n</code>",
+ "146":
+ "<code>Filter.EventuallyEq.{u_1, u_2} {α : Type u_1} {β : Type u_2} (l : Filter α) (f g : α → β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Two functions `f` and `g` are *eventually equal* along a filter `l` if the set of `x` such that\n`f x = g x` belongs to `l`. </code>",
+ "145":
+ "<code>Filter.EventuallyEq.symm.{u, v} {α : Type u} {β : Type v} {f g : α → β} {l : Filter α} (H : f =ᶠ[l] g) : g =ᶠ[l] f</code>",
+ "144":
+ "<code>Filter.EventuallyEq.tendsto.{u, u_1} {X : Type u} [TopologicalSpace X] {α : Type u_1} {x : X} {l : Filter α} {f : α → X}\n  (hf : f =ᶠ[l] fun x_1 =&gt; x) : Tendsto f l (𝓝 x)</code>",
+ "143":
+ "<code class=\"docstring\">`apply e` tries to match the current goal against the conclusion of `e`'s type.\nIf it succeeds, then the tactic returns as many subgoals as the number of premises that\nhave not been fixed by type inference or type class resolution.\nNon-dependent premises are added before dependent ones.\n\nThe `apply` tactic uses higher-order pattern matching, type class resolution,\nand first-order unification with dependent types.\n\n\nExtensions:\n\n * * `apply (config := cfg) e` allows for additional configuration (see `Lean.Meta.ApplyConfig`):\n     * `newGoals` controls which new goals are added by `apply`, in which order.\n     * `-synthAssignedInstances` will not synthesize instance implicit arguments if they have been\n       assigned by `isDefEq`.\n     * `+allowSynthFailures` will create new goals when instance synthesis fails, rather than erroring.\n     * `+approx` enables `isDefEq` approximations (see `Lean.Meta.approxDefEq`).</code>",
+ "142":
+ "<code>Real.sqrt (x : ℝ) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The square root of a real number. This returns 0 for negative inputs.\n\nThis has notation `√x`. Note that `√x⁻¹` is parsed as `√(x⁻¹)`. </code>",
+ "141":
+ "<code>HSub.hSub.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HSub α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a - b` computes the difference of `a` and `b`.\nThe meaning of this notation is type-dependent.\n* For natural numbers, this operator saturates at 0: `a - b = 0` when `a ≤ b`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `-` in identifiers is `sub` (when used as a binary operator).</code>",
+ "140":
+ "<code>HMul.hMul.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HMul α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a * b` computes the product of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `*` in identifiers is `mul`.</code>",
  "14": "<code>(i : ι) → ↑(domain i) → S i</code>",
+ "139":
+ "<code>Inv.inv.{u} {α : Type u} [self : Inv α] : α → α</code><span class=\"sep\"></span><code class=\"docstring\">`a⁻¹` computes the inverse of `a`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `⁻¹` in identifiers is `inv`.</code>",
+ "138":
+ "<code>QMD.tendsto_integral_score.{u_1, u_2} {Ω : Type u_1} {E : Type u_2} {mΩ : MeasurableSpace Ω} [AddCommMonoid E]\n  [Module ℝ E] [TopologicalSpace E] {P : E → Measure Ω} {μ : Measure Ω} [SigmaFinite μ] {s : Set E} {θ h : E}\n  {A : E →ₗ[ℝ] ↥(Lp ℝ 2 (P θ))} (hA : HasHadamardQuadraticMeanDerivWithinAt P μ s θ A) (hθ : θ ∈ s)\n  (hprob : ∀ x ∈ s, IsProbabilityMeasure (P x)) (hs : ∀ x ∈ s, P x ≪ μ) {l : Filter (ℝ × E)}\n  (hzero : Tendsto Prod.fst l (𝓝[≠] 0)) (hh : Tendsto Prod.snd l (𝓝 h)) (he : ∀ᶠ (p : ℝ × E) in l, θ + p.1 • p.2 ∈ s) :\n  Tendsto\n    (fun p =&gt;\n      ∫ (ω : Ω),\n        2⁻¹ * ↑↑(A h) ω * √((P θ).rnDeriv μ ω).toReal *\n          (√((P (θ + p.1 • p.2)).rnDeriv μ ω).toReal + √((P θ).rnDeriv μ ω).toReal) ∂μ)\n    l (𝓝 (∫ (ω : Ω), ↑↑(A h) ω ∂P θ))</code><span class=\"sep\"></span><code class=\"docstring\">The score term paired with the sum of square-root densities converges to the score integral. </code>",
+ "137":
+ "<code>Filter.Tendsto.add.{u_1, u_2} {M : Type u_1} [TopologicalSpace M] [Add M] [ContinuousAdd M] {α : Type u_2} {f g : α → M}\n  {x : Filter α} {a b : M} (hf : Tendsto f x (𝓝 a)) (hg : Tendsto g x (𝓝 b)) :\n  Tendsto (fun x =&gt; f x + g x) x (𝓝 (a + b))</code>",
+ "136":
+ "<code>tendsto_nhds_of_tendsto_nhdsWithin.{u_1, u_2} {α : Type u_1} {β : Type u_2} [TopologicalSpace α] {f : β → α} {a : α}\n  {s : Set α} {l : Filter β} (h : Tendsto f l (𝓝[s] a)) : Tendsto f l (𝓝 a)</code>",
+ "135":
+ "<code>QMD.tendsto_zero.{u_1, u_2} {Ω : Type u_1} {E : Type u_2} {mΩ : MeasurableSpace Ω} [AddCommMonoid E] [Module ℝ E]\n  [TopologicalSpace E] {P : E → Measure Ω} {μ : Measure Ω} [SigmaFinite μ] {s : Set E} {θ h : E}\n  {A : E →ₗ[ℝ] ↥(Lp ℝ 2 (P θ))} (hA : HasHadamardQuadraticMeanDerivWithinAt P μ s θ A) (hθ : θ ∈ s)\n  (hprob : ∀ x ∈ s, IsProbabilityMeasure (P x)) (hs : ∀ x ∈ s, P x ≪ μ) {l : Filter (ℝ × E)}\n  (hzero : Tendsto Prod.fst l (𝓝 0)) (hh : Tendsto Prod.snd l (𝓝 h)) (he : ∀ᶠ (p : ℝ × E) in l, θ + p.1 • p.2 ∈ s) :\n  Tendsto\n    (fun p =&gt;\n      p.1⁻¹ *\n        ∫ (ω : Ω),\n          (√((P (θ + p.1 • p.2)).rnDeriv μ ω).toReal - √((P θ).rnDeriv μ ω).toReal -\n              2⁻¹ * ↑↑(A (p.1 • h)) ω * √((P θ).rnDeriv μ ω).toReal) *\n            (√((P (θ + p.1 • p.2)).rnDeriv μ ω).toReal + √((P θ).rnDeriv μ ω).toReal) ∂μ)\n    l (𝓝 0)</code><span class=\"sep\"></span><code class=\"docstring\">The scaled integral of the QMD remainder against the sum of square-root densities tends to\nzero. </code>",
+ "134":
+ "<code>zero_add.{u} {M : Type u} [AddZeroClass M] (a : M) : 0 + a = a</code>",
+ "133":
+ "<code>tendsto_nhds_unique.{u_1, u_2} {X : Type u_1} {Y : Type u_2} [TopologicalSpace X] [T2Space X] {f : Y → X} {l : Filter Y}\n  {a b : X} [l.NeBot] (ha : Tendsto f l (𝓝 a)) (hb : Tendsto f l (𝓝 b)) : a = b</code>",
+ "132":
+ "<code class=\"docstring\">`refine e` behaves like `exact e`, except that named (`?x`) or unnamed (`?_`)\nholes in `e` that are not solved by unification with the main goal's target type\nare converted into new goals, using the hole's name, if any, as the goal case name.\n</code>",
+ "131":
+ "<code>Eq.{u_1} {α : Sort u_1} : α → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">The equality relation. It has one introduction rule, `Eq.refl`.\nWe use `a = b` as notation for `Eq a b`.\nA fundamental property of equality is that it is an equivalence relation.\n```\nvariable (α : Type) (a b c d : α)\nvariable (hab : a = b) (hcb : c = b) (hcd : c = d)\n\nexample : a = d :=\n  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd\n```\nEquality is much more than an equivalence relation, however. It has the important property that every assertion\nrespects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.\nThat is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.\nExample:\n```\nexample (α : Type) (a b : α) (p : α → Prop)\n        (h1 : a = b) (h2 : p a) : p b :=\n  Eq.subst h1 h2\n\nexample (α : Type) (a b : α) (p : α → Prop)\n    (h1 : a = b) (h2 : p a) : p b :=\n  h1 ▸ h2\n```\nThe triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\\t`.\nFor more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `=` in identifiers is `eq`.</code>",
+ "130":
+ "<code>MeasureTheory.integral.{u_6, u_7} {α : Type u_6} {G : Type u_7} [NormedAddCommGroup G] [NormedSpace ℝ G]\n  {x✝ : MeasurableSpace α} (μ : Measure α) (f : α → G) : G</code><span class=\"sep\"></span><code class=\"docstring\">The Bochner integral </code>",
  "13":
  "<code>Measurable.{u_1, u_2} {α : Type u_1} {β : Type u_2} [MeasurableSpace α] [MeasurableSpace β] (f : α → β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A function `f` between measurable spaces is measurable if the preimage of every\nmeasurable set is measurable. </code>",
+ "129":
+ "<code>HSMul.hSMul.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HSMul α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a • b` computes the product of `a` and `b`.\nThe meaning of this notation is type-dependent, but it is intended to be used for left actions. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `•` in identifiers is `smul`.</code>",
+ "128":
+ "<code>HAdd.hAdd.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HAdd α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a + b` computes the sum of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `+` in identifiers is `add`.</code>",
+ "127":
+ "<code>Filter.Eventually.{u_1} {α : Type u_1} (p : α → Prop) (f : Filter α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`f.Eventually p` or `∀ᶠ x in f, p x` mean that `{x | p x} ∈ f`. E.g., `∀ᶠ x in atTop, p x`\nmeans that `p` holds true for sufficiently large `x`. </code>",
+ "126":
+ "<code>nhds.{u_3} {X : Type u_3} [TopologicalSpace X] (x : X) : Filter X</code><span class=\"sep\"></span><code class=\"docstring\">A set is called a neighborhood of `x` if it contains an open set around `x`. The set of all\nneighborhoods of `x` forms a filter, the neighborhood filter at `x`, is here defined as the\ninfimum over the principal filters of all open sets containing `x`. </code>",
+ "125":
+ "<code>nhdsWithin.{u_1} {X : Type u_1} [TopologicalSpace X] (x : X) (s : Set X) : Filter X</code><span class=\"sep\"></span><code class=\"docstring\">The \"neighborhood within\" filter. Elements of `𝓝[s] x` are sets containing the\nintersection of `s` and a neighborhood of `x`. </code>",
+ "124": "<code>l.NeBot</code>",
+ "123":
+ "<code>Prod.{u, v} (α : Type u) (β : Type v) : Type (max u v)</code><span class=\"sep\"></span><code class=\"docstring\">The product type, usually written `α × β`. Product types are also called pair or tuple types.\nElements of this type are pairs in which the first element is an `α` and the second element is a\n`β`.\n\nProducts nest to the right, so `(x, y, z) : α × β × γ` is equivalent to `(x, (y, z)) : α × (β × γ)`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `×` in identifiers is `Prod`.</code>",
+ "122":
+ "<code>MeasureTheory.Measure.AbsolutelyContinuous.{u_1} {α : Type u_1} {_m0 : MeasurableSpace α} (μ ν : Measure α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">We say that `μ` is absolutely continuous with respect to `ν`, or that `μ` is dominated by `ν`,\nif `ν(A) = 0` implies that `μ(A) = 0`. </code>",
+ "121":
+ "<code>Membership.mem.{u, v} {α : outParam (Type u)} {γ : Type v} [self : Membership α γ] : γ → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">The membership relation `a ∈ s : Prop` where `a : α`, `s : γ`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∈` in identifiers is `mem`.</code>",
+ "120":
+ "<code>MeasureTheory.Lp.{u_6, u_7} {α : Type u_7} (E : Type u_6) {m : MeasurableSpace α} [NormedAddCommGroup E] (p : ℝ≥0∞)\n  (μ : Measure α := by volume_tac) : AddSubgroup (α →ₘ[μ] E)</code><span class=\"sep\"></span><code class=\"docstring\">Lp space </code>",
  "12":
  "<code>InferenceModelofKernel.measurable_functional.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type}\n  [(i : ι) → MeasurableSpace (θ i)] [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)]\n  [(i : ι) → MeasurableSpace (X i)] [(i : ι) → MeasurableSpace (Y i)] (self : InferenceModelofKernel ι θ Ω S X Y)\n  (i : ι) : Measurable (self.functional i)</code>",
+ "119":
+ "<code>LinearMap.{u_14, u_15, u_16, u_17} {R : Type u_14} {S : Type u_15} [Semiring R] [Semiring S] (σ : R →+* S)\n  (M : Type u_16) (M₂ : Type u_17) [AddCommMonoid M] [AddCommMonoid M₂] [Module R M] [Module S M₂] :\n  Type (max u_16 u_17)</code><span class=\"sep\"></span><code class=\"docstring\">A map `f` between an `R`-module and an `S`-module over a ring homomorphism `σ : R →+* S`\nis semilinear if it satisfies the two properties `f (x + y) = f x + f y` and\n`f (c • x) = (σ c) • f x`. Elements of `LinearMap σ M M₂` (available under the notation\n`M →ₛₗ[σ] M₂`) are bundled versions of such maps. For plain linear maps (i.e. for which\n`σ = RingHom.id R`), the notation `M →ₗ[R] M₂` is available. An unbundled version of plain linear\nmaps is available with the predicate `IsLinearMap`, but it should be avoided most of the time. </code>",
+ "118": "<code>SigmaFinite μ</code>",
+ "117": "<code>TopologicalSpace E</code>",
+ "116":
+ "<code>Real : Type</code><span class=\"sep\"></span><code class=\"docstring\">The type `ℝ` of real numbers constructed as equivalence classes of Cauchy sequences of rational\nnumbers. </code>",
+ "115": "<code>Module ℝ E</code>",
+ "114": "<code>AddCommMonoid E</code>",
+ "113":
+ "<code class=\"docstring\">`by tac` constructs a term of the expected type by running the tactic(s) `tac`. </code>",
+ "112": "<code>∀ᶠ (p : ℝ × E) in l, θ + p.1 • p.2 ∈ s</code>",
+ "111": "<code>Tendsto Prod.snd l (𝓝 h)</code>",
+ "110": "<code>Tendsto Prod.fst l (𝓝[≠] 0)</code>",
  "11": "<code>(i : ι) → Set (Kernel (θ i) (Ω i))</code>",
+ "109":
+ "<code>Filter.NeBot.{u_1} {α : Type u_1} (f : Filter α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A filter is `NeBot` if it is not equal to `⊥`, or equivalently the empty set does not belong to\nthe filter. Bourbaki include this assumption in the definition of a filter but we prefer to have a\n`CompleteLattice` structure on `Filter _`, so we use a typeclass argument in lemmas instead. </code>",
+ "108": "<code>∀ x ∈ s, P x ≪ μ</code>",
+ "107":
+ "<code>MeasureTheory.IsProbabilityMeasure.{u_1} {α : Type u_1} {m0 : MeasurableSpace α} (μ : Measure α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A measure `μ` is called a probability measure if `μ univ = 1`. </code>",
+ "106": "<code>∀ x ∈ s, IsProbabilityMeasure (P x)</code>",
+ "105": "<code>θ ∈ s</code>",
+ "104": "<code>HasHadamardQuadraticMeanDerivWithinAt P μ s θ A</code>",
+ "103":
+ "<code>MeasureTheory.SigmaFinite.{u_1} {α : Type u_1} {m0 : MeasurableSpace α} (μ : Measure α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A measure `μ` is called σ-finite if there is a countable collection of sets\n`{ A i | i ∈ ℕ }` such that `μ (A i) &lt; ∞` and `⋃ i, A i = s`. </code>",
+ "102":
+ "<code>QMD.integral_score_eq_zero.{u_1, u_2} {Ω : Type u_1} {E : Type u_2} {mΩ : MeasurableSpace Ω} [AddCommMonoid E]\n  [Module ℝ E] [TopologicalSpace E] {P : E → Measure Ω} {μ : Measure Ω} [SigmaFinite μ] {s : Set E} {θ h : E}\n  {A : E →ₗ[ℝ] ↥(Lp ℝ 2 (P θ))} (hA : HasHadamardQuadraticMeanDerivWithinAt P μ s θ A) (hθ : θ ∈ s)\n  (hprob : ∀ x ∈ s, IsProbabilityMeasure (P x)) (hs : ∀ x ∈ s, P x ≪ μ) {l : Filter (ℝ × E)} [l.NeBot]\n  (hzero : Tendsto Prod.fst l (𝓝[≠] 0)) (hh : Tendsto Prod.snd l (𝓝 h)) (he : ∀ᶠ (p : ℝ × E) in l, θ + p.1 • p.2 ∈ s) :\n  ∫ (ω : Ω), ↑↑(A h) ω ∂P θ = 0</code><span class=\"sep\"></span><code class=\"docstring\">**Mean zero score** for a Hadamard quadratic mean derivative. </code>",
+ "101":
+ "<code class=\"docstring\">`f.Eventually p` or `∀ᶠ x in f, p x` mean that `{x | p x} ∈ f`. E.g., `∀ᶠ x in atTop, p x`\nmeans that `p` holds true for sufficiently large `x`. </code>",
+ "100": "<code>ℝ × E</code>",
  "10":
  "<code>InferenceModelofKernel.functional.{u_1} {ι : Type u_1} {θ Ω S X Y : ι → Type} [(i : ι) → MeasurableSpace (θ i)]\n  [(i : ι) → MeasurableSpace (Ω i)] [(i : ι) → MeasurableSpace (S i)] [(i : ι) → MeasurableSpace (X i)]\n  [(i : ι) → MeasurableSpace (Y i)] (self : InferenceModelofKernel ι θ Ω S X Y) (i : ι) : ↑(self.domain i) → S i</code>",
  "1": "<code>Type u_1</code>",

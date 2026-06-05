@@ -92,6 +92,124 @@
         "shortTitle": null,
         "number": "2"}]},
      "address": "/Statistical-Risk-and-Markov-Kernels/"}],
+   "Statlib--Quadratic-Mean-Differentiability--The-mean-zero-score-theorem--The-formalized-statement-and-proof":
+   [{"id":
+     "Statlib--Quadratic-Mean-Differentiability--The-mean-zero-score-theorem--The-formalized-statement-and-proof",
+     "data":
+     {"title": "The formalized statement and proof",
+      "shortTitle": null,
+      "sectionNum": "3.4.2.",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null},
+       {"title": "Quadratic Mean Differentiability",
+        "shortTitle": null,
+        "number": "3"},
+       {"title": "The mean-zero score theorem",
+        "shortTitle": null,
+        "number": "4"},
+       {"title": "The formalized statement and proof",
+        "shortTitle": null,
+        "number": "2"}]},
+     "address": "/Quadratic-Mean-Differentiability/"}],
+   "Statlib--Quadratic-Mean-Differentiability--The-mean-zero-score-theorem--Proof-sketch":
+   [{"id":
+     "Statlib--Quadratic-Mean-Differentiability--The-mean-zero-score-theorem--Proof-sketch",
+     "data":
+     {"title": "Proof sketch",
+      "shortTitle": null,
+      "sectionNum": "3.4.1.",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null},
+       {"title": "Quadratic Mean Differentiability",
+        "shortTitle": null,
+        "number": "3"},
+       {"title": "The mean-zero score theorem",
+        "shortTitle": null,
+        "number": "4"},
+       {"title": "Proof sketch", "shortTitle": null, "number": "1"}]},
+     "address": "/Quadratic-Mean-Differentiability/"}],
+   "Statlib--Quadratic-Mean-Differentiability--The-mean-zero-score-theorem":
+   [{"id":
+     "Statlib--Quadratic-Mean-Differentiability--The-mean-zero-score-theorem",
+     "data":
+     {"title": "The mean-zero score theorem",
+      "shortTitle": null,
+      "sectionNum": "3.4.",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null},
+       {"title": "Quadratic Mean Differentiability",
+        "shortTitle": null,
+        "number": "3"},
+       {"title": "The mean-zero score theorem",
+        "shortTitle": null,
+        "number": "4"}]},
+     "address": "/Quadratic-Mean-Differentiability/"}],
+   "Statlib--Quadratic-Mean-Differentiability--The-classical-definition":
+   [{"id":
+     "Statlib--Quadratic-Mean-Differentiability--The-classical-definition",
+     "data":
+     {"title": "The classical definition",
+      "shortTitle": null,
+      "sectionNum": "3.1.",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null},
+       {"title": "Quadratic Mean Differentiability",
+        "shortTitle": null,
+        "number": "3"},
+       {"title": "The classical definition",
+        "shortTitle": null,
+        "number": "1"}]},
+     "address": "/Quadratic-Mean-Differentiability/"}],
+   "Statlib--Quadratic-Mean-Differentiability--QMD-over-a-normed-space":
+   [{"id": "Statlib--Quadratic-Mean-Differentiability--QMD-over-a-normed-space",
+     "data":
+     {"title": "QMD over a normed space",
+      "shortTitle": null,
+      "sectionNum": "3.2.",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null},
+       {"title": "Quadratic Mean Differentiability",
+        "shortTitle": null,
+        "number": "3"},
+       {"title": "QMD over a normed space",
+        "shortTitle": null,
+        "number": "2"}]},
+     "address": "/Quadratic-Mean-Differentiability/"}],
+   "Statlib--Quadratic-Mean-Differentiability--Hadamard-QMD-over-a-topological-vector-space":
+   [{"id":
+     "Statlib--Quadratic-Mean-Differentiability--Hadamard-QMD-over-a-topological-vector-space",
+     "data":
+     {"title": "Hadamard QMD over a topological vector space",
+      "shortTitle": null,
+      "sectionNum": "3.3.",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null},
+       {"title": "Quadratic Mean Differentiability",
+        "shortTitle": null,
+        "number": "3"},
+       {"title": "Hadamard QMD over a topological vector space",
+        "shortTitle": null,
+        "number": "3"}]},
+     "address": "/Quadratic-Mean-Differentiability/"}],
+   "Statlib--Quadratic-Mean-Differentiability":
+   [{"id": "Statlib--Quadratic-Mean-Differentiability",
+     "data":
+     {"title": "Quadratic Mean Differentiability",
+      "shortTitle": null,
+      "sectionNum": "3.",
+      "searchPriority": 50,
+      "context":
+      [{"title": "Statlib", "shortTitle": "Statlib", "number": null},
+       {"title": "Quadratic Mean Differentiability",
+        "shortTitle": null,
+        "number": "3"}]},
+     "address": "/Quadratic-Mean-Differentiability/"}],
    "Statlib--Installation-and-Setup--Installing-Statlib":
    [{"id": "Statlib--Installation-and-Setup--Installing-Statlib",
      "data":
@@ -141,7 +259,38 @@
  {"title": "Verso.Genre.Manual.example",
   "description": null,
   "contents":
-  {"InferenceModelofMeasure.measurable_loss_function":
+  {"QMD.integral_score_eq_zero":
+   [{"id": "QMD___integral_score_eq_zero",
+     "data":
+     {"/Quadratic-Mean-Differentiability/#QMD___integral_score_eq_zero":
+      {"display": "integral_score_eq_zero",
+       "context":
+       ["Statlib",
+        "Quadratic Mean Differentiability",
+        "The mean-zero score theorem",
+        "The formalized statement and proof"]}},
+     "address": "/Quadratic-Mean-Differentiability/"}],
+   "QMD.HasQuadraticMeanDerivWithinAt":
+   [{"id": "QMD___HasQuadraticMeanDerivWithinAt",
+     "data":
+     {"/Quadratic-Mean-Differentiability/#QMD___HasQuadraticMeanDerivWithinAt":
+      {"display": "HasQuadraticMeanDerivWithinAt",
+       "context":
+       ["Statlib",
+        "Quadratic Mean Differentiability",
+        "QMD over a normed space"]}},
+     "address": "/Quadratic-Mean-Differentiability/"}],
+   "QMD.HasHadamardQuadraticMeanDerivWithinAt":
+   [{"id": "QMD___HasHadamardQuadraticMeanDerivWithinAt",
+     "data":
+     {"/Quadratic-Mean-Differentiability/#QMD___HasHadamardQuadraticMeanDerivWithinAt":
+      {"display": "HasHadamardQuadraticMeanDerivWithinAt",
+       "context":
+       ["Statlib",
+        "Quadratic Mean Differentiability",
+        "Hadamard QMD over a topological vector space"]}},
+     "address": "/Quadratic-Mean-Differentiability/"}],
+   "InferenceModelofMeasure.measurable_loss_function":
    [{"id": "InferenceModelofMeasure___measurable_loss_function",
      "data":
      {"/Statistical-Risk-and-Markov-Kernels/#InferenceModelofMeasure___measurable_loss_function":

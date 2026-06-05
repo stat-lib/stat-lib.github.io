@@ -1,0 +1,1 @@
+window.docContents[37].resolve({"/#Statlib":{"contents":"These tutorial pages develop the decision-theoretic setup for statistical\ninference.\n\n\n\n\n\n\n\n","context":"","header":"Statlib","id":"/#Statlib"}});
