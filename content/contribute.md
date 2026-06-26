@@ -5,7 +5,7 @@ intro: false
 
 # Contributing to Statlib
 
-Thank you for your interest in contributing to Statlib! Whether you are a statistician new to Lean, a Lean expert curious about statistics, or a CS / AI researcher interested in formalization tools, we are building with you. If anything in this document is unclear, please ask on the [Statlib Zulip channel](https://leanprover.zulipchat.com/#narrow/channel/611809-Statlib).
+Thank you for your interest in contributing to [Statlib](https://github.com/stat-lib/statlib)! Whether you are a statistician new to Lean, a Lean expert curious about statistics, or a CS / AI researcher interested in formalization tools, we are building with you. If anything in this document is unclear, please ask on the [Statlib Zulip channel](https://leanprover.zulipchat.com/#narrow/channel/611809-Statlib).
 
 ## Contents {#contents}
 
@@ -38,8 +38,8 @@ Statlib depends on Mathlib. We do not duplicate Mathlib's `MeasureTheory` or `Pr
 
 You are welcome to contribute in any way you see fit and have the most fun with.
 
-- **Propose something.** Open a GitHub issue describing what you would like to add, and mention it in the [Statlib Zulip channel](https://leanprover.zulipchat.com/#narrow/channel/611809-Statlib). We will discuss scope and placement before you invest heavily in code.
-- **Submit a pull request.** If you already have code you think fits Statlib, open a PR directly. See [Submitting a pull request](#submitting-a-pull-request) for what we expect.
+- **Propose something.** Open [a GitHub issue](https://github.com/stat-lib/statlib/issues/new/choose) describing what you would like to add, and mention it in the [Statlib Zulip channel](https://leanprover.zulipchat.com/#narrow/channel/611809-Statlib). We will discuss scope and placement before you invest heavily in code.
+- **Submit a pull request.** If you already have code you think fits Statlib, [open a PR](https://github.com/stat-lib/statlib/pulls) directly. See [Submitting a pull request](#submitting-a-pull-request) for what we expect.
 - **Join an active working group.** Browse current projects on our website and the corresponding Zulip topics.
 - **Discuss.** Join the [Statlib Zulip channel](https://leanprover.zulipchat.com/#narrow/channel/611809-Statlib); there are open questions you may be able to help with.
 - **Propose a project.** We particularly welcome statisticians whose research vision could anchor a sustained working group, especially authors of widely used textbooks and lecture notes. Advising on definitions and levels of abstraction, reviewing what gets formalized, and catching when a Lean statement drifts from the source statistics are all highly desired contributions.
