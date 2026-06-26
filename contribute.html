@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contribute — Statlib</title>
+<title>Contributing to Statlib</title>
 <link rel="stylesheet" href="site.css?v=20260604-toc-align">
 </head>
 <body class="site-page">
@@ -22,11 +22,69 @@
 
 <main>
   <div class="wrap">
-    <h1>Contribute</h1>
-    <p>Statlib is built collaboratively, and contributions of every kind are welcome: questions, examples, formalization requests, project proposals, and pull requests.</p>
-    <p>Have a question, example, or formalization request? Start a discussion on the <a href="https://leanprover.zulipchat.com/#narrow/channel/579630-Project-announcements/topic/Statlib/with/599909008" target="_blank" rel="noopener">Statlib Zulip channel</a>.</p>
-    <p>Open a pull request against <a href="https://github.com/stat-lib/statlib" target="_blank" rel="noopener">stat-lib/statlib</a>. New to the codebase? The <a href="projects.html">Projects</a> page lists current directions and maintainers: a good place to find something to work on.</p>
-    <p>Code follows <a href="https://leanprover-community.github.io/contribute/style.html" target="_blank" rel="noopener">Mathlib&#x27;s style and naming conventions</a>. AI-assisted contributions must be understood by the contributor and disclosed in the PR description.</p>
+    <h1>Contributing to Statlib</h1>
+    <p>Thank you for your interest in contributing to Statlib! Whether you are a statistician new to Lean, a Lean expert curious about statistics, or a CS / AI researcher interested in formalization tools, we are building with you. If anything in this document is unclear, please ask on the <a href="https://leanprover.zulipchat.com/#narrow/channel/611809-Statlib" target="_blank" rel="noopener">Statlib Zulip channel</a>.</p>
+    <h2 id="contents">Contents</h2>
+    <ul>
+    <li><a href="#about-statlib">About Statlib</a></li>
+    <li><a href="#relationship-to-mathlib">Relationship to Mathlib</a></li>
+    <li><a href="#how-to-contribute">How to contribute</a></li>
+    <li><a href="#submitting-a-pull-request">Submitting a pull request</a></li>
+    <li><a href="#the-role-of-ai">The role of AI</a></li>
+    <li><a href="#working-with-us-across-fields">Working with us across fields</a></li>
+    <li><a href="#style-and-documentation">Style and documentation</a></li>
+    </ul>
+    <h2 id="about-statlib">About Statlib</h2>
+    <p>Statlib is, first, a <strong>community</strong>. Our goal is to develop the practices, shared vocabulary, and reusable infrastructure that let statisticians actually use Lean as a tool for research - to write in it, communicate through it, and verify their work with it.</p>
+    <p>We are a <strong>research-driven</strong> community. We target frontier topics through many kinds of contributions. Given that many probability-related results are missing from Mathlib and would be useful across a range of frontier directions in statistical research, we will also formalize the fundamentals of probability theory from the bottom up. The scope of Statlib is shaped by the interests of our maintainers, advisors, and active contributors.</p>
+    <p><strong>Statlib is not an autoformalization project.</strong> Several projects of that kind already exist - typically one team using an LLM to translate a book or paper end-to-end. Statlib is different: its definitions and conventions are developed <em>together with</em> statisticians who use the language in their own research, with the aim of building a trusted core that future statistical research can use and rely on.</p>
+    <h2 id="relationship-to-mathlib">Relationship to Mathlib</h2>
+    <p>Statlib depends on Mathlib. We do not duplicate Mathlib&#x27;s <code>MeasureTheory</code> or <code>ProbabilityTheory</code>. Some of Statlib may live outside Mathlib until the project is mature and the code is reusable. Statlib&#x27;s mission is to support specific statistical research topics.</p>
+    <ul>
+    <li><strong>We contribute back selectively.</strong> When a definition or lemma developed in Statlib turns out to be general enough for Mathlib, we PR it upstream.</li>
+    <li><strong>We do not aim to overwhelm Mathlib&#x27;s review capacity.</strong></li>
+    <li><strong>We will coordinate with Mathlib maintainers before large upstream pushes.</strong> If a Statlib working group plans a substantial upstream contribution, we will discuss it on Zulip first.</li>
+    <li><strong>We follow Mathlib&#x27;s conventions for style, documentation, and AI use</strong> by default, with extensions specific to our domain noted in this document.</li>
+    </ul>
+    <h2 id="how-to-contribute">How to contribute</h2>
+    <p>You are welcome to contribute in any way you see fit and have the most fun with.</p>
+    <ul>
+    <li><strong>Propose something.</strong> Open a GitHub issue describing what you would like to add, and mention it in the <a href="https://leanprover.zulipchat.com/#narrow/channel/611809-Statlib" target="_blank" rel="noopener">Statlib Zulip channel</a>. We will discuss scope and placement before you invest heavily in code.</li>
+    <li><strong>Submit a pull request.</strong> If you already have code you think fits Statlib, open a PR directly. See <a href="#submitting-a-pull-request">Submitting a pull request</a> for what we expect.</li>
+    <li><strong>Join an active working group.</strong> Browse current projects on our website and the corresponding Zulip topics.</li>
+    <li><strong>Discuss.</strong> Join the <a href="https://leanprover.zulipchat.com/#narrow/channel/611809-Statlib" target="_blank" rel="noopener">Statlib Zulip channel</a>; there are open questions you may be able to help with.</li>
+    <li><strong>Propose a project.</strong> We particularly welcome statisticians whose research vision could anchor a sustained working group, especially authors of widely used textbooks and lecture notes. Advising on definitions and levels of abstraction, reviewing what gets formalized, and catching when a Lean statement drifts from the source statistics are all highly desired contributions.</li>
+    </ul>
+    <p>Project maintainers or leaders may use blueprints, GitHub project dashboards, or GitHub issues to maintain a project, claim or disclaim tasks, and coordinate through Zulip.</p>
+    <p>New to Lean? See the official <a href="https://lean-lang.org/install/" target="_blank" rel="noopener">Lean installation instructions</a>.</p>
+    <h2 id="submitting-a-pull-request">Submitting a pull request</h2>
+    <p>Most contributions come in as pull requests that add this kind of content to the library.</p>
+    <p>We ask that PRs:</p>
+    <ul>
+    <li>Be clear about the source: the book, paper, notes, or other reference your contribution is based on.</li>
+    <li>Build on Mathlib and on existing Statlib working groups rather than duplicating definitions.</li>
+    <li>Follow the conventions in <a href="#style-and-documentation">Style and documentation</a>.</li>
+    <li>Be reviewable. Proofs should be readable, even when AI tools were used to produce them.</li>
+    </ul>
+    <h2 id="the-role-of-ai">The role of AI</h2>
+    <p>We believe agentic coding plays a substantial role in growing the library. We require transparency about that use and treat the resulting metadata as a research resource.</p>
+    <p>Our ultimate goal is not to be the first to formalize something. We believe digestion, explanation, and reusability matter more than generation. We therefore work to avoid PRs that create a <code>maintenance-burden</code> for the community, which we define as a PR meeting two or more of the following criteria:</p>
+    <ul>
+    <li>The author or authors are unable to answer reviewer questions about specific lines of code.</li>
+    <li>The code is misaligned with the informal statement in the source.</li>
+    <li>The PR description shows clear LLM authorship signals, such as formulaic Markdown structure or phrasing, and no human-written rationale paragraph is present.</li>
+    <li>The proof is extremely long beyond reason and not readable.</li>
+    <li>The PR introduces many new definitions without a corresponding ratio of theorems that meaningfully consume them.</li>
+    </ul>
+    <p>Therefore, for any PR to Statlib, the contributor is expected to be able to honestly state:</p>
+    <p><em>I have read and understood every line of code in this PR. I take responsibility for its correctness, style, and fit with the surrounding library. If a reviewer raises a question, I can answer it without re-running the AI tool.</em></p>
+    <p>For background, see the Mathlib Zulip discussion <a href="https://leanprover.zulipchat.com/#narrow/channel/287929-mathlib4/topic/What.20to.20do.20with.20.22slop.22.20PRs/with/576166954" target="_blank" rel="noopener">#mathlib4 &gt; What to do with &quot;slop&quot; PRs</a>.</p>
+    <h2 id="working-with-us-across-fields">Working with us across fields</h2>
+    <p>How best should we formalize statistics in Lean, and what does the future of research look like as formalization matures? We are an experimental library and welcome researchers from all areas to propose projects of many kinds: computer science projects, dataset-building efforts, automatic theorem-proving tools, and research on human-AI collaboration. This is a space to experiment with what research, education, and related work may look like in the future.</p>
+    <h2 id="style-and-documentation">Style and documentation</h2>
+    <p>Statlib follows the <a href="https://leanprover-community.github.io/contribute/style.html" target="_blank" rel="noopener">Mathlib style guide</a> for layout, naming, and proof formatting.</p>
+    <p>We will add more guidelines for governance, todo lists, continuous integration, and tutorials soon.</p>
+    <p>If you spot anything in this document that should be improved - clarified, expanded, contradicted by experience, or just plain wrong - please open an issue or a PR. This document is itself a living artifact of the project.</p>
   </div>
 </main>
 
