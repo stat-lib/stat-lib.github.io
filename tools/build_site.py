@@ -16,6 +16,7 @@ PAGES = {
     "roadmap": "roadmap.html",
     "projects": "projects.html",
     "contribute": "contribute.html",
+    "governance": "governance.html",
 }
 
 NAV = [
@@ -24,6 +25,7 @@ NAV = [
     ("roadmap.html", "Roadmap", "roadmap"),
     ("projects.html", "Projects", "projects"),
     ("contribute.html", "Contribute", "contribute"),
+    ("governance.html", "Governance", "governance"),
 ]
 
 
@@ -77,6 +79,12 @@ def render_inline(source: str) -> str:
 
     source = re.sub(r"\$\$.*?\$\$|\$.*?\$", stash, source)
     source = re.sub(r"`([^`]+)`", lambda m: f"<code>{html.escape(m.group(1))}</code>", html.escape(source))
+    def image(match: re.Match[str]) -> str:
+        alt = match.group(1)
+        src = match.group(2)
+        return f'<img src="{src}" alt="{alt}" class="person-photo" loading="lazy">'
+
+    source = re.sub(r"!\[([^\]]*)\]\(([^)]+)\)", image, source)
     def link(match: re.Match[str]) -> str:
         label = match.group(1)
         href = match.group(2)
