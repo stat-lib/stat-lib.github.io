@@ -292,7 +292,7 @@ def render_page(page_key: str, meta: dict[str, str], body_html: str) -> str:
         head.append(f'<meta name="description" content="{html.escape(description)}">')
     head.extend(
         [
-            '<link rel="stylesheet" href="site.css?v=20260604-toc-align">',
+            '<link rel="stylesheet" href="site.css?v=20260703-governance">',
             "</head>",
             '<body class="site-page">',
             "",
