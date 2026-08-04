@@ -12,6 +12,7 @@ Statlib is guided by an advisory board and maintained by a small team of active 
 
 - ![Jeremy Avigad](images/governance/jeremy-avigad.jpg) **[Jeremy Avigad](https://www.contrib.andrew.cmu.edu/~avigad/)** *Carnegie Mellon University*
 - ![Larry Wasserman](images/governance/larry-wasserman.jpg) **[Larry Wasserman](https://www.stat.cmu.edu/~larry/)** *Carnegie Mellon University*
+- ![Sourav Chatterjee](images/governance/sourav-chatterjee.png) **[Sourav Chatterjee](https://souravchatterjee.su.domains/index.html)** *Stanford University*
 
 ## Lead Maintainer {#lead-maintainer .people}
 
