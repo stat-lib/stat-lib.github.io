@@ -102,6 +102,25 @@ Debarghya Mukherjee
 
 **Roadmap.** [1.13 Core Probabilistic Toolbox](roadmap.html#sec-1-13)
 
+## 5. The Linear Model {#linear-model .project}
+
+#### Description.
+
+This project formalises the theory of the linear model, including the t-test. First public release at [lean-statistics/linear-model-lean](https://github.com/lean-statistics/linear-model-lean), building on the Lindeberg CLT at [patrickrd/CLT-lindeberg](https://github.com/patrickrd/CLT-lindeberg).
+
+#### Milestones.
+
+- OLS optimality
+- CLT for OLS under deterministic design
+- HC0–HC3 sandwich-variance consistency
+- Asymptotic validity of the (Welch) t-test
+- All of the above in the assumption-lean/model-robust framework
+- In progress: growing dimension, ANOVA and F-tests, cluster-robust variance, random design
+
+#### Maintainer.
+
+Patrick Rubin-Delanchy and Andrew Jones
+
 ## Propose a Project {#propose-a-project .project}
 
 If you would like to propose a new project, please contact Rajarshi Mukherjee at [ram521@mail.harvard.edu](mailto:ram521@mail.harvard.edu).
