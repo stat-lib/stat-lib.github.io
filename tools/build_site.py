@@ -14,7 +14,6 @@ CONTENT_DIR = ROOT / "content"
 PAGES = {
     "index": "index.html",
     "roadmap": "roadmap.html",
-    "projects": "projects.html",
     "contribute": "contribute.html",
     "governance": "governance.html",
 }
@@ -23,7 +22,6 @@ NAV = [
     ("index.html", "About", "index"),
     ("tutorial/index.html", "Tutorial", None),
     ("roadmap.html", "Roadmap", "roadmap"),
-    ("projects.html", "Projects", "projects"),
     ("contribute.html", "Contribute", "contribute"),
     ("governance.html", "Governance", "governance"),
 ]
@@ -171,6 +169,8 @@ class MarkdownRenderer:
             self.lines.append(f"<h3>{render_inline(text)}</h3>")
             return
 
+        if level == 2:
+            self.close_topic()
         tag = f"h{level}"
         self.lines.append(f"<{tag}{id_attr}{class_attr}>{render_inline(text)}</{tag}>")
         if level == 2:
@@ -292,7 +292,7 @@ def render_page(page_key: str, meta: dict[str, str], body_html: str) -> str:
         head.append(f'<meta name="description" content="{html.escape(description)}">')
     head.extend(
         [
-            '<link rel="stylesheet" href="site.css?v=20260703-governance">',
+            '<link rel="stylesheet" href="site.css?v=20260922-contributors">',
             "</head>",
             '<body class="site-page">',
             "",
@@ -306,6 +306,9 @@ def render_page(page_key: str, meta: dict[str, str], body_html: str) -> str:
             "</main>",
         ]
     )
+    script = meta.get("script")
+    if script:
+        head.extend(["", f'<script src="{html.escape(script)}" defer></script>'])
     if math:
         head.extend(
             [

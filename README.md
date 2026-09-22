@@ -8,7 +8,6 @@ Edit Markdown files in `content/`, not the generated root HTML files.
 
 - `content/index.md` builds `index.html`
 - `content/roadmap.md` builds `roadmap.html`
-- `content/projects.md` builds `projects.html`
 - `content/contribute.md` builds `contribute.html`
 
 After editing Markdown, rebuild the HTML:

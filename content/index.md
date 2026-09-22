@@ -1,17 +1,21 @@
 ---
 title: Statlib
 description: A Lean 4 library for foundational and modern theoretical statistics.
+script: contributors.js
 intro: false
 ---
 
 # Statlib
 
-[Statlib](https://github.com/stat-lib/statlib) provides the foundational framework for classical, contemporary, and emerging research in mathematical statistics. Drawing deeply from diverse domains, including real, functional, and convex analysis, measure theory, stochastic calculus, combinatorics, probability, and information theory, theoretical statistics demands absolute precision. As LLM-generated proofs become increasingly prevalent across these sub-disciplines, the need for rigorous, machine-verified mathematical theories has never been more urgent. While Lean's Mathlib is structured for broad mathematical domains, Statlib leverages its rich API ecosystem to deliver a streamlined, specialized library dedicated exclusively to theoretical statistics.
+Statlib is an open community that aims to support the verification of classical, contemporary, and emerging research in mathematical statistics; its vision and goals are shaped by the whole community. Please check out our contributors [below](#activity) (activity loaded live from [GitHub](https://github.com/stat-lib/statlib/graphs/contributors?all=1)). Interested in joining us? Check out our Zulip channel [here](https://leanprover.zulipchat.com/#narrow/channel/611809-Statlib)!
 
-Development begins with the core foundations of statistical inference within decision-theoretic and local asymptotic-theory frameworks. However, the library's architecture is explicitly designed for dynamic growth, scaling to encompass nonparametric and semiparametric statistics, alongside modern frontiers such as high-dimensional statistics, conformal inference, and frameworks for information-theoretic and computational trade-offs.
+## Community Activity {#activity .people}
 
-To support this vision, our workflow centers on coordinating targeted formalization projects across both classical and modern methods, developing comprehensive tutorials to onboard future contributors, and establishing a collaborative forum to address shared architectural themes and implementation challenges.
-
-We would like to thank [Jeremy Avigad](https://www.contrib.andrew.cmu.edu/~avigad/) (Carnegie Mellon University) and [Rémy Degenne](https://remydegenne.github.io/) (Inria center at the University of Lille) for support and encouragement in the process of initiating and developing this library.
-
-Our team of initial contributors, listed in alphabetical order, includes **[Yongxi (Aaron) Lin](https://coolrmal.github.io/)** (*Carnegie Mellon University*), **[Debarghya Mukherjee](https://debarghya-mukherjee.github.io/)** (*Boston University*), **[Rajarshi Mukherjee](https://rajarshi-mukherjee24.github.io/)** (*Harvard University*), **[Fred Rajasekaran](https://sites.google.com/view/fredraj)** (*Stanford University*), and **[Zixiao Jolene Wang](https://zixiaowang17.github.io/)** (*Harvard University*).
+- ![Bo Cowgill](https://avatars.githubusercontent.com/bocowgill) **[Bo Cowgill](https://github.com/bocowgill)** *@bocowgill*
+- ![Yongxi (Aaron) Lin](https://avatars.githubusercontent.com/CoolRmal) **[Yongxi (Aaron) Lin](https://github.com/CoolRmal)** *@CoolRmal*
+- ![Rémy Degenne](https://avatars.githubusercontent.com/RemyDegenne) **[Rémy Degenne](https://github.com/RemyDegenne)** *@RemyDegenne*
+- ![Rajarshi Mukherjee](https://avatars.githubusercontent.com/rajarshi-mukherjee24) **[Rajarshi Mukherjee](https://github.com/rajarshi-mukherjee24)** *@rajarshi-mukherjee24*
+- ![Zixiao Jolene Wang](https://avatars.githubusercontent.com/zixiaowang17) **[Zixiao Jolene Wang](https://github.com/zixiaowang17)** *@zixiaowang17*
+- ![Bjørn Kjos-Hanssen](https://avatars.githubusercontent.com/bjoernkjoshanssen) **[Bjørn Kjos-Hanssen](https://github.com/bjoernkjoshanssen)** *@bjoernkjoshanssen*
+- ![Qingyuan Zhao](https://avatars.githubusercontent.com/qingyuanzhao) **[Qingyuan Zhao](https://github.com/qingyuanzhao)** *@qingyuanzhao*
+- ![Richard Guo](https://avatars.githubusercontent.com/richardkwo) **[Richard Guo](https://github.com/richardkwo)** *@richardkwo*
