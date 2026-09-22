@@ -7,7 +7,7 @@ intro: false
 
 # Statlib
 
-Statlib is an open community that aims to support the verification of classical, contemporary, and emerging research in mathematical statistics; its vision and goals are shaped by the whole community. Please check out our contributors [below](#activity) (activity loaded live from [GitHub](https://github.com/stat-lib/statlib/graphs/contributors?all=1)). Interested in joining us? Check out our Zulip channel [here](https://leanprover.zulipchat.com/#narrow/channel/611809-Statlib)!
+[Statlib](https://github.com/stat-lib/statlib) is an open community that aims to support the verification of classical, contemporary, and emerging research in mathematical statistics; its vision and goals are shaped by the whole community. Please check out our contributors [below](#activity) (activity loaded live from [GitHub](https://github.com/stat-lib/statlib/graphs/contributors?all=1)). Interested in joining us? Check out our Zulip channel [here](https://leanprover.zulipchat.com/#narrow/channel/611809-Statlib)!
 
 ## Community Activity {#activity .people}
 
