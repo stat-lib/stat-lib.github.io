@@ -38,11 +38,10 @@ Statlib depends on Mathlib. We do not duplicate Mathlib's `MeasureTheory` or `Pr
 
 You are welcome to contribute in any way you see fit and have the most fun with.
 
-- **Propose something.** Open [a GitHub issue](https://github.com/stat-lib/statlib/issues/new/choose) describing what you would like to add, and mention it in the [Statlib Zulip channel](https://leanprover.zulipchat.com/#narrow/channel/611809-Statlib). We will discuss scope and placement before you invest heavily in code.
+- **Propose something with a design doc.** Open [a GitHub issue](https://github.com/stat-lib/statlib/issues/new/choose) with a short design doc that explains the core mathematics (key definitions, main theorems, and the level of generality) and the planned code (how definitions will be represented in Lean, which Mathlib APIs they build on, and where they will live in Statlib). Then share it in the [Statlib Zulip channel](https://leanprover.zulipchat.com/#narrow/channel/611809-Statlib) so others can question and challenge the design early. We will settle scope and placement together before you invest heavily in code.
 - **Submit a pull request.** If you already have code you think fits Statlib, [open a PR](https://github.com/stat-lib/statlib/pulls) directly. See [Submitting a pull request](#submitting-a-pull-request) for what we expect.
-- **Join an active working group.** Browse current projects on our website and the corresponding Zulip topics.
+- **Join an active working group.** Browse the working group topics in the [Statlib Zulip channel](https://leanprover.zulipchat.com/#narrow/channel/611809-Statlib).
 - **Discuss.** Join the [Statlib Zulip channel](https://leanprover.zulipchat.com/#narrow/channel/611809-Statlib); there are open questions you may be able to help with.
-- **Propose a project.** We particularly welcome statisticians whose research vision could anchor a sustained working group, especially authors of widely used textbooks and lecture notes. Advising on definitions and levels of abstraction, reviewing what gets formalized, and catching when a Lean statement drifts from the source statistics are all highly desired contributions.
 
 Project maintainers or leaders may use blueprints, GitHub project dashboards, or GitHub issues to maintain a project, claim or disclaim tasks, and coordinate through Zulip.
 

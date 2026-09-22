@@ -409,6 +409,136 @@ body.site-page {
   text-underline-offset: 2px;
 }
 
+/* Contributors page: live GitHub activity */
+.site-page .gh-view {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --gh-commits: #2a78d6;
+  --gh-comments: #eb6834;
+  --gh-opened: #1baf7a;
+  --gh-share: #b8b8b8;
+}
+
+.site-page .gh-overview {
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 14px 16px 10px;
+  margin-bottom: 20px;
+}
+
+.site-page .gh-overview-title {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.site-page .gh-chart {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+.site-page .gh-bar.gh-commits { fill: var(--gh-commits); }
+.site-page .gh-bar.gh-comments { fill: var(--gh-comments); }
+.site-page .gh-bar.gh-opened { fill: var(--gh-opened); }
+
+.site-page .gh-overview-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 16px;
+  margin-bottom: 10px;
+}
+
+.site-page .gh-overview-head .gh-overview-title { margin-bottom: 0; }
+
+.site-page .gh-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; color: var(--muted); font-size: 12px; }
+.site-page .gh-legend-item { display: inline-flex; align-items: center; gap: 6px; }
+.site-page .gh-swatch { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.site-page .gh-swatch.gh-commits { background: var(--gh-commits); }
+.site-page .gh-swatch.gh-comments { background: var(--gh-comments); }
+.site-page .gh-swatch.gh-opened { background: var(--gh-opened); }
+.site-page .gh-baseline { stroke: var(--line); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.site-page .gh-hit { fill: transparent; }
+.site-page .gh-hit.on { fill: rgba(17, 17, 17, 0.05); }
+.site-page .gh-axis { fill: var(--faint); font-size: 11px; }
+
+.site-page .people ol.gh-cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.site-page .people li.gh-card {
+  position: relative;
+  width: auto;
+  display: block;
+  border: 1px solid var(--line);
+  padding: 14px 16px 12px;
+}
+
+.site-page .gh-rank {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  color: var(--faint);
+  font-size: 12px;
+}
+
+.site-page .gh-person {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  column-gap: 12px;
+  align-items: center;
+}
+
+.site-page .gh-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  grid-row: span 2;
+}
+
+.site-page .gh-who { display: flex; flex-direction: column; line-height: 1.3; }
+.site-page .people .gh-name { color: var(--text); font-size: 15px; font-weight: 600; }
+.site-page .people .gh-login { color: var(--quiet); font-size: 12px; }
+.site-page .gh-meta { grid-column: 2; color: var(--muted); font-size: 12px; white-space: pre; }
+
+.site-page .gh-share {
+  height: 4px;
+  background: var(--line-soft);
+  border-radius: 2px;
+  margin: 12px 0 10px;
+  overflow: hidden;
+}
+
+.site-page .gh-share-fill {
+  display: block;
+  height: 100%;
+  background: var(--gh-share);
+  border-radius: 2px;
+}
+
+.gh-tooltip {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  background: #111;
+  color: #fff;
+  font: 12px/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  padding: 5px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .site-page .people ol.gh-cards { grid-template-columns: 1fr; }
+}
+
 .site-page footer {
   color: var(--faint);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
