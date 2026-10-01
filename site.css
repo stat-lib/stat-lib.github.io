@@ -261,7 +261,7 @@ body.site-page {
 
 .site-page .todo-list {
   list-style: none;
-  margin: 16px 0 0;
+  margin: 12px 0 0;
   padding: 0;
 }
 
@@ -285,6 +285,11 @@ body.site-page {
 
 .site-page .todo-title h3 {
   margin: 0;
+}
+
+.site-page .todo-title h3 a {
+  text-decoration-color: #cfcfcf;
+  text-underline-offset: 3px;
 }
 
 .site-page .tag {
@@ -331,8 +336,62 @@ body.site-page {
   color: var(--text);
 }
 
+.site-page .todo-statement {
+  color: var(--muted);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  margin-top: 9px;
+}
+
+.site-page .todo-statement summary {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: #cfcfcf;
+  text-underline-offset: 2px;
+}
+
+.site-page .todo-statement code {
+  display: block;
+  margin-top: 9px;
+  overflow-x: auto;
+  padding: 10px 12px;
+  white-space: pre-wrap;
+}
+
+.site-page .data-board {
+  min-height: 48px;
+}
+
+.site-page .data-status,
+.site-page .data-summary {
+  color: var(--quiet);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.site-page .data-status {
+  border: 1px solid var(--line-soft);
+  margin: 12px 0 0;
+  padding: 12px 14px;
+}
+
+.site-page .data-summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 20px;
+  margin: 12px 0 0;
+}
+
 .site-page .people {
   margin-top: 36px;
+}
+
+.site-page .people > p {
+  color: #3f3f3f;
+  font-size: 15px;
+  margin-bottom: 12px;
 }
 
 .site-page .people h2 {

@@ -228,6 +228,13 @@ class MarkdownRenderer:
             self.lines.append("</ul>")
         self.lines.append("</div>")
 
+    def insert_data_board(self, board: str, loading_text: str) -> None:
+        self.lines.append(
+            f'<div id="{board}" class="data-board" aria-live="polite" aria-busy="true">'
+        )
+        self.lines.append(f'<p class="data-status">{html.escape(loading_text)}</p>')
+        self.lines.append("</div>")
+
     def render(self, body: str) -> str:
         if self.page_key == "roadmap":
             self.collect_roadmap_toc(body)
@@ -242,6 +249,16 @@ class MarkdownRenderer:
                 self.close_list()
                 self.flush_paragraph()
                 self.insert_roadmap_toc()
+                continue
+            if line.strip() == "[[todo-board]]":
+                self.close_list()
+                self.flush_paragraph()
+                self.insert_data_board("todo-board", "Loading open statements…")
+                continue
+            if line.strip() == "[[community-activity]]":
+                self.close_list()
+                self.flush_paragraph()
+                self.insert_data_board("activity-board", "Loading community activity…")
                 continue
             heading = re.match(r"^(#{1,6})\s+(.+)$", line)
             if heading:
@@ -292,7 +309,7 @@ def render_page(page_key: str, meta: dict[str, str], body_html: str) -> str:
         head.append(f'<meta name="description" content="{html.escape(description)}">')
     head.extend(
         [
-            '<link rel="stylesheet" href="site.css?v=20260922-contributors">',
+            '<link rel="stylesheet" href="site.css?v=20261001-homepage">',
             "</head>",
             '<body class="site-page">',
             "",
