@@ -14,6 +14,7 @@ CONTENT_DIR = ROOT / "content"
 PAGES = {
     "index": "index.html",
     "roadmap": "roadmap.html",
+    "todos": "todos.html",
     "contribute": "contribute.html",
     "governance": "governance.html",
 }
@@ -22,6 +23,7 @@ NAV = [
     ("index.html", "About", "index"),
     ("tutorial/index.html", "Tutorial", None),
     ("roadmap.html", "Roadmap", "roadmap"),
+    ("todos.html", "TODOs", "todos"),
     ("contribute.html", "Contribute", "contribute"),
     ("governance.html", "Governance", "governance"),
 ]
