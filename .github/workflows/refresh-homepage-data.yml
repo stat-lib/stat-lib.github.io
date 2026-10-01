@@ -1,0 +1,45 @@
+name: Refresh homepage data
+
+on:
+  schedule:
+    - cron: "17 5 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-homepage-data
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: stat-lib/statlib
+          path: _upstream/statlib
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Refresh the stable homepage snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/build_homepage_data.py --statlib-root _upstream/statlib --refresh-activity
+      - name: Rebuild generated HTML
+        run: python3 tools/build_site.py
+      - name: Check generated files
+        run: git diff --check
+      - name: Commit updated data
+        run: |
+          if git diff --quiet; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/homepage.json index.html
+          git commit -m "chore: refresh homepage data"
+          git push
