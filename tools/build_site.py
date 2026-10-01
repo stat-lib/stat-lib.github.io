@@ -311,7 +311,7 @@ def render_page(page_key: str, meta: dict[str, str], body_html: str) -> str:
         head.append(f'<meta name="description" content="{html.escape(description)}">')
     head.extend(
         [
-            '<link rel="stylesheet" href="site.css?v=20261001-homepage">',
+            '<link rel="stylesheet" href="site.css?v=20261001-activity">',
             "</head>",
             '<body class="site-page">',
             "",

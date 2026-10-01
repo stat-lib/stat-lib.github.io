@@ -166,7 +166,7 @@
     );
   }
 
-  function activityCard(person, rank, grandTotal, yMax) {
+  function activityCard(person, rank, grandTotal, yMax, startIndex) {
     const meta = KINDS.filter((kind) => person[kind.key] > 0).map((kind) =>
       count(person[kind.key], kind),
     );
@@ -205,7 +205,7 @@
         el("div", { class: "gh-meta", text: meta.join("  ·  ") }),
       ]),
       shareBar,
-      weeklyChart(person.weeks, yMax, {
+      weeklyChart(person.weeks.slice(startIndex), yMax, {
         height: 56,
         axis: false,
         label: `Weekly activity by ${person.name}`,
@@ -306,20 +306,25 @@
         0,
       ),
     }));
-    const combinedMax = Math.max(1, ...combined.map(weekTotal));
+    const firstActiveWeek = combined.findIndex((week) => weekTotal(week) > 0);
+    const startIndex = firstActiveWeek > 0 ? firstActiveWeek - 1 : 0;
+    const visibleCombined = combined.slice(startIndex);
+    const combinedMax = Math.max(1, ...visibleCombined.map(weekTotal));
     const personMax = Math.max(
       1,
-      ...rows.flatMap((person) => person.weeks.map(weekTotal)),
+      ...rows.flatMap((person) => person.weeks.slice(startIndex).map(weekTotal)),
     );
     const grandTotal = rows.reduce((sum, person) => sum + person.total, 0);
     const cards = el("ol", { class: "gh-cards" });
     rows.forEach((person, index) => {
-      cards.append(activityCard(person, index + 1, grandTotal, personMax));
+      cards.append(
+        activityCard(person, index + 1, grandTotal, personMax, startIndex),
+      );
     });
 
     board.append(
       el("div", { class: "data-summary" }, [
-        el("span", { text: `${activity.window} · ${rows.length} contributors` }),
+        el("span", { text: `${rows.length} contributors` }),
         el("span", { text: `Updated ${fmtUpdated(data.generated_at)}` }),
       ]),
       el("div", { class: "gh-view" }, [
@@ -328,7 +333,7 @@
             el("div", { class: "gh-overview-title", text: "Activity per week" }),
             legend(),
           ]),
-          weeklyChart(combined, combinedMax, {
+          weeklyChart(visibleCombined, combinedMax, {
             height: 120,
             axis: true,
             label: `Weekly activity in ${activity.repository}`,
