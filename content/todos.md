@@ -1,7 +1,7 @@
 ---
 title: Open formalization work — Statlib
 description: Lean theorem statements currently open for contribution in Statlib.
-script: homepage.js
+script: homepage.js?v=20261001-activity
 intro: true
 ---
 
