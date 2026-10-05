@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-01T19:48:51+00:00",
-  "statlib_sha": "49d91527a7f57d3e81259cbcc256bcf6ecd3d730",
+  "generated_at": "2026-10-05T12:15:17+00:00",
+  "statlib_sha": "ca33ed483af50859be1681fc8181d97de1906c5b",
   "todos": [
     {
       "name": "Contiguous1.contiguous2",
@@ -8,7 +8,7 @@
       "module": "Statlib.Contiguity.Def",
       "summary": "Prove that `Contiguous1` implies `Contiguous2`.",
       "statement": "theorem Contiguous1.contiguous2 {l : Filter α} (P Q : ∀ a, ProbabilityMeasure (Ω a)) (hPQ : Contiguous1 l P Q) : Contiguous2 l P Q",
-      "source_url": "https://github.com/stat-lib/statlib/blob/49d91527a7f57d3e81259cbcc256bcf6ecd3d730/Statlib/Contiguity/Def.lean#L149"
+      "source_url": "https://github.com/stat-lib/statlib/blob/ca33ed483af50859be1681fc8181d97de1906c5b/Statlib/Contiguity/Def.lean#L149"
     },
     {
       "name": "contiguous2_iff_contiguous3",
@@ -16,7 +16,7 @@
       "module": "Statlib.Contiguity.Def",
       "summary": "Prove the equivalence of `Contiguous2` and `Contiguous3`.",
       "statement": "theorem contiguous2_iff_contiguous3 {l : Filter α} (P Q : ∀ a, ProbabilityMeasure (Ω a)) : Contiguous2 l P Q ↔ Contiguous3 l P Q",
-      "source_url": "https://github.com/stat-lib/statlib/blob/49d91527a7f57d3e81259cbcc256bcf6ecd3d730/Statlib/Contiguity/Def.lean#L155"
+      "source_url": "https://github.com/stat-lib/statlib/blob/ca33ed483af50859be1681fc8181d97de1906c5b/Statlib/Contiguity/Def.lean#L155"
     },
     {
       "name": "Contiguous3.contiguous1",
@@ -24,7 +24,7 @@
       "module": "Statlib.Contiguity.Def",
       "summary": "Prove that `Contiguous3` implies `Contiguous1`.",
       "statement": "theorem Contiguous3.contiguous1 {l : Filter α} (P Q : ∀ a, ProbabilityMeasure (Ω a)) (hPQ : Contiguous3 l P Q) : Contiguous1 l P Q",
-      "source_url": "https://github.com/stat-lib/statlib/blob/49d91527a7f57d3e81259cbcc256bcf6ecd3d730/Statlib/Contiguity/Def.lean#L161"
+      "source_url": "https://github.com/stat-lib/statlib/blob/ca33ed483af50859be1681fc8181d97de1906c5b/Statlib/Contiguity/Def.lean#L161"
     },
     {
       "name": "Contiguous.TFAE",
@@ -32,7 +32,7 @@
       "module": "Statlib.Contiguity.Def",
       "summary": "Prove that the first four definitions of contiguity are equivalent.",
       "statement": "theorem Contiguous.TFAE {l : Filter α} (P Q : ∀ a, ProbabilityMeasure (Ω a)) : List.TFAE [Contiguous1 l P Q, Contiguous2 l P Q, Contiguous3 l P Q, Contiguous4 l P Q]",
-      "source_url": "https://github.com/stat-lib/statlib/blob/49d91527a7f57d3e81259cbcc256bcf6ecd3d730/Statlib/Contiguity/Def.lean#L167"
+      "source_url": "https://github.com/stat-lib/statlib/blob/ca33ed483af50859be1681fc8181d97de1906c5b/Statlib/Contiguity/Def.lean#L167"
     },
     {
       "name": "Contiguous5.contiguous1_of_hasAntitoneBasis_le_cofinite",
@@ -40,7 +40,7 @@
       "module": "Statlib.Contiguity.Def",
       "summary": "Replace the AI-generated proof with a reviewed proof.",
       "statement": "theorem Contiguous5.contiguous1_of_hasAntitoneBasis_le_cofinite {l : Filter α} {P Q : ∀ a, ProbabilityMeasure (Ω a)} {b : ℕ → Set α} (hPQ : Contiguous5 l P Q) (hb : l.HasAntitoneBasis b) (hl : l ≤ cofinite) : Contiguous1 l P Q",
-      "source_url": "https://github.com/stat-lib/statlib/blob/49d91527a7f57d3e81259cbcc256bcf6ecd3d730/Statlib/Contiguity/Def.lean#L173"
+      "source_url": "https://github.com/stat-lib/statlib/blob/ca33ed483af50859be1681fc8181d97de1906c5b/Statlib/Contiguity/Def.lean#L173"
     },
     {
       "name": "Contiguous5.contiguous1_of_isCountablyGenerated_le_cofinite",
@@ -48,7 +48,7 @@
       "module": "Statlib.Contiguity.Def",
       "summary": "Prove the countably generated specialization after the antitone-basis result.",
       "statement": "theorem Contiguous5.contiguous1_of_isCountablyGenerated_le_cofinite {l : Filter α} [l.IsCountablyGenerated] {P Q : ∀ a, ProbabilityMeasure (Ω a)} (hPQ : Contiguous5 l P Q) (hl : l ≤ cofinite) : Contiguous1 l P Q",
-      "source_url": "https://github.com/stat-lib/statlib/blob/49d91527a7f57d3e81259cbcc256bcf6ecd3d730/Statlib/Contiguity/Def.lean#L180"
+      "source_url": "https://github.com/stat-lib/statlib/blob/ca33ed483af50859be1681fc8181d97de1906c5b/Statlib/Contiguity/Def.lean#L180"
     },
     {
       "name": "Contiguous5.contiguous1_atTop",
@@ -56,7 +56,7 @@
       "module": "Statlib.Contiguity.Def",
       "summary": "Prove the `atTop` specialization of `Contiguous5 → Contiguous1`.",
       "statement": "theorem Contiguous5.contiguous1_atTop (hPQ : Contiguous5 atTop P Q) : Contiguous1 atTop P Q",
-      "source_url": "https://github.com/stat-lib/statlib/blob/49d91527a7f57d3e81259cbcc256bcf6ecd3d730/Statlib/Contiguity/Def.lean#L191"
+      "source_url": "https://github.com/stat-lib/statlib/blob/ca33ed483af50859be1681fc8181d97de1906c5b/Statlib/Contiguity/Def.lean#L191"
     },
     {
       "name": "contiguous5_atTop_iff_contiguous1",
@@ -64,7 +64,7 @@
       "module": "Statlib.Contiguity.Def",
       "summary": "Prove the equivalence of `Contiguous1` and `Contiguous5` for sequences.",
       "statement": "theorem contiguous5_atTop_iff_contiguous1 : Contiguous1 atTop P Q ↔ Contiguous5 atTop P Q",
-      "source_url": "https://github.com/stat-lib/statlib/blob/49d91527a7f57d3e81259cbcc256bcf6ecd3d730/Statlib/Contiguity/Def.lean#L196"
+      "source_url": "https://github.com/stat-lib/statlib/blob/ca33ed483af50859be1681fc8181d97de1906c5b/Statlib/Contiguity/Def.lean#L196"
     },
     {
       "name": "Contiguous.nat_TFAE",
@@ -72,14 +72,13 @@
       "module": "Statlib.Contiguity.Def",
       "summary": "Prove that all five definitions are equivalent for sequences.",
       "statement": "theorem Contiguous.nat_TFAE : List.TFAE [Contiguous1 atTop P Q, Contiguous2 atTop P Q, Contiguous3 atTop P Q, Contiguous4 atTop P Q, Contiguous5 atTop P Q]",
-      "source_url": "https://github.com/stat-lib/statlib/blob/49d91527a7f57d3e81259cbcc256bcf6ecd3d730/Statlib/Contiguity/Def.lean#L201"
+      "source_url": "https://github.com/stat-lib/statlib/blob/ca33ed483af50859be1681fc8181d97de1906c5b/Statlib/Contiguity/Def.lean#L201"
     }
   ],
   "activity": {
     "repository": "stat-lib/statlib",
     "window": "52 weeks",
     "week_starts": [
-      1759622400,
       1760227200,
       1760832000,
       1761436800,
@@ -130,9 +129,335 @@
       1788652800,
       1789257600,
       1789862400,
-      1790467200
+      1790467200,
+      1791072000
     ],
     "people": [
+      {
+        "login": "zixiaowang17",
+        "name": "Zixiao Jolene Wang",
+        "profile_url": "https://github.com/zixiaowang17",
+        "homepage_url": "https://zixiaowang17.github.io/",
+        "avatar_url": "https://avatars.githubusercontent.com/u/94130343?v=4",
+        "commits": 21,
+        "comments": 8,
+        "opened": 3,
+        "weeks": [
+          {
+            "w": 1760227200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1760832000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1761436800,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1762041600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1762646400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1763251200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1763856000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1764460800,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1765065600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1765670400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1766275200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1766880000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1767484800,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1768089600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1768694400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1769299200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1769904000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1770508800,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1771113600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1771718400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1772323200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1772928000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1773532800,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1774137600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1774742400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1775347200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1775952000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1776556800,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1777161600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1777766400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1778371200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1778976000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1779580800,
+            "commits": 4,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1780185600,
+            "commits": 1,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1780790400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1781395200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1782000000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1782604800,
+            "commits": 3,
+            "comments": 4,
+            "opened": 0
+          },
+          {
+            "w": 1783209600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 1
+          },
+          {
+            "w": 1783814400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1784419200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1785024000,
+            "commits": 1,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1785628800,
+            "commits": 2,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1786233600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1786838400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1787443200,
+            "commits": 0,
+            "comments": 1,
+            "opened": 0
+          },
+          {
+            "w": 1788048000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1788652800,
+            "commits": 1,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1789257600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1789862400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1790467200,
+            "commits": 9,
+            "comments": 2,
+            "opened": 2
+          },
+          {
+            "w": 1791072000,
+            "commits": 0,
+            "comments": 1,
+            "opened": 0
+          }
+        ],
+        "total": 32
+      },
       {
         "login": "RemyDegenne",
         "name": "Rémy Degenne",
@@ -143,12 +468,6 @@
         "comments": 2,
         "opened": 4,
         "weeks": [
-          {
-            "w": 1759622400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
           {
             "w": 1760227200,
             "commits": 0,
@@ -454,334 +773,15 @@
             "commits": 0,
             "comments": 0,
             "opened": 0
+          },
+          {
+            "w": 1791072000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
           }
         ],
         "total": 29
-      },
-      {
-        "login": "zixiaowang17",
-        "name": "Zixiao Jolene Wang",
-        "profile_url": "https://github.com/zixiaowang17",
-        "homepage_url": "https://zixiaowang17.github.io/",
-        "avatar_url": "https://avatars.githubusercontent.com/u/94130343?v=4",
-        "commits": 17,
-        "comments": 6,
-        "opened": 1,
-        "weeks": [
-          {
-            "w": 1759622400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1760227200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1760832000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1761436800,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1762041600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1762646400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1763251200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1763856000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1764460800,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1765065600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1765670400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1766275200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1766880000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1767484800,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1768089600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1768694400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1769299200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1769904000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1770508800,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1771113600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1771718400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1772323200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1772928000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1773532800,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1774137600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1774742400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1775347200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1775952000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1776556800,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1777161600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1777766400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1778371200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1778976000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1779580800,
-            "commits": 4,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1780185600,
-            "commits": 1,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1780790400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1781395200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1782000000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1782604800,
-            "commits": 3,
-            "comments": 4,
-            "opened": 0
-          },
-          {
-            "w": 1783209600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 1
-          },
-          {
-            "w": 1783814400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1784419200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1785024000,
-            "commits": 1,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1785628800,
-            "commits": 2,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1786233600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1786838400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1787443200,
-            "commits": 0,
-            "comments": 1,
-            "opened": 0
-          },
-          {
-            "w": 1788048000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1788652800,
-            "commits": 1,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1789257600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1789862400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1790467200,
-            "commits": 5,
-            "comments": 1,
-            "opened": 0
-          }
-        ],
-        "total": 24
       },
       {
         "login": "bocowgill",
@@ -793,12 +793,6 @@
         "comments": 15,
         "opened": 4,
         "weeks": [
-          {
-            "w": 1759622400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
           {
             "w": 1760227200,
             "commits": 0,
@@ -1104,6 +1098,12 @@
             "commits": 0,
             "comments": 1,
             "opened": 0
+          },
+          {
+            "w": 1791072000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
           }
         ],
         "total": 23
@@ -1115,15 +1115,9 @@
         "homepage_url": "https://coolrmal.github.io/",
         "avatar_url": "https://avatars.githubusercontent.com/u/97214596?v=4",
         "commits": 5,
-        "comments": 2,
+        "comments": 3,
         "opened": 9,
         "weeks": [
-          {
-            "w": 1759622400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
           {
             "w": 1760227200,
             "commits": 0,
@@ -1429,9 +1423,15 @@
             "commits": 0,
             "comments": 0,
             "opened": 0
+          },
+          {
+            "w": 1791072000,
+            "commits": 0,
+            "comments": 1,
+            "opened": 0
           }
         ],
-        "total": 16
+        "total": 17
       },
       {
         "login": "rajarshi-mukherjee24",
@@ -1443,12 +1443,6 @@
         "comments": 4,
         "opened": 5,
         "weeks": [
-          {
-            "w": 1759622400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
           {
             "w": 1760227200,
             "commits": 0,
@@ -1754,9 +1748,340 @@
             "commits": 0,
             "comments": 1,
             "opened": 0
+          },
+          {
+            "w": 1791072000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
           }
         ],
         "total": 13
+      },
+      {
+        "login": "qingyuanzhao",
+        "name": "Qingyuan Zhao",
+        "profile_url": "https://github.com/qingyuanzhao",
+        "homepage_url": "http://www.statslab.cam.ac.uk/~qz280/",
+        "avatar_url": "https://avatars.githubusercontent.com/u/3944837?v=4",
+        "commits": 0,
+        "comments": 3,
+        "opened": 0,
+        "weeks": [
+          {
+            "w": 1760227200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1760832000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1761436800,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1762041600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1762646400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1763251200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1763856000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1764460800,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1765065600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1765670400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1766275200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1766880000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1767484800,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1768089600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1768694400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1769299200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1769904000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1770508800,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1771113600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1771718400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1772323200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1772928000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1773532800,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1774137600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1774742400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1775347200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1775952000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1776556800,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1777161600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1777766400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1778371200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1778976000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1779580800,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1780185600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1780790400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1781395200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1782000000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1782604800,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1783209600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1783814400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1784419200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1785024000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1785628800,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1786233600,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1786838400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1787443200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1788048000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1788652800,
+            "commits": 0,
+            "comments": 1,
+            "opened": 0
+          },
+          {
+            "w": 1789257600,
+            "commits": 0,
+            "comments": 1,
+            "opened": 0
+          },
+          {
+            "w": 1789862400,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1790467200,
+            "commits": 0,
+            "comments": 1,
+            "opened": 0
+          },
+          {
+            "w": 1791072000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          }
+        ],
+        "total": 3
       },
       {
         "login": "bjoernkjoshanssen",
@@ -1768,12 +2093,6 @@
         "comments": 0,
         "opened": 2,
         "weeks": [
-          {
-            "w": 1759622400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
           {
             "w": 1760227200,
             "commits": 0,
@@ -2079,6 +2398,12 @@
             "commits": 0,
             "comments": 0,
             "opened": 0
+          },
+          {
+            "w": 1791072000,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
           }
         ],
         "total": 2
@@ -2093,12 +2418,6 @@
         "comments": 0,
         "opened": 1,
         "weeks": [
-          {
-            "w": 1759622400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
           {
             "w": 1760227200,
             "commits": 0,
@@ -2404,328 +2723,9 @@
             "commits": 1,
             "comments": 0,
             "opened": 1
-          }
-        ],
-        "total": 2
-      },
-      {
-        "login": "qingyuanzhao",
-        "name": "Qingyuan Zhao",
-        "profile_url": "https://github.com/qingyuanzhao",
-        "homepage_url": "http://www.statslab.cam.ac.uk/~qz280/",
-        "avatar_url": "https://avatars.githubusercontent.com/u/3944837?v=4",
-        "commits": 0,
-        "comments": 2,
-        "opened": 0,
-        "weeks": [
-          {
-            "w": 1759622400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
           },
           {
-            "w": 1760227200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1760832000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1761436800,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1762041600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1762646400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1763251200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1763856000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1764460800,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1765065600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1765670400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1766275200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1766880000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1767484800,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1768089600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1768694400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1769299200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1769904000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1770508800,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1771113600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1771718400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1772323200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1772928000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1773532800,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1774137600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1774742400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1775347200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1775952000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1776556800,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1777161600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1777766400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1778371200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1778976000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1779580800,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1780185600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1780790400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1781395200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1782000000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1782604800,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1783209600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1783814400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1784419200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1785024000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1785628800,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1786233600,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1786838400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1787443200,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1788048000,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1788652800,
-            "commits": 0,
-            "comments": 1,
-            "opened": 0
-          },
-          {
-            "w": 1789257600,
-            "commits": 0,
-            "comments": 1,
-            "opened": 0
-          },
-          {
-            "w": 1789862400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
-          {
-            "w": 1790467200,
+            "w": 1791072000,
             "commits": 0,
             "comments": 0,
             "opened": 0
@@ -2743,12 +2743,6 @@
         "comments": 2,
         "opened": 0,
         "weeks": [
-          {
-            "w": 1759622400,
-            "commits": 0,
-            "comments": 0,
-            "opened": 0
-          },
           {
             "w": 1760227200,
             "commits": 0,
@@ -3051,6 +3045,12 @@
           },
           {
             "w": 1790467200,
+            "commits": 0,
+            "comments": 0,
+            "opened": 0
+          },
+          {
+            "w": 1791072000,
             "commits": 0,
             "comments": 0,
             "opened": 0
